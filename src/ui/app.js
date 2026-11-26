@@ -208,7 +208,7 @@ function bindBoard() {
 // --- screens -----------------------------------------------------------
 
 const HINTS = [
-  'One ball is off its ring. Tap the centre ball to send it home.',
+  'One ball is off its ring. Tap the ball between the red one and the ring.',
   'Tap a ball to turn the eight around it. Match the faint rings.',
   'Hold a ball a moment to turn the other way.',
   'Undo takes back a twist. Hold the eye button to see the solved board.',

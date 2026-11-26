@@ -1,6 +1,6 @@
 // Network first, cache fallback: online visits always fetch the latest
 // files, offline visits use the last copy. Bump VERSION to force refresh.
-const VERSION = 'bt-3';
+const VERSION = 'bt-4';
 const SHELL = ['./', 'index.html', 'manifest.webmanifest'];
 
 self.addEventListener('install', (event) => {
