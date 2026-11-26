@@ -12,6 +12,8 @@ import { summarize, updateRecord } from '../core/stats.js';
 import { getMode } from '../modes.js';
 import { THEME_ORDER, THEMES, applyTheme } from './themes.js';
 import { load, save } from './storage.js';
+import { SWIPE_PX, createGesture, gestureDir, gestureMove, gestureProgress,
+  gestureStart, isTap } from '../core/gesture.js';
 
 const HOLD_MS = 200;
 const $ = (id) => document.getElementById(id);
@@ -88,6 +90,11 @@ function animateTwist(r, c, dir) {
 function buildHits() {
   const layer = $('hits');
   layer.textContent = '';
+  const focus = document.createElement('div');
+  focus.id = 'focus';
+  focus.className = 'focus';
+  focus.hidden = true;
+  layer.appendChild(focus);
   for (let i = 0; i < SIZE * SIZE; i++) {
     const r = Math.floor(i / SIZE);
     const c = i % SIZE;
@@ -96,6 +103,31 @@ function buildHits() {
     el.dataset.c = c;
     layer.appendChild(el);
   }
+}
+
+// Highlight the 3x3 ring being pressed; tilt it to preview the twist.
+function showFocus(cell, dir = 0, progress = 0) {
+  const el = $('focus');
+  if (!cell) {
+    el.hidden = true;
+    return;
+  }
+  const [r, c] = cell;
+  el.hidden = false;
+  el.style.left = `${(c - 1) * 100 / SIZE}%`;
+  el.style.top = `${(r - 1) * 100 / SIZE}%`;
+  el.style.transform = `rotate(${dir * progress * 18}deg)`;
+  el.dataset.dir = dir;
+}
+
+function swipeHint(cell) {
+  showFocus(cell, 0, 0);
+  setTimeout(() => showFocus(null), 350);
+  const n = store.settings.swipeHints || 0;
+  if (n >= 3) return;
+  store.settings.swipeHints = n + 1;
+  save(store);
+  toast('Swipe left or right');
 }
 
 function updateButtons() {
@@ -134,28 +166,64 @@ function bindBoard() {
     const el = ev.target.closest('.hit');
     return el ? [+el.dataset.r, +el.dataset.c] : null;
   };
+  const swipeMode = () => store.settings.controls !== 'tap';
+  const clearPress = () => {
+    if (press) clearTimeout(press.timer);
+    press = null;
+    showFocus(null);
+  };
   layer.addEventListener('pointerdown', (ev) => {
     ev.preventDefault();
     const cell = cellOf(ev);
     if (!cell) return;
     // A lost pointer-up must not freeze the board: replace stale presses.
-    if (press) clearTimeout(press.timer);
-    press = null;
-    if (ev.pointerType === 'mouse' && ev.button === 2) {
-      doTwist(cell[0], cell[1], CCW);
+    clearPress();
+    const mouse = ev.pointerType === 'mouse';
+    if (mouse && ev.button === 2) {
+      // Right click: clockwise in swipe mode, counter-clockwise in old one.
+      doTwist(cell[0], cell[1], swipeMode() ? CW : CCW);
       return;
     }
-    press = { cell, id: ev.pointerId, long: false };
-    press.timer = setTimeout(() => {
-      press.long = true;
-      doTwist(cell[0], cell[1], CCW);
-    }, HOLD_MS);
+    if (mouse && ev.button !== 0) return;
+    if (!swipeMode()) {
+      press = { cell, id: ev.pointerId, long: false };
+      press.timer = setTimeout(() => {
+        press.long = true;
+        doTwist(cell[0], cell[1], CCW);
+      }, HOLD_MS);
+      return;
+    }
+    const rect = ev.target.closest('.hit').getBoundingClientRect();
+    const g = createGesture({ x: rect.left + rect.width / 2,
+      y: rect.top + rect.height / 2 }, rect.width,
+    Math.max(SWIPE_PX, rect.width * 0.25));
+    gestureStart(g, ev.clientX, ev.clientY);
+    press = { cell, id: ev.pointerId, g, mouse };
+    try { layer.setPointerCapture(ev.pointerId); } catch (err) { /* ok */ }
+    showFocus(cell, 0, 0);
+  });
+  layer.addEventListener('pointermove', (ev) => {
+    if (!press || !press.g || press.id !== ev.pointerId) return;
+    gestureMove(press.g, ev.clientX, ev.clientY);
+    showFocus(press.cell, gestureDir(press.g), gestureProgress(press.g));
   });
   const finish = (ev, cancel) => {
     if (!press || press.id !== ev.pointerId) return;
-    clearTimeout(press.timer);
-    if (!press.long && !cancel) doTwist(press.cell[0], press.cell[1], CW);
-    press = null;
+    const p = press;
+    clearPress();
+    if (cancel) return;
+    if (!p.g) {
+      if (!p.long) doTwist(p.cell[0], p.cell[1], CW);
+      return;
+    }
+    gestureMove(p.g, ev.clientX, ev.clientY);
+    const dir = gestureDir(p.g);
+    if (dir) doTwist(p.cell[0], p.cell[1], dir);
+    else if (isTap(p.g)) {
+      // Mouse: left click is counter-clockwise. Touch: just a hint.
+      if (p.mouse) doTwist(p.cell[0], p.cell[1], CCW);
+      else swipeHint(p.cell);
+    }
   };
   layer.addEventListener('pointerup', (ev) => finish(ev, false));
   layer.addEventListener('pointercancel', (ev) => finish(ev, true));
@@ -186,9 +254,11 @@ function bindBoard() {
 // --- screens -----------------------------------------------------------
 
 const HINTS = [
-  'One ball is off its ring. Tap the ball between the red one and the ring.',
-  'Tap a ball to turn the eight around it. Match the faint rings.',
-  'Hold a ball a moment to turn the other way.',
+  'One ball is off its ring. Swipe right on the ball between the red one '
+    + 'and the ring.',
+  'Swipe right on a ball to turn the eight around it clockwise. '
+    + 'Match the faint rings.',
+  'Swipe left to turn the other way.',
   'Undo takes back a twist. Hold Solution to see the solved board.',
 ];
 
@@ -378,8 +448,11 @@ function showStats() {
 
 function showHelp() {
   sheet(`<h2>How to play</h2>
-    <p>Tap a ball in the middle of the board and the eight balls around it
-    turn. Hold instead to turn the other way.</p>
+    <p>Press a ball in the middle of the board and swipe right: the eight
+    balls around it turn clockwise. Swipe left to turn the other way. Let
+    go near where you started to cancel.</p>
+    <p>On a computer: left click turns counter-clockwise, right click
+    clockwise. Dragging works too.</p>
     <p>Make the board match the faint rings. Fewer twists is a better
     score. Undo takes a twist back.</p>
     <p>A new daily puzzle appears at midnight.</p>
@@ -472,6 +545,8 @@ function showMenu() {
     <button id="m-help">How to play</button>
     <button id="m-stats">Stats</button>
     <button id="m-theme">Theme</button>
+    <button id="m-controls">Controls: ${store.settings.controls === 'tap'
+    ? 'Tap &amp; hold' : 'Swipe'}</button>
     ${inPlay ? `<button id="m-restart" ${canRestart ? '' : 'disabled'}>`
       + 'Restart</button>' : ''}
     ${game.page !== 'start'
@@ -480,6 +555,12 @@ function showMenu() {
     c.querySelector('#m-help').onclick = showHelp;
     c.querySelector('#m-stats').onclick = showStats;
     c.querySelector('#m-theme').onclick = chooseTheme;
+    c.querySelector('#m-controls').onclick = () => {
+      store.settings.controls = store.settings.controls === 'tap'
+        ? 'swipe' : 'tap';
+      save(store);
+      showMenu();
+    };
     c.querySelector('#close').onclick = closeSheet;
     const st = c.querySelector('#m-start');
     if (st) st.onclick = showStart;
@@ -528,6 +609,7 @@ function init() {
     session: () => game.session,
     lastShare: () => game.lastShare,
     CW, CCW,
+    controls: () => store.settings.controls || 'swipe',
   };
 }
 

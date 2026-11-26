@@ -6,7 +6,8 @@ function fresh() {
   return {
     records: {},
     levels: {},
-    settings: { theme: 'terracotta', tutorialDone: false },
+    settings: { theme: 'terracotta', tutorialDone: false,
+      controls: 'swipe', swipeHints: 0 },
     chapters: 1,
     practicePlayed: 0,
   };

@@ -9,6 +9,10 @@ import {
   dailyInfo, dailyLevel, levelPlay, practiceLevel, scramble, shortestWithin,
   targetFor, tutorialLevel, TUTORIAL_STEPS, DEPTHS,
 } from '../src/core/puzzle.js';
+import {
+  CCW as GCCW, CW as GCW, createGesture, gestureDir, gestureMove,
+  gestureStart, isTap,
+} from '../src/core/gesture.js';
 import { LEVELS } from '../src/core/levels.js';
 import { unlockedCount, visibleChapters } from '../src/core/progress.js';
 import { hashSeed, mulberry32 } from '../src/core/prng.js';
@@ -269,4 +273,55 @@ test('unlocks persist and the last chapter has no teaser', () => {
   const v = visibleChapters(LEVELS, all);
   assert.equal(v.teaser, null);
   assert.equal(v.open.length, new Set(LEVELS.map((l) => l.chapter)).size);
+});
+
+// --- gestures (centre 100,100; cell 45 px) ---
+const drag = (pts) => {
+  const g = createGesture({ x: 100, y: 100 }, 45);
+  gestureStart(g, pts[0][0], pts[0][1]);
+  for (const [x, y] of pts.slice(1)) gestureMove(g, x, y);
+  return g;
+};
+
+test('gesture: swipe right is clockwise, left counter-clockwise', () => {
+  assert.equal(gestureDir(drag([[100, 100], [130, 100], [160, 102]])), GCW);
+  assert.equal(gestureDir(drag([[100, 100], [70, 98], [40, 100]])), GCCW);
+  assert.equal(GCW, CW);
+  assert.equal(GCCW, CCW);
+});
+
+test('gesture: a tap or tiny move does nothing', () => {
+  const g = drag([[100, 100], [102, 101]]);
+  assert.equal(gestureDir(g), 0);
+  assert.ok(isTap(g));
+  assert.equal(gestureDir(drag([[100, 100], [112, 100]])), 0);
+});
+
+test('gesture: returning to the start cancels', () => {
+  const g = drag([[100, 100], [140, 100], [120, 100], [104, 101]]);
+  assert.equal(gestureDir(g), 0);
+  assert.ok(!isTap(g));
+});
+
+test('gesture: vertical swipes do nothing', () => {
+  assert.equal(gestureDir(drag([[100, 100], [104, 150], [105, 190]])), 0);
+});
+
+test('gesture: circular drag uses angular sign', () => {
+  const arc = (sign) => {
+    const pts = [[100, 100]];
+    for (let a = 0; a <= 1.8; a += 0.15) {
+      const t = -Math.PI / 2 + sign * a;
+      pts.push([100 + 40 * Math.cos(t), 100 + 40 * Math.sin(t)]);
+    }
+    return pts;
+  };
+  // Screen y points down: increasing angle runs clockwise.
+  assert.equal(gestureDir(drag(arc(1))), GCW);
+  assert.equal(gestureDir(drag(arc(-1))), GCCW);
+});
+
+test('gesture: straight swipe above the centre stays horizontal', () => {
+  assert.equal(
+    gestureDir(drag([[100, 70], [125, 70], [150, 70], [180, 70]])), GCW);
 });

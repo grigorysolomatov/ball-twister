@@ -1,6 +1,6 @@
 // Network first, cache fallback: online visits always fetch the latest
 // files, offline visits use the last copy. Bump VERSION to force refresh.
-const VERSION = 'bt-6';
+const VERSION = 'bt-7';
 const SHELL = [
   './', 'index.html', 'manifest.webmanifest', 'src/ui/style.css',
   'fonts/baloo2-latin.woff2', 'fonts/baloo2-latin-ext.woff2',
