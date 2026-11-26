@@ -49,6 +49,18 @@ when they make sense. Nothing here runs until Grigory says go.
   offline); it never ships in the app. Results may be baked in as data.
 - Player feedback matters: sound, haptics, solve animation.
 
+## Histograms (decided 11-26)
+
+- Honest: if nobody has solved it yet, show exactly that. No seeding,
+  no fake players.
+- Show the player's best against the current pool (live, not frozen at
+  solve time).
+- Daily only: same scramble for everyone that day, so histograms make
+  sense. Normal levels scramble randomly each play, no histogram.
+- Several score axes like Zachtronics: twists, time (measured silently,
+  no visible timer during play), maybe a third (candidate: rings used =
+  distinct centres touched, the 'area' analogue). Undo stays free.
+
 ## Later
 
 - Immovable cells in some levels (variety, harder). Two rule options:
