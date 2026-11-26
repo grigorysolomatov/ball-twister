@@ -43,6 +43,11 @@ when they make sense. Nothing here runs until Grigory says go.
 
 ## Later
 
+- Immovable cells in some levels (variety, harder). Two rule options:
+  (a) the twist skips the fixed cell, the ring becomes 7 steps;
+  (b) a twist whose ring touches it is blocked. Scrambling from the
+  solved board keeps every puzzle solvable either way. Try both.
+
 - Shariki mode (match-3 survival from the original game).
 - Optional timer in settings (off by default).
 - Android build via Capacitor and Google Play ($25, closed test).
