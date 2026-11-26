@@ -41,6 +41,14 @@ when they make sense. Nothing here runs until Grigory says go.
   histogram ("beat 3 of 4 AIs"). Run a small cost/skill test first;
   API spend needs approval.
 
+## Decisions
+
+- Stay on plain web (no Godot). Shader effects (WebGL/PixiJS) later,
+  not now.
+- Rust solver is a developer tool only (rank levels, compute par
+  offline); it never ships in the app. Results may be baked in as data.
+- Player feedback matters: sound, haptics, solve animation.
+
 ## Later
 
 - Immovable cells in some levels (variety, harder). Two rule options:
