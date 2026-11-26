@@ -1,10 +1,15 @@
 // Themes are plain data: CSS variables for the board, the page and
 // the two ball styles. Logic never reads them.
 
+// Default UI and title font; a theme may override '--font'.
+// The files are self-hosted (see @font-face in style.css).
+export const FONT = "'Baloo 2', 'Helvetica Neue', Arial, sans-serif";
+
 export const THEMES = {
   terracotta: {
     name: 'Terracotta',
     vars: {
+      '--font': FONT,
       '--bg': '#f4ece0', '--text': '#3b2a20', '--muted': '#9b8573',
       '--btn': '#eadccb', '--btn-text': '#3b2a20', '--accent': '#d2643a',
       '--board': 'linear-gradient(135deg,#e9cfa4,#dcb985)',
@@ -21,6 +26,7 @@ export const THEMES = {
   mono: {
     name: 'Black and white',
     vars: {
+      '--font': FONT,
       '--bg': '#ededed', '--text': '#1c1c1c', '--muted': '#777',
       '--btn': '#dcdcdc', '--btn-text': '#1c1c1c', '--accent': '#1c1c1c',
       '--board': 'linear-gradient(135deg,#8a8a8a,#6f6f6f)',
@@ -37,6 +43,7 @@ export const THEMES = {
   billiard: {
     name: 'Billiard',
     vars: {
+      '--font': FONT,
       '--bg': '#e8efe6', '--text': '#1f2e25', '--muted': '#6f857a',
       '--btn': '#d3e0d3', '--btn-text': '#1f2e25', '--accent': '#c8202a',
       '--board': 'linear-gradient(135deg,#2f8a5a,#1f6e45)',

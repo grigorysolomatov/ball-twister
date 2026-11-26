@@ -10,6 +10,7 @@ import {
   targetFor, tutorialLevel, TUTORIAL_STEPS, DEPTHS,
 } from '../src/core/puzzle.js';
 import { LEVELS } from '../src/core/levels.js';
+import { unlockedCount, visibleChapters } from '../src/core/progress.js';
 import { hashSeed, mulberry32 } from '../src/core/prng.js';
 import { shareText, sparkline } from '../src/core/share.js';
 import { histogram, streakAt, updateRecord } from '../src/core/stats.js';
@@ -243,4 +244,29 @@ test('size constant', () => {
   assert.equal(SIZE, 7);
   assert.equal(applyMove(new Uint8Array(49), encodeMove(3, 3, CW)), true);
   assert.equal(countCorrect(new Uint8Array(49), new Uint8Array(49)), 49);
+});
+
+test('chapters reveal one at a time', () => {
+  const ch1 = LEVELS.filter((l) => l.chapter === 1);
+  let v = visibleChapters(LEVELS, {});
+  assert.deepEqual(v.open, [1]);
+  assert.deepEqual(v.teaser, { remaining: ch1.length });
+  const solved = {};
+  for (const l of ch1.slice(0, 2)) solved[l.id] = 3;
+  v = visibleChapters(LEVELS, solved);
+  assert.deepEqual(v.open, [1]);
+  assert.equal(v.teaser.remaining, ch1.length - 2);
+  for (const l of ch1) solved[l.id] = 3;
+  v = visibleChapters(LEVELS, solved);
+  assert.deepEqual(v.open, [1, 2]);
+  assert.ok(v.teaser);
+});
+
+test('unlocks persist and the last chapter has no teaser', () => {
+  assert.equal(unlockedCount(LEVELS, {}, 3), 3);
+  const all = {};
+  for (const l of LEVELS) all[l.id] = 1;
+  const v = visibleChapters(LEVELS, all);
+  assert.equal(v.teaser, null);
+  assert.equal(v.open.length, new Set(LEVELS.map((l) => l.chapter)).size);
 });

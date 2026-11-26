@@ -5,6 +5,7 @@ import { CCW, CW, SIZE, canTwist, decodeMove, twistPairs }
   from '../core/board.js';
 import { createSession } from '../core/session.js';
 import { DAYS, LEVELS } from '../core/levels.js';
+import { unlockedCount, visibleChapters } from '../core/progress.js';
 import { dateInfo } from '../core/puzzle.js';
 import { shareText } from '../core/share.js';
 import { summarize, updateRecord } from '../core/stats.js';
@@ -430,8 +431,12 @@ function playLevel(id) {
 function showLevels() {
   const list = $('levellist');
   list.textContent = '';
-  const chapters = [...new Set(LEVELS.map((l) => l.chapter))];
-  for (const ch of chapters) {
+  const seen = store.chapters;
+  store.chapters = unlockedCount(LEVELS, store.levels, seen);
+  if (store.chapters !== seen) save(store);
+  const { open, teaser } = visibleChapters(
+    LEVELS, store.levels, store.chapters);
+  for (const ch of open) {
     const h = document.createElement('h3');
     h.textContent = `Chapter ${ch}`;
     const row = document.createElement('div');
@@ -445,6 +450,12 @@ function showLevels() {
       row.appendChild(b);
     }
     list.append(h, row);
+  }
+  if (teaser) {
+    const t = document.createElement('div');
+    t.className = 'teaser';
+    t.textContent = `Next chapter: solve ${teaser.remaining} more`;
+    list.appendChild(t);
   }
   const foot = document.createElement('div');
   foot.className = 'levelfoot';

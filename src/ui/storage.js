@@ -7,6 +7,7 @@ function fresh() {
     records: {},
     levels: {},
     settings: { theme: 'terracotta', tutorialDone: false },
+    chapters: 1,
     practicePlayed: 0,
   };
 }
