@@ -137,7 +137,10 @@ function bindBoard() {
   layer.addEventListener('pointerdown', (ev) => {
     ev.preventDefault();
     const cell = cellOf(ev);
-    if (!cell || press) return;
+    if (!cell) return;
+    // A lost pointer-up must not freeze the board: replace stale presses.
+    if (press) clearTimeout(press.timer);
+    press = null;
     if (ev.pointerType === 'mouse' && ev.button === 2) {
       doTwist(cell[0], cell[1], CCW);
       return;
