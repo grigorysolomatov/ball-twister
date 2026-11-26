@@ -10,3 +10,6 @@ A daily twisting puzzle. Plain HTML, CSS and JavaScript (ES modules).
 - `./launch.sh [port]` serves the game locally.
 
 Debug URL options: `?day=YYYY-MM-DD`, `?theme=mono`, `?skip`, `?nosw`.
+
+Live: https://grigorysolomatov.github.io/ball-twister/
+Screenshots: `docs/screenshots/`.
