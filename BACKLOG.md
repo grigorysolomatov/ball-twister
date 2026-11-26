@@ -5,8 +5,8 @@ when they make sense. Nothing here runs until Grigory says go.
 
 ## Next up (pick after the current round)
 
-- Font change. Options: docs/fonts.png. Picks: Fraunces or Young Serif;
-  Nunito if more playful.
+- Font: Baloo 2 chosen as default (option 4, soft). Later: own logo font,
+  and themes may bring their own fonts.
 - Less generic look: hand-made title wordmark, one small drawn icon set,
   plain short copy, no stock UI patterns.
 - Feel: soft wooden click per twist, chime on solve, light phone haptics,
@@ -20,8 +20,17 @@ when they make sense. Nothing here runs until Grigory says go.
   - boards: light wood (default), Go board, linen, slate, ...
   - pieces: cream/terracotta balls (default), Go stones, eggs, billiard
     balls, fruit, emoji, black/white, ...
+- Theme ideas: eggs, bacteria, newspaper balls, bombs, footballs,
+  basketballs, Go stones, billiard, fruit, emoji. Curiosity about which
+  themes exist is a reason to keep playing. Piece art via image
+  generation (his OpenAI login works; sample docs/theme-pieces.png).
 - Share export shows the player's theme, so people show their taste and
   what they have unlocked.
+
+## Progression
+
+- Reveal chapters one at a time; never show the full level count up
+  front (a wall of levels, as in Baba Is You, makes people quit).
 
 ## Social and online
 
