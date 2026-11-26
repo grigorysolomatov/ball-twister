@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=1,
+  user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#f4ece0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Ball Twister</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="src/ui/style.css">
+</head>
+<body>
+<main id="app" class="screen">
+  <header>
+    <h1>Ball Twister</h1>
+    <p id="label" class="sub"></p>
+  </header>
+  <p id="hint" class="hint"></p>
+  <div id="board" class="board">
+    <div id="rings" class="layer"></div>
+    <div id="balls" class="layer"></div>
+    <div id="peek" class="layer peek"></div>
+    <div id="hits" class="layer hits"></div>
+  </div>
+  <div class="btns">
+    <button id="undo" type="button">Undo</button>
+    <button id="restart" type="button">Restart</button>
+    <button id="eye" type="button" aria-label="Hold to see the solved board">
+      Hold to peek</button>
+  </div>
+  <nav class="modes" id="modes"></nav>
+  <footer>
+    <button id="stats" type="button" class="link">Stats</button>
+    <button id="help" type="button" class="link">How to play</button>
+    <button id="theme" type="button" class="link">Theme</button>
+  </footer>
+</main>
+<div id="sheet" class="sheet" hidden>
+  <div class="card" id="card"></div>
+</div>
+<script type="module" src="src/ui/app.js"></script>
+</body>
+</html>
