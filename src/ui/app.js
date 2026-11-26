@@ -1,7 +1,7 @@
 // UI glue: renders a session, handles input, owns screens and storage.
 // Game rules live in src/core; looks live in themes.js.
 
-import { CCW, CW, SIZE, canTwist, decodeMove, twistPairs }
+import { CCW, CW, SIZE, canTwist, decodeTurn, ringCells }
   from '../core/board.js';
 import { createSession } from '../core/session.js';
 import { DAYS, LEVELS } from '../core/levels.js';
@@ -12,10 +12,13 @@ import { summarize, updateRecord } from '../core/stats.js';
 import { getMode } from '../modes.js';
 import { THEME_ORDER, THEMES, applyTheme } from './themes.js';
 import { load, save } from './storage.js';
-import { SWIPE_PX, createGesture, gestureDir, gestureMove, gestureProgress,
-  gestureStart, isTap } from '../core/gesture.js';
+import { QUARTER, createDrag, dragMove, dragStart, dragTurns, isTap }
+  from '../core/gesture.js';
 
-const HOLD_MS = 200;
+const SNAP_MS = 240;
+const CLICK_MS = 600;
+const easeOutQuint = (t) => 1 - (1 - t) ** 5;
+const easeOutCubic = (t) => 1 - (1 - t) ** 3;
 const $ = (id) => document.getElementById(id);
 const params = new URLSearchParams(location.search);
 
@@ -78,13 +81,47 @@ function renderBalls() {
   }
 }
 
-// Move ball elements the same way the core moved the board values.
-function animateTwist(r, c, dir) {
-  const old = game.balls.slice();
-  for (const [from, to] of twistPairs(r, c, dir)) {
-    game.balls[to] = old[from];
-    old[from].style.transform = place(to);
-  }
+// Place the eight balls of a ring as if it were turned by theta radians
+// (clockwise positive), travelling along the square ring path.
+function poseRing(r, c, theta) {
+  const cells = ringCells(r, c);
+  const shift = (theta / QUARTER) * 2;
+  cells.forEach(([cr, cc], i) => {
+    const f = (((i + shift) % 8) + 8) % 8;
+    const lo = Math.floor(f);
+    const [r0, c0] = cells[lo % 8];
+    const [r1, c1] = cells[(lo + 1) % 8];
+    const t = f - lo;
+    const el = game.balls[cr * SIZE + cc];
+    el.style.transition = 'none';
+    el.style.transform = `translate(${(c0 + (c1 - c0) * t) * 100}%, `
+      + `${(r0 + (r1 - r0) * t) * 100}%)`;
+  });
+}
+
+// Animate a ring from one angle to another, then call done. A running
+// animation is finished at once so quick clicks never stack up.
+function animateRing(r, c, from, to, ms, ease, done) {
+  if (game.anim) game.anim.finish();
+  const t0 = performance.now();
+  let raf = 0;
+  let over = false;
+  const end = () => {
+    if (over) return;
+    over = true;
+    cancelAnimationFrame(raf);
+    game.anim = null;
+    poseRing(r, c, to);
+    done();
+  };
+  const frame = (now) => {
+    const t = Math.min(1, (now - t0) / ms);
+    poseRing(r, c, from + (to - from) * ease(t));
+    if (t < 1) raf = requestAnimationFrame(frame);
+    else end();
+  };
+  game.anim = { finish: end };
+  raf = requestAnimationFrame(frame);
 }
 
 function buildHits() {
@@ -105,8 +142,8 @@ function buildHits() {
   }
 }
 
-// Highlight the 3x3 ring being pressed; tilt it to preview the twist.
-function showFocus(cell, dir = 0, progress = 0) {
+// Highlight the 3x3 ring being pressed or dragged.
+function showFocus(cell) {
   const el = $('focus');
   if (!cell) {
     el.hidden = true;
@@ -116,38 +153,51 @@ function showFocus(cell, dir = 0, progress = 0) {
   el.hidden = false;
   el.style.left = `${(c - 1) * 100 / SIZE}%`;
   el.style.top = `${(r - 1) * 100 / SIZE}%`;
-  el.style.transform = `rotate(${dir * progress * 18}deg)`;
-  el.dataset.dir = dir;
 }
 
-function swipeHint(cell) {
-  showFocus(cell, 0, 0);
+function dragHint(cell) {
+  showFocus(cell);
   setTimeout(() => showFocus(null), 350);
-  const n = store.settings.swipeHints || 0;
+  const n = store.settings.dragHints || 0;
   if (n >= 3) return;
-  store.settings.swipeHints = n + 1;
+  store.settings.dragHints = n + 1;
   save(store);
-  toast('Swipe left or right');
+  toast('Drag around the ring');
 }
 
 function updateButtons() {
   $('undo').disabled = game.session.moves.length === 0;
 }
 
-function doTwist(r, c, dir) {
+// Turn a ring by k clockwise quarters with an animation from `from`.
+function commitTurn(r, c, k, from, ms, ease) {
   const s = game.session;
-  if (s.solved() || !s.twist(r, c, dir)) return;
-  animateTwist(r, c, dir);
+  const turned = !s.solved() && s.turn(r, c, k);
+  const to = k * QUARTER;
+  animateRing(r, c, from, to, ms, ease, () => {
+    if (turned) renderBalls();
+    updateButtons();
+    if (turned && s.solved()) setTimeout(onSolved, 250);
+  });
   updateButtons();
-  if (s.solved()) setTimeout(onSolved, 450);
+}
+
+function doTwist(r, c, dir) {
+  if (game.session.solved()) return;
+  commitTurn(r, c, dir, 0, CLICK_MS, easeOutQuint);
 }
 
 function doUndo() {
   const s = game.session;
   const move = s.undo();
   if (move === null) return;
-  const { r, c, dir } = decodeMove(move);
-  animateTwist(r, c, -dir);
+  const { r, c, q } = decodeTurn(move);
+  // Show the ring turning back by the shorter way round.
+  const back = q <= 2 ? -q : 4 - q;
+  animateRing(r, c, 0, back * QUARTER, CLICK_MS, easeOutQuint, () => {
+    renderBalls();
+    updateButtons();
+  });
   updateButtons();
 }
 
@@ -163,12 +213,10 @@ function bindBoard() {
   const layer = $('hits');
   let press = null;
   const cellOf = (ev) => {
-    const el = ev.target.closest('.hit');
+    const el = ev.target.closest('.hit.ok');
     return el ? [+el.dataset.r, +el.dataset.c] : null;
   };
-  const swipeMode = () => store.settings.controls !== 'tap';
-  const clearPress = () => {
-    if (press) clearTimeout(press.timer);
+  const drop = () => {
     press = null;
     showFocus(null);
   };
@@ -177,53 +225,44 @@ function bindBoard() {
     const cell = cellOf(ev);
     if (!cell) return;
     // A lost pointer-up must not freeze the board: replace stale presses.
-    clearPress();
+    drop();
     const mouse = ev.pointerType === 'mouse';
+    // Right click: clockwise quarter turn, no menu.
     if (mouse && ev.button === 2) {
-      // Right click: clockwise in swipe mode, counter-clockwise in old one.
-      doTwist(cell[0], cell[1], swipeMode() ? CW : CCW);
+      doTwist(cell[0], cell[1], CW);
       return;
     }
     if (mouse && ev.button !== 0) return;
-    if (!swipeMode()) {
-      press = { cell, id: ev.pointerId, long: false };
-      press.timer = setTimeout(() => {
-        press.long = true;
-        doTwist(cell[0], cell[1], CCW);
-      }, HOLD_MS);
-      return;
-    }
+    if (game.session.solved()) return;
+    if (game.anim) game.anim.finish();
     const rect = ev.target.closest('.hit').getBoundingClientRect();
-    const g = createGesture({ x: rect.left + rect.width / 2,
-      y: rect.top + rect.height / 2 }, rect.width,
-    Math.max(SWIPE_PX, rect.width * 0.25));
-    gestureStart(g, ev.clientX, ev.clientY);
+    const g = createDrag({ x: rect.left + rect.width / 2,
+      y: rect.top + rect.height / 2 }, rect.width);
+    dragStart(g, ev.clientX, ev.clientY);
     press = { cell, id: ev.pointerId, g, mouse };
     try { layer.setPointerCapture(ev.pointerId); } catch (err) { /* ok */ }
-    showFocus(cell, 0, 0);
+    showFocus(cell);
   });
   layer.addEventListener('pointermove', (ev) => {
-    if (!press || !press.g || press.id !== ev.pointerId) return;
-    gestureMove(press.g, ev.clientX, ev.clientY);
-    showFocus(press.cell, gestureDir(press.g), gestureProgress(press.g));
+    if (!press || press.id !== ev.pointerId) return;
+    dragMove(press.g, ev.clientX, ev.clientY);
+    if (press.g.theta !== 0) poseRing(press.cell[0], press.cell[1],
+      press.g.theta);
   });
   const finish = (ev, cancel) => {
     if (!press || press.id !== ev.pointerId) return;
     const p = press;
-    clearPress();
-    if (cancel) return;
-    if (!p.g) {
-      if (!p.long) doTwist(p.cell[0], p.cell[1], CW);
+    drop();
+    const [r, c] = p.cell;
+    if (!cancel) dragMove(p.g, ev.clientX, ev.clientY);
+    const k = cancel ? 0 : dragTurns(p.g);
+    if (!cancel && p.g.theta === 0 && isTap(p.g)) {
+      // Mouse: left click is counter-clockwise. Touch: just a hint.
+      if (p.mouse) doTwist(r, c, CCW);
+      else dragHint(p.cell);
       return;
     }
-    gestureMove(p.g, ev.clientX, ev.clientY);
-    const dir = gestureDir(p.g);
-    if (dir) doTwist(p.cell[0], p.cell[1], dir);
-    else if (isTap(p.g)) {
-      // Mouse: left click is counter-clockwise. Touch: just a hint.
-      if (p.mouse) doTwist(p.cell[0], p.cell[1], CCW);
-      else swipeHint(p.cell);
-    }
+    commitTurn(r, c, k, p.g.theta, SNAP_MS, easeOutCubic);
   };
   layer.addEventListener('pointerup', (ev) => finish(ev, false));
   layer.addEventListener('pointercancel', (ev) => finish(ev, true));
@@ -254,12 +293,13 @@ function bindBoard() {
 // --- screens -----------------------------------------------------------
 
 const HINTS = [
-  'One ball is off its ring. Swipe right on the ball between the red one '
-    + 'and the ring.',
-  'Swipe right on a ball to turn the eight around it clockwise. '
-    + 'Match the faint rings.',
-  'Swipe left to turn the other way.',
-  'Undo takes back a twist. Hold Solution to see the solved board.',
+  'One ball is off its ring. Press the ball between the red one and the '
+    + 'ring, then drag around it.',
+  'Drag around a ball to turn the eight around it. Let go and they '
+    + 'snap to a quarter turn. Match the faint rings.',
+  'Turn as far as you like: half a turn or more still counts as one '
+    + 'move, and so does turning the same ring again.',
+  'Undo takes back a move. Hold Solution to see the solved board.',
 ];
 
 function start(modeId, level) {
@@ -379,7 +419,7 @@ function levelDone(result) {
   save(store);
   const more = id + 1 < LEVELS.length;
   sheet(`<h2>Solved</h2><div class="big">${result.twists}</div>
-    <p>twists</p><div class="row">
+    <p>moves</p><div class="row">
     ${more ? '<button class="primary" id="next">Next level</button>' : ''}
     <button id="back">Levels</button></div>`, (c) => {
     if (more) c.querySelector('#next').onclick = () => playLevel(id + 1);
@@ -392,7 +432,7 @@ function levelDone(result) {
 
 function practiceDone(result) {
   sheet(`<h2>Solved</h2><div class="big">${result.twists}</div>
-    <p>twists</p><div class="row"><button class="primary" id="again">
+    <p>moves</p><div class="row"><button class="primary" id="again">
     New puzzle</button><button id="close">Close</button></div>`, (c) => {
     c.querySelector('#again').onclick = () => start('practice');
     c.querySelector('#close').onclick = closeSheet;
@@ -408,7 +448,7 @@ function dailyDone(result, first) {
   });
   const spark = text.split('\n')[1] || '';
   sheet(`<h2>Solved</h2>
-    <div class="big">${result.twists}</div><p>twists</p>
+    <div class="big">${result.twists}</div><p>moves</p>
     <div class="spark">${spark}</div>
     <div class="stats4">
       <div><b>${sum.best}</b><span>Best</span></div>
@@ -448,13 +488,16 @@ function showStats() {
 
 function showHelp() {
   sheet(`<h2>How to play</h2>
-    <p>Press a ball in the middle of the board and swipe right: the eight
-    balls around it turn clockwise. Swipe left to turn the other way. Let
-    go near where you started to cancel.</p>
+    <p>Press a ball in the middle of the board and drag around it: the
+    eight balls around it follow your finger. Let go and they snap to the
+    nearest quarter turn. Let go near where you started to cancel.</p>
+    <p>Turn as far as you like. One ring turned any amount is one move,
+    and turning the same ring again keeps it the same move. Turn it back
+    to the start and the move disappears.</p>
     <p>On a computer: left click turns counter-clockwise, right click
     clockwise. Dragging works too.</p>
-    <p>Make the board match the faint rings. Fewer twists is a better
-    score. Undo takes a twist back.</p>
+    <p>Make the board match the faint rings. Fewer moves is a better
+    score. Undo takes a move back.</p>
     <p>A new daily puzzle appears at midnight.</p>
     <div class="row"><button id="tut">Tutorial</button>
     <button id="close">Close</button></div>`, (c) => {
@@ -545,8 +588,6 @@ function showMenu() {
     <button id="m-help">How to play</button>
     <button id="m-stats">Stats</button>
     <button id="m-theme">Theme</button>
-    <button id="m-controls">Controls: ${store.settings.controls === 'tap'
-    ? 'Tap &amp; hold' : 'Swipe'}</button>
     ${inPlay ? `<button id="m-restart" ${canRestart ? '' : 'disabled'}>`
       + 'Restart</button>' : ''}
     ${game.page !== 'start'
@@ -555,12 +596,6 @@ function showMenu() {
     c.querySelector('#m-help').onclick = showHelp;
     c.querySelector('#m-stats').onclick = showStats;
     c.querySelector('#m-theme').onclick = chooseTheme;
-    c.querySelector('#m-controls').onclick = () => {
-      store.settings.controls = store.settings.controls === 'tap'
-        ? 'swipe' : 'tap';
-      save(store);
-      showMenu();
-    };
     c.querySelector('#close').onclick = closeSheet;
     const st = c.querySelector('#m-start');
     if (st) st.onclick = showStart;
@@ -609,7 +644,6 @@ function init() {
     session: () => game.session,
     lastShare: () => game.lastShare,
     CW, CCW,
-    controls: () => store.settings.controls || 'swipe',
   };
 }
 

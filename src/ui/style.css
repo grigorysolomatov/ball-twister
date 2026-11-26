@@ -78,12 +78,8 @@ h1 {
 .hit { cursor: pointer; }
 .focus { position: absolute; width: calc(300% / 7); height: calc(300% / 7);
   border: 2.5px solid var(--accent); border-radius: 22%; opacity: .7;
-  pointer-events: none; transition: transform .08s; }
+  pointer-events: none; }
 .focus[hidden] { display: none; }
-.focus[data-dir="1"]::after, .focus[data-dir="-1"]::after {
-  content: '\21bb'; position: absolute; top: -4px; right: 6px;
-  font-size: 22px; color: var(--accent); }
-.focus[data-dir="-1"]::after { content: '\21ba'; right: auto; left: 6px; }
 .hit.ok:active { background: rgba(255, 255, 255, .15); border-radius: 50%; }
 .solved .ball { animation: pulse .6s ease; }
 @keyframes pulse { 50% { transform: scale(1.0); filter: brightness(1.08); } }

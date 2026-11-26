@@ -33,6 +33,13 @@ export function twistCells() {
   return out;
 }
 
+// The eight ring cells around a pivot as [row, col], clockwise from the
+// top-left corner; empty for an edge pivot.
+export function ringCells(r, c) {
+  if (!canTwist(r, c)) return [];
+  return OFFSETS.map(([dr, dc]) => [r + dr, c + dc]);
+}
+
 // [fromIndex, toIndex] pairs describing where each neighbour goes.
 export function twistPairs(r, c, dir) {
   if (!canTwist(r, c)) return [];
@@ -97,4 +104,48 @@ export function countCorrect(board, target) {
   let n = 0;
   for (let i = 0; i < CELLS; i++) if (board[i] === target[i]) n++;
   return n;
+}
+
+// A turn is a normalised move: a pivot and 1-3 clockwise quarter turns,
+// packed as cell * 4 + quarters. Consecutive turns of one pivot merge.
+export function encodeTurn(r, c, quarters) {
+  return cellIndex(r, c) * 4 + (((quarters % 4) + 4) % 4);
+}
+
+export function decodeTurn(turn) {
+  const cell = turn >> 2;
+  return { r: Math.floor(cell / SIZE), c: cell % SIZE, q: turn & 3 };
+}
+
+export function inverseTurn(turn) {
+  return (turn & ~3) | ((4 - (turn & 3)) & 3);
+}
+
+export function applyTurn(board, turn) {
+  const { r, c, q } = decodeTurn(turn);
+  for (let i = 0; i < q; i++) twist(board, r, c, CW);
+}
+
+// Merge a turn onto the end of a normalised list, in place: the same
+// pivot as the last entry adds up, and a net zero removes the entry.
+export function pushTurn(list, turn) {
+  const last = list.length ? list[list.length - 1] : -1;
+  if (last >= 0 && (last >> 2) === (turn >> 2)) {
+    const q = ((last & 3) + (turn & 3)) & 3;
+    list.pop();
+    if (q) list.push((turn & ~3) | q);
+    return list;
+  }
+  list.push(turn);
+  return list;
+}
+
+// Quarter-turn moves (encodeMove) to a normalised turn list.
+export function toTurns(quarterMoves) {
+  const list = [];
+  for (const m of quarterMoves) {
+    const { r, c, dir } = decodeMove(m);
+    pushTurn(list, encodeTurn(r, c, dir));
+  }
+  return list;
 }

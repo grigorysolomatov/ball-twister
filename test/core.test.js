@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {
   CCW, CW, SIZE, applyMove, boardFromString, boardToString, canTwist,
   countCorrect, encodeMove, decodeMove, inverseMove, twist, twistCells,
+  applyTurn, decodeTurn, encodeTurn, inverseTurn, pushTurn, toTurns,
 } from '../src/core/board.js';
 import { createSession, replay } from '../src/core/session.js';
 import {
@@ -10,9 +11,9 @@ import {
   targetFor, tutorialLevel, TUTORIAL_STEPS, DEPTHS,
 } from '../src/core/puzzle.js';
 import {
-  CCW as GCCW, CW as GCW, createGesture, gestureDir, gestureMove,
-  gestureStart, isTap,
+  QUARTER, createDrag, dragMove, dragStart, dragTurns, isTap,
 } from '../src/core/gesture.js';
+import { getMode } from '../src/modes.js';
 import { LEVELS } from '../src/core/levels.js';
 import { unlockedCount, visibleChapters } from '../src/core/progress.js';
 import { hashSeed, mulberry32 } from '../src/core/prng.js';
@@ -103,8 +104,8 @@ test('level play: deterministic, solvable, scrambled', () => {
     assert.notEqual(a.start, a.target);
     const s = createSession(a);
     for (const m of a.solution) {
-      const { r, c, dir } = decodeMove(m);
-      s.twist(r, c, dir);
+      const { r, c, q } = decodeTurn(m);
+      s.turn(r, c, q);
     }
     assert.ok(s.solved(), l.name);
   }
@@ -135,12 +136,12 @@ test('scramble never cancels at once and is not trivially short', () => {
   for (let s = 0; s < 40; s++) {
     const text = LEVELS[s % LEVELS.length].target;
     const { start, solution } = scramble(text, 8, mulberry32(s));
-    const pivots = solution.map((m) => m >> 1);
+    const pivots = solution.map((m) => m >> 2);
     for (let i = 1; i < pivots.length; i++) {
       assert.notEqual(pivots[i], pivots[i - 1]);
     }
     const t = boardFromString(text);
-    assert.equal(shortestWithin(boardFromString(start), t, 3), null);
+    assert.equal(shortestWithin(boardFromString(start), t, 2), null);
   }
 });
 
@@ -175,8 +176,8 @@ test('session: twist, undo removes fully, restart, solve', () => {
   s.restart();
   assert.equal(boardToString(s.board), level.start);
   for (const m of level.solution) {
-    const d = decodeMove(m);
-    s.twist(d.r, d.c, d.dir);
+    const d = decodeTurn(m);
+    s.turn(d.r, d.c, d.q);
   }
   assert.ok(s.solved());
   assert.equal(s.result().twists, level.solution.length);
@@ -184,11 +185,11 @@ test('session: twist, undo removes fully, restart, solve', () => {
   assert.equal(s.twist(3, 3, CW), false);
 });
 
-test('undo after wrong twist lowers the score', () => {
+test('undo after a wrong move lowers the score', () => {
   const level = dailyLevel(2, 4);
   const s = createSession(level);
   s.twist(3, 3, CW);
-  s.twist(3, 3, CW);
+  s.twist(2, 2, CW);
   s.undo();
   assert.equal(s.result().twists, 1);
 });
@@ -227,9 +228,9 @@ test('sparkline and share text', () => {
     number: 7, twists: 3, counts: [40, 44, 49], startCorrect: 40,
     url: 'https://x/y',
   });
-  assert.equal(t.split('\n')[0], 'Ball Twister #7  3 twists');
+  assert.equal(t.split('\n')[0], 'Ball Twister #7  3 moves');
   assert.equal(t.split('\n')[2], 'https://x/y');
-  assert.match(shareText({ number: 1, twists: 1 }), /1 twist$/);
+  assert.match(shareText({ number: 1, twists: 1 }), /1 move$/);
 });
 
 test('stats: records, streak, histogram', () => {
@@ -275,53 +276,164 @@ test('unlocks persist and the last chapter has no teaser', () => {
   assert.equal(v.open.length, new Set(LEVELS.map((l) => l.chapter)).size);
 });
 
-// --- gestures (centre 100,100; cell 45 px) ---
-const drag = (pts) => {
-  const g = createGesture({ x: 100, y: 100 }, 45);
-  gestureStart(g, pts[0][0], pts[0][1]);
-  for (const [x, y] of pts.slice(1)) gestureMove(g, x, y);
+
+// --- merged moves ---
+
+test('turn encoding and merging', () => {
+  assert.deepEqual(decodeTurn(encodeTurn(3, 3, -1)), { r: 3, c: 3, q: 3 });
+  assert.equal(inverseTurn(encodeTurn(2, 2, 1)), encodeTurn(2, 2, 3));
+  const list = [];
+  pushTurn(list, encodeTurn(3, 3, 1));
+  pushTurn(list, encodeTurn(3, 3, 1));
+  assert.deepEqual(list, [encodeTurn(3, 3, 2)]);
+  pushTurn(list, encodeTurn(3, 3, 2));
+  assert.deepEqual(list, []);
+  pushTurn(list, encodeTurn(3, 3, 1));
+  pushTurn(list, encodeTurn(2, 2, 1));
+  pushTurn(list, encodeTurn(3, 3, 1));
+  assert.equal(list.length, 3);
+});
+
+test('turns equal quarter twists on the board', () => {
+  const a = numbered();
+  const b = numbered();
+  applyTurn(a, encodeTurn(3, 3, 3));
+  twist(b, 3, 3, CCW);
+  assert.deepEqual(a, b);
+  applyTurn(a, inverseTurn(encodeTurn(3, 3, 3)));
+  assert.deepEqual(a, numbered());
+});
+
+test('toTurns merges quarter-move lists', () => {
+  const m = [encodeMove(3, 3, CW), encodeMove(3, 3, CW),
+    encodeMove(2, 2, CCW), encodeMove(2, 2, CW)];
+  assert.deepEqual(toTurns(m), [encodeTurn(3, 3, 2)]);
+});
+
+test('session: same ring merges into one move', () => {
+  const s = createSession(dailyLevel(3, 5));
+  s.turn(3, 3, 1);
+  s.turn(3, 3, 1);
+  s.turn(3, 3, 2);
+  assert.equal(s.moves.length, 0);
+  s.turn(3, 3, 1);
+  s.turn(2, 2, 3);
+  assert.equal(s.result().twists, 2);
+  s.turn(2, 2, 1);
+  assert.equal(s.result().twists, 1);
+  assert.equal(s.counts.length, 1);
+  s.twist(3, 3, CW);
+  assert.deepEqual(s.moves, [encodeTurn(3, 3, 2)]);
+  assert.equal(s.counts.length, 1);
+});
+
+test('session: net zero restores the board and the count', () => {
+  const level = dailyLevel(4, 2);
+  const s = createSession(level);
+  s.turn(3, 3, 2);
+  s.turn(3, 3, -2);
+  assert.equal(s.moves.length, 0);
+  assert.equal(boardToString(s.board), level.start);
+  assert.equal(s.turn(3, 3, 4), false);
+  assert.equal(s.turn(0, 0, 1), false);
+});
+
+test('session: undo takes back the whole merged move', () => {
+  const level = dailyLevel(4, 2);
+  const s = createSession(level);
+  s.turn(2, 2, 1);
+  s.turn(3, 3, 1);
+  s.turn(3, 3, 1);
+  assert.equal(s.moves.length, 2);
+  s.undo();
+  assert.equal(s.moves.length, 1);
+  s.undo();
+  assert.equal(boardToString(s.board), level.start);
+  assert.equal(s.undo(), null);
+});
+
+test('replay validates normalised move lists', () => {
+  const l = dailyLevel(5, 3);
+  assert.ok(replay(l, l.solution).solved);
+  assert.equal(replay(l, l.solution).twists, l.solution.length);
+  const c = encodeTurn(3, 3, 1);
+  assert.equal(replay(l, [c, c]).valid, false);
+  assert.equal(replay(l, [encodeTurn(3, 3, 0)]).valid, false);
+  assert.equal(replay(l, [encodeTurn(0, 0, 1)]).valid, false);
+  assert.equal(replay(l, [49 * 4]).valid, false);
+});
+
+test('level scrambles differ per play but repeat per seed', () => {
+  const a = levelPlay(5, 111);
+  assert.equal(a.start, levelPlay(5, 111).start);
+  const seen = new Set();
+  for (let s = 0; s < 8; s++) seen.add(levelPlay(5, s + 1).start);
+  assert.ok(seen.size >= 6);
+  const m = getMode('level');
+  const x = m.next({ levelId: 5 });
+  const y = m.next({ levelId: 5 });
+  assert.notEqual(x.start, y.start);
+});
+
+// --- drag (centre 100,100; cell 45 px) ---
+
+function drag(pts) {
+  const g = createDrag({ x: 100, y: 100 }, 45);
+  dragStart(g, pts[0][0], pts[0][1]);
+  for (const [x, y] of pts.slice(1)) dragMove(g, x, y);
   return g;
-};
+}
 
-test('gesture: swipe right is clockwise, left counter-clockwise', () => {
-  assert.equal(gestureDir(drag([[100, 100], [130, 100], [160, 102]])), GCW);
-  assert.equal(gestureDir(drag([[100, 100], [70, 98], [40, 100]])), GCCW);
-  assert.equal(GCW, CW);
-  assert.equal(GCCW, CCW);
+// Finger on a circle of radius 60 around the centre, degrees clockwise
+// from "right"; y grows downwards so clockwise is increasing angle.
+function arc(from, to, step = 5) {
+  const out = [];
+  const dir = to >= from ? 1 : -1;
+  for (let a = from; dir * (to - a) >= 0; a += dir * step) {
+    const r = (a * Math.PI) / 180;
+    out.push([100 + 60 * Math.cos(r), 100 + 60 * Math.sin(r)]);
+  }
+  return out;
+}
+
+test('drag: angle follows the finger one to one', () => {
+  const g = drag(arc(0, 90));
+  assert.ok(Math.abs(g.theta - QUARTER) < 1e-6);
+  assert.equal(dragTurns(g), 1);
 });
 
-test('gesture: a tap or tiny move does nothing', () => {
-  const g = drag([[100, 100], [102, 101]]);
-  assert.equal(gestureDir(g), 0);
+test('drag: snaps to the nearest quarter, 180 and 270 and more', () => {
+  assert.equal(dragTurns(drag(arc(0, 40))), 0);
+  assert.equal(dragTurns(drag(arc(0, 50))), 1);
+  assert.equal(dragTurns(drag(arc(0, 180))), 2);
+  assert.equal(dragTurns(drag(arc(0, 270))), 3);
+  assert.equal(dragTurns(drag(arc(0, 360))), 4);
+  assert.equal(dragTurns(drag(arc(0, -90))), -1);
+  assert.equal(dragTurns(drag(arc(30, -150))), -2);
+});
+
+test('drag: release at 30 degrees or after going back is no move', () => {
+  assert.equal(dragTurns(drag(arc(0, 30))), 0);
+  assert.equal(dragTurns(drag([...arc(0, 120), ...arc(120, 10)])), 0);
+});
+
+test('drag: jitter near the centre is ignored', () => {
+  const g = drag([[100, 100], [103, 98], [97, 104], [101, 96], [99, 102]]);
+  assert.equal(g.theta, 0);
   assert.ok(isTap(g));
-  assert.equal(gestureDir(drag([[100, 100], [112, 100]])), 0);
+  assert.ok(!isTap(drag(arc(0, 90))));
 });
 
-test('gesture: returning to the start cancels', () => {
-  const g = drag([[100, 100], [140, 100], [120, 100], [104, 101]]);
-  assert.equal(gestureDir(g), 0);
-  assert.ok(!isTap(g));
+test('drag: works when the finger leaves the ring area', () => {
+  const far = [];
+  for (let a = 0; a <= 180; a += 5) {
+    const r = (a * Math.PI) / 180;
+    far.push([100 + 400 * Math.cos(r), 100 + 400 * Math.sin(r)]);
+  }
+  assert.equal(dragTurns(drag(far)), 2);
 });
 
-test('gesture: vertical swipes do nothing', () => {
-  assert.equal(gestureDir(drag([[100, 100], [104, 150], [105, 190]])), 0);
-});
-
-test('gesture: circular drag uses angular sign', () => {
-  const arc = (sign) => {
-    const pts = [[100, 100]];
-    for (let a = 0; a <= 1.8; a += 0.15) {
-      const t = -Math.PI / 2 + sign * a;
-      pts.push([100 + 40 * Math.cos(t), 100 + 40 * Math.sin(t)]);
-    }
-    return pts;
-  };
-  // Screen y points down: increasing angle runs clockwise.
-  assert.equal(gestureDir(drag(arc(1))), GCW);
-  assert.equal(gestureDir(drag(arc(-1))), GCCW);
-});
-
-test('gesture: straight swipe above the centre stays horizontal', () => {
-  assert.equal(
-    gestureDir(drag([[100, 70], [125, 70], [150, 70], [180, 70]])), GCW);
+test('drag: pressing on the centre then moving out starts cleanly', () => {
+  const g = drag([[100, 100], ...arc(90, 180)]);
+  assert.equal(dragTurns(g), 1);
 });
