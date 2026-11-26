@@ -5,6 +5,7 @@ const KEY = 'ball-twister.v1';
 function fresh() {
   return {
     records: {},
+    levels: {},
     settings: { theme: 'terracotta', tutorialDone: false },
     practicePlayed: 0,
   };

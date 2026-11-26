@@ -16,29 +16,39 @@
 </head>
 <body>
 <main id="app" class="screen">
-  <header>
-    <button id="restart" type="button" class="restart">Restart</button>
+  <button id="menu" type="button" class="menu" aria-label="Menu">
+    <span></span><span></span><span></span></button>
+  <section id="start" class="page start">
     <h1>Ball Twister</h1>
-    <p id="label" class="sub"></p>
-  </header>
-  <p id="hint" class="hint"></p>
-  <div id="board" class="board">
-    <div id="rings" class="layer"></div>
-    <div id="balls" class="layer"></div>
-    <div id="peek" class="layer peek"></div>
-    <div id="hits" class="layer hits"></div>
-  </div>
-  <div class="btns">
-    <button id="eye" type="button" aria-label="Hold to see the solved board">
-      Hold to peek</button>
-    <button id="undo" type="button" class="primary">Undo</button>
-  </div>
-  <nav class="modes" id="modes"></nav>
-  <footer>
-    <button id="stats" type="button" class="link">Stats</button>
-    <button id="help" type="button" class="link">How to play</button>
-    <button id="theme" type="button" class="link">Theme</button>
-  </footer>
+    <p class="sub">A daily puzzle</p>
+    <div class="bigbtns">
+      <button id="go-daily" type="button" class="primary">Daily</button>
+      <button id="go-levels" type="button">Levels</button>
+      <button id="go-custom" type="button">Customize</button>
+    </div>
+  </section>
+  <section id="levels" class="page" hidden>
+    <h1>Levels</h1>
+    <div id="levellist" class="levellist"></div>
+  </section>
+  <section id="play" class="page" hidden>
+    <header>
+      <h1>Ball Twister</h1>
+      <p id="label" class="sub"></p>
+    </header>
+    <p id="hint" class="hint"></p>
+    <div id="board" class="board">
+      <div id="rings" class="layer"></div>
+      <div id="balls" class="layer"></div>
+      <div id="peek" class="layer peek"></div>
+      <div id="hits" class="layer hits"></div>
+    </div>
+    <div class="btns">
+      <button id="undo" type="button">Undo</button>
+      <button id="solution" type="button"
+        aria-label="Hold to see the solved board">Solution</button>
+    </div>
+  </section>
 </main>
 <div id="sheet" class="sheet" hidden>
   <div class="card" id="card"></div>

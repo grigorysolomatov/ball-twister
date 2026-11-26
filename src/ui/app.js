@@ -4,10 +4,11 @@
 import { CCW, CW, SIZE, canTwist, decodeMove, twistPairs }
   from '../core/board.js';
 import { createSession } from '../core/session.js';
+import { DAYS, LEVELS } from '../core/levels.js';
 import { dateInfo } from '../core/puzzle.js';
 import { shareText } from '../core/share.js';
 import { summarize, updateRecord } from '../core/stats.js';
-import { getMode, listModes } from '../modes.js';
+import { getMode } from '../modes.js';
 import { THEME_ORDER, THEMES, applyTheme } from './themes.js';
 import { load, save } from './storage.js';
 
@@ -97,10 +98,7 @@ function buildHits() {
 }
 
 function updateButtons() {
-  const n = game.session.moves.length;
-  $('undo').disabled = n === 0;
-  $('restart').disabled = n === 0;
-  if (n === 0) disarmRestart();
+  $('undo').disabled = game.session.moves.length === 0;
 }
 
 function doTwist(r, c, dir) {
@@ -120,27 +118,7 @@ function doUndo() {
   updateButtons();
 }
 
-// Restart asks for a second tap within two seconds once twists exist.
-let restartTimer = null;
-
-function disarmRestart() {
-  clearTimeout(restartTimer);
-  restartTimer = null;
-  const b = $('restart');
-  b.classList.remove('confirm');
-  b.textContent = 'Restart';
-}
-
 function doRestart() {
-  if (game.session.moves.length === 0) return;
-  if (restartTimer === null) {
-    const b = $('restart');
-    b.classList.add('confirm');
-    b.textContent = 'Restart? Tap again';
-    restartTimer = setTimeout(disarmRestart, 2000);
-    return;
-  }
-  disarmRestart();
   game.session.restart();
   renderBalls();
   updateButtons();
@@ -185,8 +163,7 @@ function bindBoard() {
     { passive: false });
 
   $('undo').onclick = doUndo;
-  $('restart').onclick = doRestart;
-  const eye = $('eye');
+  const eye = $('solution');
   const peek = (on) => $('peek').classList.toggle('on', on);
   eye.addEventListener('pointerdown', (ev) => {
     ev.preventDefault();
@@ -211,7 +188,7 @@ const HINTS = [
   'One ball is off its ring. Tap the ball between the red one and the ring.',
   'Tap a ball to turn the eight around it. Match the faint rings.',
   'Hold a ball a moment to turn the other way.',
-  'Undo takes back a twist. Hold the eye button to see the solved board.',
+  'Undo takes back a twist. Hold Solution to see the solved board.',
 ];
 
 function start(modeId, level) {
@@ -219,36 +196,20 @@ function start(modeId, level) {
   game.level = level || game.mode.next(ctx);
   game.session = createSession(game.level);
   game.t0 = Date.now();
-  disarmRestart();
   $('label').textContent = game.mode.label(game.level);
   $('hint').textContent = modeId === 'tutorial'
     ? HINTS[game.level.step]
     : modeId === 'daily'
       ? 'Make the balls match the rings.'
-      : 'Practice puzzles do not count towards stats.';
-  document.querySelectorAll('#modes button').forEach((b) => {
-    b.classList.toggle('on', b.dataset.mode === modeId);
-  });
+      : modeId === 'level'
+        ? 'Make the balls match the rings.'
+        : 'Practice puzzles do not count towards stats.';
   closeSheet();
+  showPage('play');
   renderStatic();
   renderBalls();
   buildHits();
   updateButtons();
-}
-
-function buildModeBar() {
-  const bar = $('modes');
-  for (const mode of listModes()) {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.textContent = mode.title;
-    b.dataset.mode = mode.id;
-    b.onclick = () => {
-      if (mode.id === 'tutorial') ctx.step = 0;
-      start(mode.id);
-    };
-    bar.appendChild(b);
-  }
 }
 
 function sheet(html, wire) {
@@ -312,6 +273,7 @@ function onSolved() {
   const id = game.mode.id;
   if (id === 'tutorial') return tutorialDone();
   if (id === 'practice') return practiceDone(result);
+  if (id === 'level') return levelDone(result);
   const n = game.level.number;
   const first = !store.records[n];
   store.records[n] = updateRecord(store.records[n], result.twists);
@@ -336,6 +298,23 @@ function tutorialDone() {
         ctx.step = step + 1;
         start('tutorial');
       }
+    };
+  });
+}
+
+function levelDone(result) {
+  const id = game.level.id;
+  store.levels[id] = Math.min(store.levels[id] || Infinity, result.twists);
+  save(store);
+  const more = id + 1 < LEVELS.length;
+  sheet(`<h2>Solved</h2><div class="big">${result.twists}</div>
+    <p>twists</p><div class="row">
+    ${more ? '<button class="primary" id="next">Next level</button>' : ''}
+    <button id="back">Levels</button></div>`, (c) => {
+    if (more) c.querySelector('#next').onclick = () => playLevel(id + 1);
+    c.querySelector('#back').onclick = () => {
+      closeSheet();
+      showLevels();
     };
   });
 }
@@ -413,12 +392,100 @@ function showHelp() {
   });
 }
 
-function cycleTheme() {
-  const i = THEME_ORDER.indexOf(store.settings.theme);
-  store.settings.theme = THEME_ORDER[(i + 1) % THEME_ORDER.length];
-  save(store);
-  applyTheme(store.settings.theme);
-  toast(THEMES[store.settings.theme].name);
+function chooseTheme() {
+  const cur = store.settings.theme;
+  sheet(`<h2>Theme</h2><div class="menulist">${THEME_ORDER.map((id) =>
+    `<button data-id="${id}" class="${id === cur ? 'on' : ''}">`
+    + `${THEMES[id].name}</button>`).join('')}</div>
+    <div class="row"><button id="close">Close</button></div>`, (c) => {
+    c.querySelectorAll('[data-id]').forEach((b) => {
+      b.onclick = () => {
+        store.settings.theme = b.dataset.id;
+        save(store);
+        applyTheme(b.dataset.id);
+        chooseTheme();
+      };
+    });
+    c.querySelector('#close').onclick = closeSheet;
+  });
+}
+
+// --- pages and menu ----------------------------------------------------
+
+function showPage(id) {
+  for (const p of ['start', 'levels', 'play']) $(p).hidden = p !== id;
+  game.page = id;
+}
+
+function showStart() {
+  closeSheet();
+  showPage('start');
+}
+
+function playLevel(id) {
+  ctx.levelId = id;
+  start('level');
+}
+
+function showLevels() {
+  const list = $('levellist');
+  list.textContent = '';
+  const chapters = [...new Set(LEVELS.map((l) => l.chapter))];
+  for (const ch of chapters) {
+    const h = document.createElement('h3');
+    h.textContent = `Chapter ${ch}`;
+    const row = document.createElement('div');
+    row.className = 'levelrow';
+    for (const l of LEVELS.filter((x) => x.chapter === ch)) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = store.levels[l.id] ? 'done' : '';
+      b.innerHTML = `<b>${l.id + 1}</b>${DAYS[l.day].slice(0, 3)}`;
+      b.onclick = () => playLevel(l.id);
+      row.appendChild(b);
+    }
+    list.append(h, row);
+  }
+  const foot = document.createElement('div');
+  foot.className = 'levelfoot';
+  foot.innerHTML = '<button type="button">Practice</button>';
+  foot.firstChild.onclick = () => start('practice');
+  list.appendChild(foot);
+  showPage('levels');
+}
+
+function showMenu() {
+  const inPlay = game.page === 'play';
+  const canRestart = inPlay && game.session.moves.length > 0;
+  sheet(`<h2>Menu</h2><div class="menulist">
+    <button id="m-help">How to play</button>
+    <button id="m-stats">Stats</button>
+    <button id="m-theme">Theme</button>
+    ${inPlay ? `<button id="m-restart" ${canRestart ? '' : 'disabled'}>`
+      + 'Restart</button>' : ''}
+    ${game.page !== 'start'
+    ? '<button id="m-start">Back to start</button>' : ''}
+    </div><div class="row"><button id="close">Close</button></div>`, (c) => {
+    c.querySelector('#m-help').onclick = showHelp;
+    c.querySelector('#m-stats').onclick = showStats;
+    c.querySelector('#m-theme').onclick = chooseTheme;
+    c.querySelector('#close').onclick = closeSheet;
+    const st = c.querySelector('#m-start');
+    if (st) st.onclick = showStart;
+    const rs = c.querySelector('#m-restart');
+    if (rs) {
+      // A second tap confirms; twists exist, so a slip would cost them.
+      rs.onclick = () => {
+        if (!rs.classList.contains('confirm')) {
+          rs.classList.add('confirm');
+          rs.textContent = 'Restart? Tap again';
+          return;
+        }
+        closeSheet();
+        doRestart();
+      };
+    }
+  });
 }
 
 function registerWorker() {
@@ -432,16 +499,17 @@ function registerWorker() {
 
 function init() {
   applyTheme(params.get('theme') || store.settings.theme);
-  buildModeBar();
   bindBoard();
-  $('stats').onclick = showStats;
-  $('help').onclick = showHelp;
-  $('theme').onclick = cycleTheme;
+  $('menu').onclick = showMenu;
+  $('go-daily').onclick = () => start('daily');
+  $('go-levels').onclick = showLevels;
+  $('go-custom').onclick = chooseTheme;
   $('sheet').addEventListener('pointerdown', (ev) => {
     if (ev.target === $('sheet')) closeSheet();
   });
   const first = !store.settings.tutorialDone && !params.has('skip');
-  start(first ? 'tutorial' : 'daily');
+  if (first) start('tutorial');
+  else showStart();
   registerWorker();
   // Read-only hooks for automated checks.
   window.__bt = {

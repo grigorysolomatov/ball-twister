@@ -2,7 +2,7 @@
 // Register a new mode with registerMode(); the UI only talks to this.
 
 import {
-  dateInfo, dailyLevel, practiceLevel, tutorialLevel, TUTORIAL_STEPS,
+  dateInfo, dailyLevel, levelPlay, practiceLevel, tutorialLevel, TUTORIAL_STEPS,
 } from './core/puzzle.js';
 
 const modes = new Map();
@@ -49,6 +49,16 @@ registerMode({
   tracksStats: false,
   shareable: false,
   replayable: false,
+});
+
+registerMode({
+  id: 'level',
+  title: 'Levels',
+  next(ctx) { return levelPlay(ctx.levelId || 0); },
+  label(level) { return level.name; },
+  tracksStats: false,
+  shareable: false,
+  replayable: true,
 });
 
 registerMode({

@@ -121,6 +121,17 @@ export function practiceLevel(seed, depth = 8) {
   return { kind: 'practice', seed, name, target, start, solution };
 }
 
+// One of his levels by id, scrambled the same way for everyone. Depth
+// follows the level's weekday slot, so later days are harder.
+export function levelPlay(id) {
+  const { name, target, day } = LEVELS[id];
+  const rng = mulberry32(hashSeed('level', id));
+  const [lo, hi] = DEPTHS[day];
+  const depth = randInt(rng, lo, hi);
+  const { start, solution } = scramble(target, depth, rng);
+  return { kind: 'level', id, name, target, start, solution };
+}
+
 // Tutorial: a single ball first, then the first levels of the list.
 // Each step is a target plus the one or two twists that scramble it.
 const ONE_BALL = '.'.repeat(17) + 'X' + '.'.repeat(31);

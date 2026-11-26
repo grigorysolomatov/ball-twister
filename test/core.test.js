@@ -6,7 +6,7 @@ import {
 } from '../src/core/board.js';
 import { createSession, replay } from '../src/core/session.js';
 import {
-  dailyInfo, dailyLevel, practiceLevel, scramble, shortestWithin,
+  dailyInfo, dailyLevel, levelPlay, practiceLevel, scramble, shortestWithin,
   targetFor, tutorialLevel, TUTORIAL_STEPS, DEPTHS,
 } from '../src/core/puzzle.js';
 import { LEVELS } from '../src/core/levels.js';
@@ -87,6 +87,21 @@ test('levels: his two-colour list, valid and distinct', () => {
     seen.add(l.target);
     assert.ok(l.chapter >= 1 && l.chapter <= 5);
     assert.ok(l.day >= 0 && l.day <= 4);
+  }
+});
+
+test('level play: deterministic, solvable, scrambled', () => {
+  for (const l of LEVELS) {
+    const a = levelPlay(l.id);
+    assert.equal(a.start, levelPlay(l.id).start);
+    assert.equal(a.target, l.target);
+    assert.notEqual(a.start, a.target);
+    const s = createSession(a);
+    for (const m of a.solution) {
+      const { r, c, dir } = decodeMove(m);
+      s.twist(r, c, dir);
+    }
+    assert.ok(s.solved(), l.name);
   }
 });
 
