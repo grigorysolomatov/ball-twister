@@ -1,0 +1,170 @@
+[
+ {
+  "id": 0,
+  "chapter": 1,
+  "day": 0,
+  "name": "Chapter 1 · Monday",
+  "target": ".................X......X......X................."
+ },
+ {
+  "id": 1,
+  "chapter": 1,
+  "day": 1,
+  "name": "Chapter 1 · Tuesday",
+  "target": "..........X......X......X......X......X.........."
+ },
+ {
+  "id": 2,
+  "chapter": 1,
+  "day": 2,
+  "name": "Chapter 1 · Wednesday",
+  "target": "...X......X......X......X......X......X......X..."
+ },
+ {
+  "id": 3,
+  "chapter": 1,
+  "day": 3,
+  "name": "Chapter 1 · Thursday",
+  "target": "..X.X....X.X....X.X....X.X....X.X....X.X....X.X.."
+ },
+ {
+  "id": 4,
+  "chapter": 1,
+  "day": 4,
+  "name": "Chapter 1 · Friday",
+  "target": ".X.X.X..X.X.X..X.X.X..X.X.X..X.X.X..X.X.X..X.X.X."
+ },
+ {
+  "id": 5,
+  "chapter": 2,
+  "day": 0,
+  "name": "Chapter 2 · Monday",
+  "target": "................XXX....X.X....XXX................"
+ },
+ {
+  "id": 6,
+  "chapter": 2,
+  "day": 1,
+  "name": "Chapter 2 · Tuesday",
+  "target": "...............XXXXX..X.X.X..XXXXX..............."
+ },
+ {
+  "id": 7,
+  "chapter": 2,
+  "day": 2,
+  "name": "Chapter 2 · Wednesday",
+  "target": "..............XXXXXXXX.X.X.XXXXXXXX.............."
+ },
+ {
+  "id": 8,
+  "chapter": 2,
+  "day": 3,
+  "name": "Chapter 2 · Thursday",
+  "target": "........XXXXX..X...X..X.X.X..X...X..XXXXX........"
+ },
+ {
+  "id": 9,
+  "chapter": 2,
+  "day": 4,
+  "name": "Chapter 2 · Friday",
+  "target": "........XXXXX..X.X.X..XXXXX..X.X.X..XXXXX........"
+ },
+ {
+  "id": 10,
+  "chapter": 3,
+  "day": 0,
+  "name": "Chapter 3 · Monday",
+  "target": ".........XXX......X....XXX....X......XXX........."
+ },
+ {
+  "id": 11,
+  "chapter": 3,
+  "day": 1,
+  "name": "Chapter 3 · Tuesday",
+  "target": "........XXXXX......X..XXXXX..X......XXXXX........"
+ },
+ {
+  "id": 12,
+  "chapter": 3,
+  "day": 2,
+  "name": "Chapter 3 · Wednesday",
+  "target": ".......XXXXXXX......XXXXXXXXX......XXXXXXX......."
+ },
+ {
+  "id": 13,
+  "chapter": 3,
+  "day": 3,
+  "name": "Chapter 3 · Thursday",
+  "target": ".......XXX.XXX..X.X..XXX.XXXX.....XXXX.XXX......."
+ },
+ {
+  "id": 14,
+  "chapter": 3,
+  "day": 4,
+  "name": "Chapter 3 · Friday",
+  "target": "XXX.XXX..X.X..XXX.XXXX.....XXXX.XXX..X.X..XXX.XXX"
+ },
+ {
+  "id": 15,
+  "chapter": 4,
+  "day": 0,
+  "name": "Chapter 4 · Monday",
+  "target": ".................X.....XXX.....X................."
+ },
+ {
+  "id": 16,
+  "chapter": 4,
+  "day": 1,
+  "name": "Chapter 4 · Tuesday",
+  "target": "..........X......X....XXXXX....X......X.........."
+ },
+ {
+  "id": 17,
+  "chapter": 4,
+  "day": 2,
+  "name": "Chapter 4 · Wednesday",
+  "target": "..........X.....XXX...XX.XX...XXX.....X.........."
+ },
+ {
+  "id": 18,
+  "chapter": 4,
+  "day": 3,
+  "name": "Chapter 4 · Thursday",
+  "target": "...X......X.....XXX..XXX.XXX..XXX.....X......X..."
+ },
+ {
+  "id": 19,
+  "chapter": 4,
+  "day": 4,
+  "name": "Chapter 4 · Friday",
+  "target": "X..X..X.X.X.X...XXX..XXX.XXX..XXX...X.X.X.X..X..X"
+ },
+ {
+  "id": 20,
+  "chapter": 5,
+  "day": 0,
+  "name": "Chapter 5 · Monday",
+  "target": "...X.....X.X...XX.XX.X..X..X.XX.XX...X.X.....X..."
+ },
+ {
+  "id": 21,
+  "chapter": 5,
+  "day": 1,
+  "name": "Chapter 5 · Tuesday",
+  "target": "X.X.X.X..X.X..X.X.X.X.XXXXX.X.X.X.X..X.X..X.X.X.X"
+ },
+ {
+  "id": 22,
+  "chapter": 5,
+  "day": 2,
+  "name": "Chapter 5 · Wednesday",
+  "target": "..XXX...X...X.X.X.X.XX..X..XX.X.X.X.X...X...XXX.."
+ },
+ {
+  "id": 23,
+  "chapter": 5,
+  "day": 3,
+  "name": "Chapter 5 · Thursday",
+  "target": "X.XXX.X.X...X.X.XXX.XX.X.X.XX.XXX.X.X...X.X.XXX.X"
+ }
+]

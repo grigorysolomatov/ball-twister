@@ -1,0 +1,690 @@
+{
+  "balls": 12,
+  "bfs_seconds": 203.281264598,
+  "chapter": 4,
+  "game_puzzles": [
+    {
+      "given": 13,
+      "lower_bound": 8,
+      "millis": 0.004188000000000001,
+      "optimal": 8,
+      "puzzle": "daily 16"
+    },
+    {
+      "given": 7,
+      "lower_bound": 6,
+      "millis": 0.010439,
+      "optimal": 6,
+      "puzzle": "daily 34"
+    },
+    {
+      "given": 8,
+      "lower_bound": 5,
+      "millis": 0.003466,
+      "optimal": 5,
+      "puzzle": "daily 70"
+    },
+    {
+      "given": 13,
+      "lower_bound": 7,
+      "millis": 0.009177999999999999,
+      "optimal": 7,
+      "puzzle": "daily 86"
+    },
+    {
+      "given": 20,
+      "lower_bound": 9,
+      "millis": 0.020268,
+      "optimal": 9,
+      "puzzle": "daily 109"
+    },
+    {
+      "given": 20,
+      "lower_bound": 7,
+      "millis": 0.009007000000000001,
+      "optimal": 7,
+      "puzzle": "daily 137"
+    },
+    {
+      "given": 6,
+      "lower_bound": 5,
+      "millis": 0.005189,
+      "optimal": 5,
+      "puzzle": "daily 159"
+    },
+    {
+      "given": 8,
+      "lower_bound": 6,
+      "millis": 0.011793,
+      "optimal": 6,
+      "puzzle": "daily 182"
+    },
+    {
+      "given": 12,
+      "lower_bound": 7,
+      "millis": 0.006771999999999999,
+      "optimal": 7,
+      "puzzle": "daily 205"
+    },
+    {
+      "given": 8,
+      "lower_bound": 5,
+      "millis": 0.006833,
+      "optimal": 5,
+      "puzzle": "daily 217"
+    },
+    {
+      "given": 8,
+      "lower_bound": 6,
+      "millis": 0.007314,
+      "optimal": 6,
+      "puzzle": "daily 252"
+    },
+    {
+      "given": 12,
+      "lower_bound": 8,
+      "millis": 0.01615,
+      "optimal": 8,
+      "puzzle": "daily 267"
+    },
+    {
+      "given": 13,
+      "lower_bound": 7,
+      "millis": 0.012343,
+      "optimal": 7,
+      "puzzle": "daily 303"
+    },
+    {
+      "given": 10,
+      "lower_bound": 7,
+      "millis": 0.009578,
+      "optimal": 7,
+      "puzzle": "daily 322"
+    },
+    {
+      "given": 9,
+      "lower_bound": 6,
+      "millis": 0.008025000000000001,
+      "optimal": 6,
+      "puzzle": "daily 357"
+    },
+    {
+      "given": 10,
+      "lower_bound": 7,
+      "millis": 0.005561,
+      "optimal": 7,
+      "puzzle": "level play"
+    }
+  ],
+  "god_number": 14,
+  "id": 17,
+  "layers": [
+    1,
+    48,
+    1632,
+    46232,
+    1048164,
+    16694398,
+    163058076,
+    891559988,
+    2595200160,
+    3882678153,
+    2860546086,
+    957690358,
+    121152458,
+    3130892,
+    9304
+  ],
+  "mean_distance": 9.01845955594547,
+  "method": "exhaustive BFS",
+  "name": "Chapter 4 · Wednesday",
+  "random": {
+    "millis_max": 0.049422999999999995,
+    "millis_mean": 0.01713652666666666,
+    "optimal": {
+      "histogram": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        35,
+        63,
+        93,
+        79,
+        24,
+        3
+      ],
+      "max": 12,
+      "mean": 8.976666666666667,
+      "min": 5,
+      "n": 300
+    },
+    "unsolved": 0,
+    "unsolved_lower_bounds": null
+  },
+  "scrambles": [
+    {
+      "cases": 40,
+      "depth": 4,
+      "inverse_optimal": 38,
+      "max_saving": 1,
+      "mean_saving": 0.05,
+      "millis_max": 0.007124,
+      "millis_mean": 0.0024047750000000005,
+      "millis_mean_proven": 0.0024047750000000005,
+      "millis_median": 0.002315,
+      "millis_p95": 0.003677,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          2,
+          38
+        ],
+        "max": 4,
+        "mean": 3.95,
+        "min": 3,
+        "n": 40
+      },
+      "proven": 40
+    },
+    {
+      "cases": 40,
+      "depth": 5,
+      "inverse_optimal": 24,
+      "max_saving": 2,
+      "mean_saving": 0.475,
+      "millis_max": 0.017513,
+      "millis_mean": 0.0030642999999999994,
+      "millis_mean_proven": 0.0030642999999999994,
+      "millis_median": 0.002364,
+      "millis_p95": 0.007815,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          3,
+          13,
+          24
+        ],
+        "max": 5,
+        "mean": 4.525,
+        "min": 3,
+        "n": 40
+      },
+      "proven": 40
+    },
+    {
+      "cases": 40,
+      "depth": 6,
+      "inverse_optimal": 11,
+      "max_saving": 3,
+      "mean_saving": 0.975,
+      "millis_max": 0.006412,
+      "millis_mean": 0.0029786750000000005,
+      "millis_mean_proven": 0.0029786750000000005,
+      "millis_median": 0.0027949999999999997,
+      "millis_p95": 0.004418,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          2,
+          6,
+          21,
+          11
+        ],
+        "max": 6,
+        "mean": 5.025,
+        "min": 3,
+        "n": 40
+      },
+      "proven": 40
+    },
+    {
+      "cases": 40,
+      "depth": 7,
+      "inverse_optimal": 6,
+      "max_saving": 4,
+      "mean_saving": 1.475,
+      "millis_max": 0.01064,
+      "millis_mean": 0.0036109999999999996,
+      "millis_mean_proven": 0.0036109999999999996,
+      "millis_median": 0.003226,
+      "millis_p95": 0.006833,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          1,
+          4,
+          14,
+          15,
+          6
+        ],
+        "max": 7,
+        "mean": 5.525,
+        "min": 3,
+        "n": 40
+      },
+      "proven": 40
+    },
+    {
+      "cases": 40,
+      "depth": 8,
+      "inverse_optimal": 0,
+      "max_saving": 4,
+      "mean_saving": 2.15,
+      "millis_max": 0.009387,
+      "millis_mean": 0.004052925000000001,
+      "millis_mean_proven": 0.004052925000000001,
+      "millis_median": 0.003747,
+      "millis_p95": 0.007535,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          3,
+          9,
+          19,
+          9
+        ],
+        "max": 7,
+        "mean": 5.85,
+        "min": 4,
+        "n": 40
+      },
+      "proven": 40
+    },
+    {
+      "cases": 40,
+      "depth": 9,
+      "inverse_optimal": 0,
+      "max_saving": 4,
+      "mean_saving": 2.425,
+      "millis_max": 0.011542,
+      "millis_mean": 0.005295875,
+      "millis_mean_proven": 0.005295875,
+      "millis_median": 0.00514,
+      "millis_p95": 0.008877,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4,
+          17,
+          11,
+          8
+        ],
+        "max": 8,
+        "mean": 6.575,
+        "min": 5,
+        "n": 40
+      },
+      "proven": 40
+    },
+    {
+      "cases": 40,
+      "depth": 10,
+      "inverse_optimal": 0,
+      "max_saving": 6,
+      "mean_saving": 3.575,
+      "millis_max": 0.009879,
+      "millis_mean": 0.005008899999999998,
+      "millis_mean_proven": 0.005008899999999998,
+      "millis_median": 0.004588999999999999,
+      "millis_p95": 0.008286,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          6,
+          15,
+          12,
+          5,
+          1
+        ],
+        "max": 9,
+        "mean": 6.425,
+        "min": 4,
+        "n": 40
+      },
+      "proven": 40
+    },
+    {
+      "cases": 40,
+      "depth": 11,
+      "inverse_optimal": 0,
+      "max_saving": 6,
+      "mean_saving": 4.375,
+      "millis_max": 0.015418999999999999,
+      "millis_mean": 0.004609225000000001,
+      "millis_mean_proven": 0.004609225000000001,
+      "millis_median": 0.003827,
+      "millis_p95": 0.010069,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4,
+          17,
+          11,
+          6,
+          2
+        ],
+        "max": 9,
+        "mean": 6.625,
+        "min": 5,
+        "n": 40
+      },
+      "proven": 40
+    },
+    {
+      "cases": 40,
+      "depth": 12,
+      "inverse_optimal": 0,
+      "max_saving": 7,
+      "mean_saving": 4.75,
+      "millis_max": 0.013646,
+      "millis_mean": 0.0061514,
+      "millis_mean_proven": 0.0061514,
+      "millis_median": 0.005911,
+      "millis_p95": 0.012373,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          19,
+          11,
+          4
+        ],
+        "max": 9,
+        "mean": 7.25,
+        "min": 5,
+        "n": 40
+      },
+      "proven": 40
+    },
+    {
+      "cases": 40,
+      "depth": 13,
+      "inverse_optimal": 0,
+      "max_saving": 8,
+      "mean_saving": 5.975,
+      "millis_max": 0.013285,
+      "millis_mean": 0.0054632249999999995,
+      "millis_mean_proven": 0.0054632249999999995,
+      "millis_median": 0.00545,
+      "millis_p95": 0.009538000000000001,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          7,
+          17,
+          12,
+          1
+        ],
+        "max": 9,
+        "mean": 7.025,
+        "min": 5,
+        "n": 40
+      },
+      "proven": 40
+    },
+    {
+      "cases": 40,
+      "depth": 14,
+      "inverse_optimal": 0,
+      "max_saving": 8,
+      "mean_saving": 6.5,
+      "millis_max": 0.015439,
+      "millis_mean": 0.0058168,
+      "millis_mean_proven": 0.0058168,
+      "millis_median": 0.0056110000000000005,
+      "millis_p95": 0.008606,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          7,
+          14,
+          13,
+          4,
+          2
+        ],
+        "max": 10,
+        "mean": 7.5,
+        "min": 6,
+        "n": 40
+      },
+      "proven": 40
+    },
+    {
+      "cases": 40,
+      "depth": 15,
+      "inverse_optimal": 0,
+      "max_saving": 11,
+      "mean_saving": 7.55,
+      "millis_max": 0.009968,
+      "millis_mean": 0.005450574999999999,
+      "millis_mean_proven": 0.005450574999999999,
+      "millis_median": 0.005180000000000001,
+      "millis_p95": 0.009498,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          5,
+          14,
+          13,
+          3,
+          3
+        ],
+        "max": 10,
+        "mean": 7.45,
+        "min": 4,
+        "n": 40
+      },
+      "proven": 40
+    },
+    {
+      "cases": 40,
+      "depth": 16,
+      "inverse_optimal": 0,
+      "max_saving": 11,
+      "mean_saving": 8.5,
+      "millis_max": 0.019967000000000002,
+      "millis_mean": 0.005768975000000001,
+      "millis_mean_proven": 0.005768975000000001,
+      "millis_median": 0.004609,
+      "millis_p95": 0.009208000000000001,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          2,
+          14,
+          14,
+          7
+        ],
+        "max": 9,
+        "mean": 7.5,
+        "min": 5,
+        "n": 40
+      },
+      "proven": 40
+    },
+    {
+      "cases": 40,
+      "depth": 17,
+      "inverse_optimal": 0,
+      "max_saving": 11,
+      "mean_saving": 9.125,
+      "millis_max": 0.014106,
+      "millis_mean": 0.004993925000000001,
+      "millis_mean_proven": 0.004993925000000001,
+      "millis_median": 0.0046890000000000005,
+      "millis_p95": 0.007284,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          5,
+          8,
+          19,
+          4,
+          3,
+          1
+        ],
+        "max": 11,
+        "mean": 7.875,
+        "min": 6,
+        "n": 40
+      },
+      "proven": 40
+    },
+    {
+      "cases": 40,
+      "depth": 18,
+      "inverse_optimal": 0,
+      "max_saving": 13,
+      "mean_saving": 10.125,
+      "millis_max": 0.012604,
+      "millis_mean": 0.0051973,
+      "millis_mean_proven": 0.0051973,
+      "millis_median": 0.004819,
+      "millis_p95": 0.009668,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          5,
+          10,
+          11,
+          8,
+          5
+        ],
+        "max": 10,
+        "mean": 7.875,
+        "min": 5,
+        "n": 40
+      },
+      "proven": 40
+    },
+    {
+      "cases": 40,
+      "depth": 19,
+      "inverse_optimal": 0,
+      "max_saving": 14,
+      "mean_saving": 11.175,
+      "millis_max": 0.019166,
+      "millis_mean": 0.005056674999999998,
+      "millis_mean_proven": 0.005056674999999998,
+      "millis_median": 0.004588999999999999,
+      "millis_p95": 0.007624000000000001,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          12,
+          13,
+          12
+        ],
+        "max": 9,
+        "mean": 7.825,
+        "min": 5,
+        "n": 40
+      },
+      "proven": 40
+    },
+    {
+      "cases": 40,
+      "depth": 20,
+      "inverse_optimal": 0,
+      "max_saving": 15,
+      "mean_saving": 12.275,
+      "millis_max": 0.015389000000000002,
+      "millis_mean": 0.005015325,
+      "millis_mean_proven": 0.005015325,
+      "millis_median": 0.004619,
+      "millis_p95": 0.007254,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          4,
+          9,
+          15,
+          8,
+          2
+        ],
+        "max": 10,
+        "mean": 7.725,
+        "min": 5,
+        "n": 40
+      },
+      "proven": 40
+    }
+  ],
+  "setup_seconds": 204.338915012,
+  "states": 11492815950,
+  "target": "..........X.....XXX...XX.XX...XXX.....X..........",
+  "total_seconds": 204.34641918
+}

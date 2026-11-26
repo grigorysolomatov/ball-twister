@@ -1,0 +1,1191 @@
+{
+  "balls": 23,
+  "chapter": 3,
+  "game_puzzles": [
+    {
+      "given": 4,
+      "lower_bound": 4,
+      "millis": 0.0016530000000000002,
+      "optimal": 4,
+      "puzzle": "daily 19"
+    },
+    {
+      "given": 11,
+      "lower_bound": 9,
+      "millis": 6.933385,
+      "optimal": 9,
+      "puzzle": "daily 43"
+    },
+    {
+      "given": 15,
+      "lower_bound": 10,
+      "millis": 32.048996,
+      "optimal": 10,
+      "puzzle": "daily 59"
+    },
+    {
+      "given": 6,
+      "lower_bound": 6,
+      "millis": 0.001032,
+      "optimal": 6,
+      "puzzle": "daily 75"
+    },
+    {
+      "given": 8,
+      "lower_bound": 7,
+      "millis": 0.208153,
+      "optimal": 7,
+      "puzzle": "daily 118"
+    },
+    {
+      "given": 14,
+      "lower_bound": 10,
+      "millis": 149.109614,
+      "optimal": 10,
+      "puzzle": "daily 121"
+    },
+    {
+      "given": 9,
+      "lower_bound": 8,
+      "millis": 0.248628,
+      "optimal": 8,
+      "puzzle": "daily 154"
+    },
+    {
+      "given": 17,
+      "lower_bound": 8,
+      "millis": 2.59327,
+      "optimal": 8,
+      "puzzle": "daily 172"
+    },
+    {
+      "given": 7,
+      "lower_bound": 7,
+      "millis": 0.011551,
+      "optimal": 7,
+      "puzzle": "daily 195"
+    },
+    {
+      "given": 9,
+      "lower_bound": 6,
+      "millis": 0.018164,
+      "optimal": 6,
+      "puzzle": "daily 224"
+    },
+    {
+      "given": 4,
+      "lower_bound": 4,
+      "millis": 0.001042,
+      "optimal": 4,
+      "puzzle": "daily 264"
+    },
+    {
+      "given": 10,
+      "lower_bound": 8,
+      "millis": 1.974043,
+      "optimal": 8,
+      "puzzle": "daily 274"
+    },
+    {
+      "given": 16,
+      "lower_bound": 9,
+      "millis": 36.540636,
+      "optimal": 9,
+      "puzzle": "daily 304"
+    },
+    {
+      "given": 15,
+      "lower_bound": 8,
+      "millis": 0.28625900000000004,
+      "optimal": 8,
+      "puzzle": "daily 319"
+    },
+    {
+      "given": 10,
+      "lower_bound": 8,
+      "millis": 2.456833,
+      "optimal": 8,
+      "puzzle": "daily 358"
+    },
+    {
+      "given": 10,
+      "lower_bound": 8,
+      "millis": 0.2703,
+      "optimal": 8,
+      "puzzle": "level play"
+    }
+  ],
+  "id": 12,
+  "method": "IDA* on random positions",
+  "name": "Chapter 3 · Wednesday",
+  "pdb_layers": [
+    [
+      1,
+      20,
+      354,
+      4214,
+      32126,
+      159092,
+      507579,
+      1023956,
+      1278790,
+      952885,
+      399351,
+      88510,
+      10094,
+      424,
+      4
+    ],
+    [
+      1,
+      13,
+      254,
+      3190,
+      24891,
+      129131,
+      422696,
+      810782,
+      823851,
+      390515,
+      86560,
+      10980,
+      1208,
+      84
+    ]
+  ],
+  "pdb_max": [
+    14,
+    13
+  ],
+  "perimeter_layers": [
+    1,
+    31,
+    951,
+    28099,
+    787941,
+    18940175
+  ],
+  "random": {
+    "millis_max": 62233.113183,
+    "millis_mean": 9997.3260920625,
+    "optimal": {
+      "histogram": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4,
+        17,
+        19,
+        4
+      ],
+      "max": 13,
+      "mean": 11.41304347826087,
+      "min": 9,
+      "n": 46
+    },
+    "unsolved": 2,
+    "unsolved_lower_bounds": {
+      "histogram": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "max": 13,
+      "mean": 12.5,
+      "min": 12,
+      "n": 2
+    }
+  },
+  "scrambles": [
+    {
+      "cases": 24,
+      "depth": 4,
+      "inverse_optimal": 23,
+      "max_saving": 2,
+      "mean_saving": 0.08333333333333333,
+      "millis_max": 0.003908,
+      "millis_mean": 0.001184,
+      "millis_mean_proven": 0.001184,
+      "millis_median": 0.000902,
+      "millis_p95": 0.003086,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          1,
+          0,
+          23
+        ],
+        "max": 4,
+        "mean": 3.9166666666666665,
+        "min": 2,
+        "n": 24
+      },
+      "proven": 24
+    },
+    {
+      "cases": 24,
+      "depth": 5,
+      "inverse_optimal": 23,
+      "max_saving": 2,
+      "mean_saving": 0.08333333333333333,
+      "millis_max": 0.006642,
+      "millis_mean": 0.0007050416666666666,
+      "millis_mean_proven": 0.0007050416666666666,
+      "millis_median": 0.000391,
+      "millis_p95": 0.0013620000000000001,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          23
+        ],
+        "max": 5,
+        "mean": 4.916666666666667,
+        "min": 3,
+        "n": 24
+      },
+      "proven": 24
+    },
+    {
+      "cases": 24,
+      "depth": 6,
+      "inverse_optimal": 18,
+      "max_saving": 2,
+      "mean_saving": 0.3333333333333333,
+      "millis_max": 0.009798,
+      "millis_mean": 0.0019736666666666665,
+      "millis_mean_proven": 0.0019736666666666665,
+      "millis_median": 0.000581,
+      "millis_p95": 0.009789,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          2,
+          4,
+          18
+        ],
+        "max": 6,
+        "mean": 5.666666666666667,
+        "min": 4,
+        "n": 24
+      },
+      "proven": 24
+    },
+    {
+      "cases": 24,
+      "depth": 7,
+      "inverse_optimal": 11,
+      "max_saving": 3,
+      "mean_saving": 0.9166666666666666,
+      "millis_max": 0.017893,
+      "millis_mean": 0.006862083333333334,
+      "millis_mean_proven": 0.006862083333333334,
+      "millis_median": 0.0060220000000000004,
+      "millis_p95": 0.016441,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          7,
+          5,
+          11
+        ],
+        "max": 7,
+        "mean": 6.083333333333333,
+        "min": 4,
+        "n": 24
+      },
+      "proven": 24
+    },
+    {
+      "cases": 24,
+      "depth": 8,
+      "inverse_optimal": 10,
+      "max_saving": 3,
+      "mean_saving": 0.875,
+      "millis_max": 0.476599,
+      "millis_mean": 0.132360125,
+      "millis_mean_proven": 0.132360125,
+      "millis_median": 0.052358999999999996,
+      "millis_p95": 0.45029,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          5,
+          8,
+          10
+        ],
+        "max": 8,
+        "mean": 7.125,
+        "min": 5,
+        "n": 24
+      },
+      "proven": 24
+    },
+    {
+      "cases": 24,
+      "depth": 9,
+      "inverse_optimal": 5,
+      "max_saving": 4,
+      "mean_saving": 1.4583333333333333,
+      "millis_max": 4.190402000000001,
+      "millis_mean": 1.2100536250000002,
+      "millis_mean_proven": 1.2100536250000002,
+      "millis_median": 1.004434,
+      "millis_p95": 4.002298,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          4,
+          5,
+          9,
+          5
+        ],
+        "max": 9,
+        "mean": 7.541666666666667,
+        "min": 5,
+        "n": 24
+      },
+      "proven": 24
+    },
+    {
+      "cases": 24,
+      "depth": 10,
+      "inverse_optimal": 0,
+      "max_saving": 5,
+      "mean_saving": 2.2916666666666665,
+      "millis_max": 65.536906,
+      "millis_mean": 8.350723125,
+      "millis_mean_proven": 8.350723125,
+      "millis_median": 1.7706790000000001,
+      "millis_p95": 36.762795000000004,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          4,
+          2,
+          11,
+          6
+        ],
+        "max": 9,
+        "mean": 7.708333333333333,
+        "min": 5,
+        "n": 24
+      },
+      "proven": 24
+    },
+    {
+      "cases": 24,
+      "depth": 11,
+      "inverse_optimal": 0,
+      "max_saving": 5,
+      "mean_saving": 2.875,
+      "millis_max": 38.555387,
+      "millis_mean": 5.11904175,
+      "millis_mean_proven": 5.11904175,
+      "millis_median": 2.017695,
+      "millis_p95": 26.93872,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          14,
+          7
+        ],
+        "max": 9,
+        "mean": 8.125,
+        "min": 6,
+        "n": 24
+      },
+      "proven": 24
+    },
+    {
+      "cases": 24,
+      "depth": 12,
+      "inverse_optimal": 0,
+      "max_saving": 7,
+      "mean_saving": 3.7916666666666665,
+      "millis_max": 180.21368900000002,
+      "millis_mean": 18.325857625,
+      "millis_mean_proven": 18.325857625,
+      "millis_median": 2.788768,
+      "millis_p95": 47.018975999999995,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          6,
+          6,
+          8,
+          3
+        ],
+        "max": 10,
+        "mean": 8.208333333333334,
+        "min": 5,
+        "n": 24
+      },
+      "proven": 24
+    },
+    {
+      "cases": 24,
+      "depth": 13,
+      "inverse_optimal": 0,
+      "max_saving": 6,
+      "mean_saving": 4.375,
+      "millis_max": 631.9653109999999,
+      "millis_mean": 53.98275229166666,
+      "millis_mean_proven": 53.98275229166666,
+      "millis_median": 2.180552,
+      "millis_p95": 196.922527,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          4,
+          10,
+          4,
+          3,
+          3
+        ],
+        "max": 11,
+        "mean": 8.625,
+        "min": 7,
+        "n": 24
+      },
+      "proven": 24
+    },
+    {
+      "cases": 24,
+      "depth": 14,
+      "inverse_optimal": 0,
+      "max_saving": 7,
+      "mean_saving": 5.0,
+      "millis_max": 4141.479019,
+      "millis_mean": 310.96984495833334,
+      "millis_mean_proven": 310.96984495833334,
+      "millis_median": 11.733016000000001,
+      "millis_p95": 1045.446485,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          4,
+          5,
+          6,
+          5,
+          4
+        ],
+        "max": 11,
+        "mean": 9.0,
+        "min": 7,
+        "n": 24
+      },
+      "proven": 24
+    },
+    {
+      "cases": 24,
+      "depth": 15,
+      "inverse_optimal": 0,
+      "max_saving": 9,
+      "mean_saving": 5.916666666666667,
+      "millis_max": 1215.442164,
+      "millis_mean": 140.83860945833334,
+      "millis_mean_proven": 140.83860945833334,
+      "millis_median": 15.085458,
+      "millis_p95": 578.264064,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          7,
+          6,
+          8,
+          2
+        ],
+        "max": 11,
+        "mean": 9.083333333333334,
+        "min": 6,
+        "n": 24
+      },
+      "proven": 24
+    },
+    {
+      "cases": 24,
+      "depth": 16,
+      "inverse_optimal": 0,
+      "max_saving": 10,
+      "mean_saving": 6.708333333333333,
+      "millis_max": 3360.094621,
+      "millis_mean": 252.39738300000002,
+      "millis_mean_proven": 252.39738300000002,
+      "millis_median": 22.057305,
+      "millis_p95": 517.119299,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          4,
+          6,
+          5,
+          5,
+          1
+        ],
+        "max": 12,
+        "mean": 9.291666666666666,
+        "min": 6,
+        "n": 24
+      },
+      "proven": 24
+    },
+    {
+      "cases": 24,
+      "depth": 17,
+      "inverse_optimal": 0,
+      "max_saving": 10,
+      "mean_saving": 7.5,
+      "millis_max": 1546.493235,
+      "millis_mean": 177.95253570833336,
+      "millis_mean_proven": 177.95253570833336,
+      "millis_median": 38.636398,
+      "millis_p95": 1231.138654,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          12,
+          5,
+          4,
+          1
+        ],
+        "max": 12,
+        "mean": 9.5,
+        "min": 7,
+        "n": 24
+      },
+      "proven": 24
+    },
+    {
+      "cases": 24,
+      "depth": 18,
+      "inverse_optimal": 0,
+      "max_saving": 10,
+      "mean_saving": 8.125,
+      "millis_max": 11692.903532,
+      "millis_mean": 921.3947189166666,
+      "millis_mean_proven": 921.3947189166666,
+      "millis_median": 108.590034,
+      "millis_p95": 3105.6812489999998,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          4,
+          5,
+          7,
+          6,
+          2
+        ],
+        "max": 12,
+        "mean": 9.875,
+        "min": 8,
+        "n": 24
+      },
+      "proven": 24
+    },
+    {
+      "cases": 24,
+      "depth": 19,
+      "inverse_optimal": 0,
+      "max_saving": 10,
+      "mean_saving": 8.833333333333334,
+      "millis_max": 17538.502454999998,
+      "millis_mean": 1468.4051855416667,
+      "millis_mean_proven": 1468.4051855416667,
+      "millis_median": 447.081105,
+      "millis_p95": 3087.617394,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          4,
+          13,
+          6,
+          1
+        ],
+        "max": 12,
+        "mean": 10.166666666666666,
+        "min": 9,
+        "n": 24
+      },
+      "proven": 24
+    },
+    {
+      "cases": 24,
+      "depth": 20,
+      "inverse_optimal": 0,
+      "max_saving": 12,
+      "mean_saving": 9.875,
+      "millis_max": 5817.435465,
+      "millis_mean": 1092.624494,
+      "millis_mean_proven": 1092.624494,
+      "millis_median": 304.450168,
+      "millis_p95": 5605.630794,
+      "optimal": {
+        "histogram": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          5,
+          6,
+          10,
+          1
+        ],
+        "max": 12,
+        "mean": 10.125,
+        "min": 8,
+        "n": 24
+      },
+      "proven": 24
+    }
+  ],
+  "setup_seconds": 5.566172237,
+  "shortener": [
+    {
+      "cancel": 10,
+      "depth": 12,
+      "given": 12,
+      "millis": 42.178858999999996,
+      "optimal": 6,
+      "shortened": 6,
+      "window": 6
+    },
+    {
+      "cancel": 12,
+      "depth": 12,
+      "given": 12,
+      "millis": 235.758212,
+      "optimal": 7,
+      "shortened": 8,
+      "window": 8
+    },
+    {
+      "cancel": 12,
+      "depth": 12,
+      "given": 12,
+      "millis": 405.9016,
+      "optimal": 8,
+      "shortened": 9,
+      "window": 9
+    },
+    {
+      "cancel": 12,
+      "depth": 12,
+      "given": 12,
+      "millis": 462.429658,
+      "optimal": 10,
+      "shortened": 11,
+      "window": 11
+    },
+    {
+      "cancel": 12,
+      "depth": 12,
+      "given": 12,
+      "millis": 594.8747970000001,
+      "optimal": 9,
+      "shortened": 10,
+      "window": 10
+    },
+    {
+      "cancel": 10,
+      "depth": 12,
+      "given": 12,
+      "millis": 216.545321,
+      "optimal": 9,
+      "shortened": 10,
+      "window": 10
+    },
+    {
+      "cancel": 10,
+      "depth": 12,
+      "given": 12,
+      "millis": 274.35577700000005,
+      "optimal": 9,
+      "shortened": 9,
+      "window": 9
+    },
+    {
+      "cancel": 12,
+      "depth": 12,
+      "given": 12,
+      "millis": 427.167723,
+      "optimal": 8,
+      "shortened": 9,
+      "window": 9
+    },
+    {
+      "cancel": 12,
+      "depth": 12,
+      "given": 12,
+      "millis": 553.926047,
+      "optimal": 8,
+      "shortened": 10,
+      "window": 10
+    },
+    {
+      "cancel": 12,
+      "depth": 12,
+      "given": 12,
+      "millis": 351.521052,
+      "optimal": 8,
+      "shortened": 9,
+      "window": 9
+    },
+    {
+      "cancel": 12,
+      "depth": 12,
+      "given": 12,
+      "millis": 513.348669,
+      "optimal": 9,
+      "shortened": 11,
+      "window": 11
+    },
+    {
+      "cancel": 12,
+      "depth": 12,
+      "given": 12,
+      "millis": 52.797443,
+      "optimal": 6,
+      "shortened": 6,
+      "window": 6
+    },
+    {
+      "cancel": 16,
+      "depth": 16,
+      "given": 16,
+      "millis": 419.083147,
+      "optimal": 7,
+      "shortened": 8,
+      "window": 8
+    },
+    {
+      "cancel": 16,
+      "depth": 16,
+      "given": 16,
+      "millis": 836.593198,
+      "optimal": 8,
+      "shortened": 9,
+      "window": 9
+    },
+    {
+      "cancel": 16,
+      "depth": 16,
+      "given": 16,
+      "millis": 856.185294,
+      "optimal": 10,
+      "shortened": 14,
+      "window": 14
+    },
+    {
+      "cancel": 14,
+      "depth": 16,
+      "given": 16,
+      "millis": 616.185213,
+      "optimal": 10,
+      "shortened": 12,
+      "window": 12
+    },
+    {
+      "cancel": 16,
+      "depth": 16,
+      "given": 16,
+      "millis": 781.206683,
+      "optimal": 9,
+      "shortened": 14,
+      "window": 14
+    },
+    {
+      "cancel": 16,
+      "depth": 16,
+      "given": 16,
+      "millis": 363.10179,
+      "optimal": 8,
+      "shortened": 8,
+      "window": 8
+    },
+    {
+      "cancel": 12,
+      "depth": 16,
+      "given": 16,
+      "millis": 372.148069,
+      "optimal": 9,
+      "shortened": 10,
+      "window": 10
+    },
+    {
+      "cancel": 14,
+      "depth": 16,
+      "given": 16,
+      "millis": 768.244409,
+      "optimal": 9,
+      "shortened": 12,
+      "window": 12
+    },
+    {
+      "cancel": 16,
+      "depth": 16,
+      "given": 16,
+      "millis": 808.306116,
+      "optimal": 10,
+      "shortened": 13,
+      "window": 13
+    },
+    {
+      "cancel": 16,
+      "depth": 16,
+      "given": 16,
+      "millis": 927.801774,
+      "optimal": 10,
+      "shortened": 14,
+      "window": 14
+    },
+    {
+      "cancel": 16,
+      "depth": 16,
+      "given": 16,
+      "millis": 594.6560039999999,
+      "optimal": 10,
+      "shortened": 11,
+      "window": 11
+    },
+    {
+      "cancel": 16,
+      "depth": 16,
+      "given": 16,
+      "millis": 941.0772790000001,
+      "optimal": 10,
+      "shortened": 14,
+      "window": 14
+    },
+    {
+      "cancel": 16,
+      "depth": 20,
+      "given": 20,
+      "millis": 912.18219,
+      "optimal": 10,
+      "shortened": 14,
+      "window": 14
+    },
+    {
+      "cancel": 20,
+      "depth": 20,
+      "given": 20,
+      "millis": 638.123253,
+      "optimal": 9,
+      "shortened": 10,
+      "window": 10
+    },
+    {
+      "cancel": 18,
+      "depth": 20,
+      "given": 20,
+      "millis": 1048.408039,
+      "optimal": 9,
+      "shortened": 15,
+      "window": 15
+    },
+    {
+      "cancel": 20,
+      "depth": 20,
+      "given": 20,
+      "millis": 1298.834341,
+      "optimal": 10,
+      "shortened": 14,
+      "window": 14
+    },
+    {
+      "cancel": 20,
+      "depth": 20,
+      "given": 20,
+      "millis": 1614.588244,
+      "optimal": 9,
+      "shortened": 16,
+      "window": 16
+    },
+    {
+      "cancel": 20,
+      "depth": 20,
+      "given": 20,
+      "millis": 1109.0205879999999,
+      "optimal": 10,
+      "shortened": 17,
+      "window": 17
+    },
+    {
+      "cancel": 18,
+      "depth": 20,
+      "given": 20,
+      "millis": 1182.168437,
+      "optimal": 9,
+      "shortened": 17,
+      "window": 17
+    },
+    {
+      "cancel": 18,
+      "depth": 20,
+      "given": 20,
+      "millis": 1164.075098,
+      "optimal": 10,
+      "shortened": 15,
+      "window": 15
+    },
+    {
+      "cancel": 20,
+      "depth": 20,
+      "given": 20,
+      "millis": 1388.0611000000001,
+      "optimal": 11,
+      "shortened": 13,
+      "window": 13
+    },
+    {
+      "cancel": 18,
+      "depth": 20,
+      "given": 20,
+      "millis": 1427.769821,
+      "optimal": 11,
+      "shortened": 17,
+      "window": 17
+    },
+    {
+      "cancel": 20,
+      "depth": 20,
+      "given": 20,
+      "millis": 1025.883723,
+      "optimal": 10,
+      "shortened": 11,
+      "window": 11
+    },
+    {
+      "cancel": 16,
+      "depth": 20,
+      "given": 20,
+      "millis": 1473.68172,
+      "optimal": 9,
+      "shortened": 12,
+      "window": 12
+    },
+    {
+      "cancel": 30,
+      "depth": 30,
+      "given": 30,
+      "millis": 2431.510698,
+      "optimal": 12,
+      "shortened": 19,
+      "window": 19
+    },
+    {
+      "cancel": 30,
+      "depth": 30,
+      "given": 30,
+      "millis": 1989.5057259999999,
+      "optimal": 9,
+      "shortened": 19,
+      "window": 19
+    },
+    {
+      "cancel": 30,
+      "depth": 30,
+      "given": 30,
+      "millis": 3168.14082,
+      "optimal": 11,
+      "shortened": 24,
+      "window": 24
+    },
+    {
+      "cancel": 24,
+      "depth": 30,
+      "given": 30,
+      "millis": 2731.687938,
+      "optimal": 10,
+      "shortened": 14,
+      "window": 14
+    },
+    {
+      "cancel": 28,
+      "depth": 30,
+      "given": 30,
+      "millis": 2825.009008,
+      "optimal": 10,
+      "shortened": 18,
+      "window": 18
+    },
+    {
+      "cancel": 28,
+      "depth": 30,
+      "given": 30,
+      "millis": 1654.024952,
+      "optimal": 12,
+      "shortened": 18,
+      "window": 18
+    },
+    {
+      "cancel": 30,
+      "depth": 30,
+      "given": 30,
+      "millis": 2927.497847,
+      "optimal": 10,
+      "shortened": 18,
+      "window": 18
+    },
+    {
+      "cancel": 30,
+      "depth": 30,
+      "given": 30,
+      "millis": 3180.475289,
+      "optimal": 11,
+      "shortened": 13,
+      "window": 13
+    },
+    {
+      "cancel": 26,
+      "depth": 30,
+      "given": 30,
+      "millis": 2449.3061159999997,
+      "optimal": 10,
+      "shortened": 24,
+      "window": 24
+    },
+    {
+      "cancel": 26,
+      "depth": 30,
+      "given": 30,
+      "millis": 2055.732313,
+      "optimal": 11,
+      "shortened": 23,
+      "window": 23
+    },
+    {
+      "cancel": 26,
+      "depth": 30,
+      "given": 30,
+      "millis": 1981.280204,
+      "optimal": 10,
+      "shortened": 19,
+      "window": 19
+    },
+    {
+      "cancel": 28,
+      "depth": 30,
+      "given": 30,
+      "millis": 2199.662791,
+      "optimal": 11,
+      "shortened": 17,
+      "window": 17
+    }
+  ],
+  "states": 12053504954400,
+  "target": ".......XXXXXXX......XXXXXXXXX......XXXXXXX.......",
+  "total_seconds": 139.834838663
+}

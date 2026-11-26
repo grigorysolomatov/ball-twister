@@ -1,0 +1,7161 @@
+{
+  "largest_tables_bytes": 544032468,
+  "pdb_limit": 300000000,
+  "perimeter_cap": 60000000,
+  "puzzles": [
+    {
+      "given": 12,
+      "lower_bound": 7,
+      "millis": 0.03194,
+      "name": "Chapter 5 · Tuesday",
+      "nodes": 69,
+      "number": 1,
+      "par": 7,
+      "setup_millis": 5059.472076999999,
+      "solution": [
+        16,
+        38,
+        58,
+        65,
+        32,
+        79,
+        61
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 14,
+      "lower_bound": 7,
+      "millis": 0.21620799999999998,
+      "name": "Chapter 2 · Tuesday",
+      "nodes": 881,
+      "number": 2,
+      "par": 7,
+      "setup_millis": 6910.564942999999,
+      "solution": [
+        59,
+        33,
+        46,
+        74,
+        50,
+        64,
+        52
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 16,
+      "lower_bound": 7,
+      "millis": 0.175862,
+      "name": "Chapter 3 · Tuesday",
+      "nodes": 1229,
+      "number": 3,
+      "par": 7,
+      "setup_millis": 8811.62965,
+      "solution": [
+        53,
+        38,
+        37,
+        32,
+        37,
+        45,
+        47
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 15,
+      "lower_bound": 6,
+      "millis": 0.014837999999999999,
+      "name": "Chapter 2 · Monday",
+      "nodes": 7,
+      "number": 4,
+      "par": 6,
+      "setup_millis": 31191.238504,
+      "solution": [
+        21,
+        23,
+        33,
+        60,
+        58,
+        81
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 4,
+      "lower_bound": 4,
+      "millis": 0.002655,
+      "name": "Chapter 3 · Thursday",
+      "nodes": 0,
+      "number": 5,
+      "par": 4,
+      "setup_millis": 7359.930349,
+      "solution": [
+        63,
+        30,
+        60,
+        22
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 8,
+      "lower_bound": 6,
+      "millis": 0.017613,
+      "name": "Chapter 2 · Friday",
+      "nodes": 8,
+      "number": 6,
+      "par": 6,
+      "setup_millis": 4440.018142,
+      "solution": [
+        22,
+        59,
+        35,
+        61,
+        73,
+        78
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 8,
+      "lower_bound": 6,
+      "millis": 0.012834,
+      "name": "Chapter 3 · Monday",
+      "nodes": 6,
+      "number": 7,
+      "par": 6,
+      "setup_millis": 5128.717661,
+      "solution": [
+        22,
+        20,
+        45,
+        53,
+        73,
+        78
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 5,
+      "millis": 0.012274,
+      "name": "Chapter 1 · Wednesday",
+      "nodes": 1,
+      "number": 8,
+      "par": 5,
+      "setup_millis": 8840.951095999999,
+      "solution": [
+        44,
+        32,
+        60,
+        79,
+        46
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 13,
+      "lower_bound": 8,
+      "millis": 0.29674900000000004,
+      "name": "Chapter 4 · Friday",
+      "nodes": 1922,
+      "number": 9,
+      "par": 8,
+      "setup_millis": 6143.365117,
+      "solution": [
+        16,
+        47,
+        77,
+        51,
+        21,
+        52,
+        37,
+        80
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 17,
+      "lower_bound": 8,
+      "millis": 0.05296,
+      "name": "Chapter 2 · Wednesday",
+      "nodes": 376,
+      "number": 10,
+      "par": 8,
+      "setup_millis": 6357.762303,
+      "solution": [
+        17,
+        22,
+        30,
+        79,
+        51,
+        66,
+        79,
+        62
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 19,
+      "lower_bound": 7,
+      "millis": 0.077636,
+      "name": "Chapter 5 · Thursday",
+      "nodes": 385,
+      "number": 11,
+      "par": 7,
+      "setup_millis": 4692.639109,
+      "solution": [
+        25,
+        20,
+        23,
+        47,
+        31,
+        63,
+        74
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 5,
+      "millis": 0.014969,
+      "name": "Chapter 2 · Thursday",
+      "nodes": 1,
+      "number": 12,
+      "par": 5,
+      "setup_millis": 7259.5323929999995,
+      "solution": [
+        62,
+        32,
+        78,
+        48,
+        22
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 7,
+      "lower_bound": 5,
+      "millis": 0.01609,
+      "name": "Chapter 3 · Friday",
+      "nodes": 1,
+      "number": 13,
+      "par": 5,
+      "setup_millis": 7062.134013,
+      "solution": [
+        58,
+        75,
+        61,
+        50,
+        72
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 8,
+      "lower_bound": 6,
+      "millis": 0.017132,
+      "name": "Chapter 1 · Thursday",
+      "nodes": 24,
+      "number": 14,
+      "par": 6,
+      "setup_millis": 4708.19231,
+      "solution": [
+        46,
+        33,
+        46,
+        20,
+        51,
+        25
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 10,
+      "lower_bound": 6,
+      "millis": 0.027861999999999998,
+      "name": "Chapter 5 · Monday",
+      "nodes": 5,
+      "number": 15,
+      "par": 6,
+      "setup_millis": 12391.616326,
+      "solution": [
+        19,
+        32,
+        61,
+        76,
+        59,
+        80
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 13,
+      "lower_bound": 8,
+      "millis": 0.155804,
+      "name": "Chapter 4 · Wednesday",
+      "nodes": 1515,
+      "number": 16,
+      "par": 8,
+      "setup_millis": 6890.756583,
+      "solution": [
+        16,
+        22,
+        25,
+        23,
+        52,
+        34,
+        73,
+        78
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 17,
+      "lower_bound": 11,
+      "millis": 172.275326,
+      "name": "Chapter 1 · Friday",
+      "nodes": 2495566,
+      "number": 17,
+      "par": 11,
+      "setup_millis": 4787.625784,
+      "solution": [
+        16,
+        31,
+        48,
+        19,
+        44,
+        50,
+        36,
+        66,
+        76,
+        73,
+        74
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 19,
+      "lower_bound": 4,
+      "millis": 0.0060209999999999994,
+      "name": "Chapter 1 · Tuesday",
+      "nodes": 1,
+      "number": 18,
+      "par": 4,
+      "setup_millis": 818.721461,
+      "solution": [
+        31,
+        33,
+        46,
+        37
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 4,
+      "lower_bound": 4,
+      "millis": 0.002575,
+      "name": "Chapter 3 · Wednesday",
+      "nodes": 0,
+      "number": 19,
+      "par": 4,
+      "setup_millis": 6147.742212,
+      "solution": [
+        52,
+        24,
+        51,
+        65
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 8,
+      "lower_bound": 6,
+      "millis": 0.033652999999999995,
+      "name": "Chapter 4 · Thursday",
+      "nodes": 161,
+      "number": 20,
+      "par": 6,
+      "setup_millis": 520.477654,
+      "solution": [
+        18,
+        33,
+        39,
+        61,
+        32,
+        75
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 8,
+      "lower_bound": 4,
+      "millis": 0.004308,
+      "name": "Chapter 4 · Monday",
+      "nodes": 1,
+      "number": 21,
+      "par": 4,
+      "setup_millis": 241.363562,
+      "solution": [
+        19,
+        39,
+        48,
+        63
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 10,
+      "lower_bound": 4,
+      "millis": 0.002475,
+      "name": "Chapter 1 · Monday",
+      "nodes": 1,
+      "number": 22,
+      "par": 4,
+      "setup_millis": 7.037331,
+      "solution": [
+        16,
+        65,
+        36,
+        21
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 15,
+      "lower_bound": 6,
+      "millis": 0.015209,
+      "name": "Chapter 5 · Wednesday",
+      "nodes": 4,
+      "number": 23,
+      "par": 6,
+      "setup_millis": 1990.263849,
+      "solution": [
+        20,
+        60,
+        45,
+        59,
+        34,
+        78
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 16,
+      "lower_bound": 8,
+      "millis": 0.337757,
+      "name": "Chapter 4 · Tuesday",
+      "nodes": 2858,
+      "number": 24,
+      "par": 8,
+      "setup_millis": 2896.985268,
+      "solution": [
+        16,
+        80,
+        78,
+        49,
+        23,
+        32,
+        23,
+        35
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 15,
+      "lower_bound": 10,
+      "millis": 44.512241,
+      "name": "Chapter 3 · Thursday",
+      "nodes": 609153,
+      "number": 25,
+      "par": 10,
+      "setup_millis": 7359.930349,
+      "solution": [
+        25,
+        20,
+        38,
+        48,
+        34,
+        25,
+        30,
+        64,
+        61,
+        72
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 6,
+      "millis": 0.016612,
+      "name": "Chapter 4 · Thursday",
+      "nodes": 51,
+      "number": 26,
+      "par": 6,
+      "setup_millis": 520.477654,
+      "solution": [
+        30,
+        52,
+        32,
+        30,
+        32,
+        78
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 8,
+      "lower_bound": 6,
+      "millis": 0.018124,
+      "name": "Chapter 2 · Friday",
+      "nodes": 15,
+      "number": 27,
+      "par": 6,
+      "setup_millis": 4440.018142,
+      "solution": [
+        33,
+        34,
+        24,
+        65,
+        50,
+        73
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 10,
+      "lower_bound": 6,
+      "millis": 0.016441,
+      "name": "Chapter 2 · Monday",
+      "nodes": 19,
+      "number": 28,
+      "par": 6,
+      "setup_millis": 31191.238504,
+      "solution": [
+        39,
+        37,
+        44,
+        79,
+        61,
+        44
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 12,
+      "lower_bound": 6,
+      "millis": 0.01586,
+      "name": "Chapter 4 · Tuesday",
+      "nodes": 7,
+      "number": 29,
+      "par": 6,
+      "setup_millis": 2896.985268,
+      "solution": [
+        23,
+        76,
+        47,
+        31,
+        81,
+        52
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 13,
+      "lower_bound": 9,
+      "millis": 15.698773999999998,
+      "name": "Chapter 5 · Monday",
+      "nodes": 178638,
+      "number": 30,
+      "par": 9,
+      "setup_millis": 12391.616326,
+      "solution": [
+        19,
+        20,
+        34,
+        30,
+        75,
+        65,
+        36,
+        62,
+        36
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 16,
+      "lower_bound": 9,
+      "millis": 6.253092,
+      "name": "Chapter 1 · Thursday",
+      "nodes": 98924,
+      "number": 31,
+      "par": 9,
+      "setup_millis": 4708.19231,
+      "solution": [
+        22,
+        20,
+        25,
+        44,
+        52,
+        25,
+        72,
+        59,
+        32
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 16,
+      "lower_bound": 5,
+      "millis": 0.009719,
+      "name": "Chapter 4 · Monday",
+      "nodes": 1,
+      "number": 32,
+      "par": 5,
+      "setup_millis": 241.363562,
+      "solution": [
+        22,
+        32,
+        66,
+        74,
+        45
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 4,
+      "lower_bound": 3,
+      "millis": 0.008116,
+      "name": "Chapter 1 · Wednesday",
+      "nodes": 1,
+      "number": 33,
+      "par": 3,
+      "setup_millis": 8840.951095999999,
+      "solution": [
+        47,
+        67,
+        79
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 7,
+      "lower_bound": 6,
+      "millis": 0.017042,
+      "name": "Chapter 4 · Wednesday",
+      "nodes": 18,
+      "number": 34,
+      "par": 6,
+      "setup_millis": 6890.756583,
+      "solution": [
+        36,
+        44,
+        19,
+        63,
+        73,
+        81
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 9,
+      "lower_bound": 5,
+      "millis": 0.008886999999999999,
+      "name": "Chapter 3 · Monday",
+      "nodes": 1,
+      "number": 35,
+      "par": 5,
+      "setup_millis": 5128.717661,
+      "solution": [
+        24,
+        45,
+        35,
+        23,
+        61
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 5,
+      "millis": 0.011823,
+      "name": "Chapter 4 · Friday",
+      "nodes": 1,
+      "number": 36,
+      "par": 5,
+      "setup_millis": 6143.365117,
+      "solution": [
+        24,
+        33,
+        75,
+        60,
+        37
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 12,
+      "lower_bound": 8,
+      "millis": 0.42943000000000003,
+      "name": "Chapter 3 · Tuesday",
+      "nodes": 4490,
+      "number": 37,
+      "par": 8,
+      "setup_millis": 8811.62965,
+      "solution": [
+        23,
+        21,
+        74,
+        62,
+        32,
+        59,
+        67,
+        80
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 14,
+      "lower_bound": 11,
+      "millis": 1316.688944,
+      "name": "Chapter 1 · Friday",
+      "nodes": 18521381,
+      "number": 38,
+      "par": 11,
+      "setup_millis": 4787.625784,
+      "solution": [
+        17,
+        78,
+        52,
+        23,
+        64,
+        39,
+        35,
+        44,
+        16,
+        75,
+        76
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 17,
+      "lower_bound": 4,
+      "millis": 0.00538,
+      "name": "Chapter 1 · Monday",
+      "nodes": 1,
+      "number": 39,
+      "par": 4,
+      "setup_millis": 7.037331,
+      "solution": [
+        22,
+        22,
+        65,
+        76
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 3,
+      "millis": 0.0052499999999999995,
+      "name": "Chapter 1 · Tuesday",
+      "nodes": 1,
+      "number": 40,
+      "par": 3,
+      "setup_millis": 818.721461,
+      "solution": [
+        23,
+        31,
+        46
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 8,
+      "lower_bound": 8,
+      "millis": 0.366371,
+      "name": "Chapter 3 · Friday",
+      "nodes": 1989,
+      "number": 41,
+      "par": 8,
+      "setup_millis": 7062.134013,
+      "solution": [
+        17,
+        36,
+        59,
+        66,
+        74,
+        17,
+        72,
+        81
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 10,
+      "lower_bound": 7,
+      "millis": 0.038783,
+      "name": "Chapter 2 · Wednesday",
+      "nodes": 90,
+      "number": 42,
+      "par": 7,
+      "setup_millis": 6357.762303,
+      "solution": [
+        16,
+        65,
+        34,
+        53,
+        76,
+        47,
+        59
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 9,
+      "millis": 5.794637,
+      "name": "Chapter 3 · Wednesday",
+      "nodes": 60909,
+      "number": 43,
+      "par": 9,
+      "setup_millis": 6147.742212,
+      "solution": [
+        17,
+        24,
+        58,
+        34,
+        37,
+        32,
+        46,
+        53,
+        80
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 13,
+      "lower_bound": 10,
+      "millis": 177.11894,
+      "name": "Chapter 2 · Thursday",
+      "nodes": 3113520,
+      "number": 44,
+      "par": 10,
+      "setup_millis": 7259.5323929999995,
+      "solution": [
+        37,
+        52,
+        49,
+        22,
+        58,
+        47,
+        79,
+        48,
+        31,
+        75
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 15,
+      "lower_bound": 7,
+      "millis": 0.076694,
+      "name": "Chapter 2 · Tuesday",
+      "nodes": 527,
+      "number": 45,
+      "par": 7,
+      "setup_millis": 6910.564942999999,
+      "solution": [
+        33,
+        38,
+        75,
+        81,
+        48,
+        20,
+        45
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 17,
+      "lower_bound": 8,
+      "millis": 0.783367,
+      "name": "Chapter 5 · Wednesday",
+      "nodes": 6622,
+      "number": 46,
+      "par": 8,
+      "setup_millis": 1990.263849,
+      "solution": [
+        19,
+        31,
+        20,
+        67,
+        50,
+        61,
+        59,
+        74
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 4,
+      "lower_bound": 4,
+      "millis": 0.001854,
+      "name": "Chapter 5 · Thursday",
+      "nodes": 0,
+      "number": 47,
+      "par": 4,
+      "setup_millis": 4692.639109,
+      "solution": [
+        60,
+        45,
+        67,
+        22
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 7,
+      "lower_bound": 7,
+      "millis": 0.017893999999999997,
+      "name": "Chapter 5 · Tuesday",
+      "nodes": 49,
+      "number": 48,
+      "par": 7,
+      "setup_millis": 5059.472076999999,
+      "solution": [
+        53,
+        78,
+        34,
+        62,
+        23,
+        18,
+        77
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 9,
+      "lower_bound": 5,
+      "millis": 0.012303000000000001,
+      "name": "Chapter 4 · Monday",
+      "nodes": 1,
+      "number": 49,
+      "par": 5,
+      "setup_millis": 241.363562,
+      "solution": [
+        18,
+        31,
+        73,
+        46,
+        62
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 8,
+      "millis": 0.925996,
+      "name": "Chapter 5 · Wednesday",
+      "nodes": 9112,
+      "number": 50,
+      "par": 8,
+      "setup_millis": 1990.263849,
+      "solution": [
+        22,
+        20,
+        24,
+        34,
+        72,
+        80,
+        53,
+        76
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 13,
+      "lower_bound": 9,
+      "millis": 18.388537,
+      "name": "Chapter 4 · Friday",
+      "nodes": 169091,
+      "number": 51,
+      "par": 9,
+      "setup_millis": 6143.365117,
+      "solution": [
+        20,
+        18,
+        32,
+        60,
+        79,
+        47,
+        77,
+        44,
+        80
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 18,
+      "lower_bound": 8,
+      "millis": 1.8805269999999998,
+      "name": "Chapter 2 · Tuesday",
+      "nodes": 17038,
+      "number": 52,
+      "par": 8,
+      "setup_millis": 6910.564942999999,
+      "solution": [
+        31,
+        38,
+        36,
+        20,
+        75,
+        76,
+        66,
+        64
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 17,
+      "lower_bound": 8,
+      "millis": 25.258642000000002,
+      "name": "Chapter 4 · Thursday",
+      "nodes": 420671,
+      "number": 53,
+      "par": 8,
+      "setup_millis": 520.477654,
+      "solution": [
+        47,
+        31,
+        50,
+        67,
+        76,
+        49,
+        37,
+        78
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 4,
+      "lower_bound": 4,
+      "millis": 0.0016929999999999998,
+      "name": "Chapter 1 · Wednesday",
+      "nodes": 0,
+      "number": 54,
+      "par": 4,
+      "setup_millis": 8840.951095999999,
+      "solution": [
+        62,
+        35,
+        37,
+        19
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 8,
+      "lower_bound": 7,
+      "millis": 0.09916699999999999,
+      "name": "Chapter 5 · Thursday",
+      "nodes": 509,
+      "number": 55,
+      "par": 7,
+      "setup_millis": 4692.639109,
+      "solution": [
+        30,
+        81,
+        52,
+        49,
+        30,
+        65,
+        67
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 9,
+      "lower_bound": 9,
+      "millis": 3.436601,
+      "name": "Chapter 3 · Friday",
+      "nodes": 29445,
+      "number": 56,
+      "par": 9,
+      "setup_millis": 7062.134013,
+      "solution": [
+        81,
+        23,
+        44,
+        47,
+        53,
+        38,
+        81,
+        17,
+        18
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 12,
+      "lower_bound": 7,
+      "millis": 0.112823,
+      "name": "Chapter 5 · Monday",
+      "nodes": 522,
+      "number": 57,
+      "par": 7,
+      "setup_millis": 12391.616326,
+      "solution": [
+        32,
+        44,
+        34,
+        63,
+        66,
+        36,
+        72
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 15,
+      "lower_bound": 8,
+      "millis": 0.701533,
+      "name": "Chapter 4 · Tuesday",
+      "nodes": 7383,
+      "number": 58,
+      "par": 8,
+      "setup_millis": 2896.985268,
+      "solution": [
+        22,
+        31,
+        38,
+        38,
+        72,
+        75,
+        46,
+        58
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 15,
+      "lower_bound": 10,
+      "millis": 30.225089,
+      "name": "Chapter 3 · Wednesday",
+      "nodes": 383223,
+      "number": 59,
+      "par": 10,
+      "setup_millis": 6147.742212,
+      "solution": [
+        16,
+        25,
+        20,
+        37,
+        46,
+        77,
+        64,
+        50,
+        73,
+        45
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 20,
+      "lower_bound": 7,
+      "millis": 0.020168000000000002,
+      "name": "Chapter 2 · Monday",
+      "nodes": 23,
+      "number": 60,
+      "par": 7,
+      "setup_millis": 31191.238504,
+      "solution": [
+        25,
+        45,
+        49,
+        79,
+        51,
+        22,
+        62
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 6,
+      "millis": 0.002255,
+      "name": "Chapter 3 · Thursday",
+      "nodes": 0,
+      "number": 61,
+      "par": 6,
+      "setup_millis": 7359.930349,
+      "solution": [
+        77,
+        58,
+        30,
+        76,
+        79,
+        44
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 6,
+      "lower_bound": 6,
+      "millis": 0.002345,
+      "name": "Chapter 3 · Tuesday",
+      "nodes": 0,
+      "number": 62,
+      "par": 6,
+      "setup_millis": 8811.62965,
+      "solution": [
+        61,
+        76,
+        80,
+        17,
+        20,
+        30
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 8,
+      "lower_bound": 6,
+      "millis": 0.020007,
+      "name": "Chapter 5 · Tuesday",
+      "nodes": 17,
+      "number": 63,
+      "par": 6,
+      "setup_millis": 5059.472076999999,
+      "solution": [
+        35,
+        39,
+        58,
+        31,
+        63,
+        78
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 4,
+      "millis": 0.011773,
+      "name": "Chapter 1 · Friday",
+      "nodes": 1,
+      "number": 64,
+      "par": 4,
+      "setup_millis": 4787.625784,
+      "solution": [
+        53,
+        35,
+        48,
+        64
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 12,
+      "lower_bound": 9,
+      "millis": 66.301501,
+      "name": "Chapter 2 · Wednesday",
+      "nodes": 832928,
+      "number": 65,
+      "par": 9,
+      "setup_millis": 6357.762303,
+      "solution": [
+        36,
+        19,
+        65,
+        48,
+        16,
+        21,
+        38,
+        61,
+        76
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 16,
+      "lower_bound": 4,
+      "millis": 0.006241999999999999,
+      "name": "Chapter 1 · Monday",
+      "nodes": 1,
+      "number": 66,
+      "par": 4,
+      "setup_millis": 7.037331,
+      "solution": [
+        31,
+        48,
+        66,
+        63
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 17,
+      "lower_bound": 7,
+      "millis": 0.013896,
+      "name": "Chapter 1 · Tuesday",
+      "nodes": 1,
+      "number": 67,
+      "par": 7,
+      "setup_millis": 818.721461,
+      "solution": [
+        17,
+        39,
+        58,
+        58,
+        34,
+        32,
+        65
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 6,
+      "millis": 0.001593,
+      "name": "Chapter 1 · Thursday",
+      "nodes": 0,
+      "number": 68,
+      "par": 6,
+      "setup_millis": 4708.19231,
+      "solution": [
+        36,
+        22,
+        51,
+        77,
+        30,
+        67
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 8,
+      "lower_bound": 5,
+      "millis": 0.014557,
+      "name": "Chapter 3 · Monday",
+      "nodes": 1,
+      "number": 69,
+      "par": 5,
+      "setup_millis": 5128.717661,
+      "solution": [
+        35,
+        31,
+        73,
+        46,
+        62
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 8,
+      "lower_bound": 5,
+      "millis": 0.012193,
+      "name": "Chapter 4 · Wednesday",
+      "nodes": 1,
+      "number": 70,
+      "par": 5,
+      "setup_millis": 6890.756583,
+      "solution": [
+        46,
+        20,
+        16,
+        78,
+        75
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 10,
+      "lower_bound": 8,
+      "millis": 1.183261,
+      "name": "Chapter 2 · Thursday",
+      "nodes": 15108,
+      "number": 71,
+      "par": 8,
+      "setup_millis": 7259.5323929999995,
+      "solution": [
+        38,
+        25,
+        45,
+        30,
+        53,
+        72,
+        48,
+        62
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 14,
+      "lower_bound": 8,
+      "millis": 1.377849,
+      "name": "Chapter 2 · Friday",
+      "nodes": 13517,
+      "number": 72,
+      "par": 8,
+      "setup_millis": 4440.018142,
+      "solution": [
+        34,
+        45,
+        62,
+        59,
+        80,
+        52,
+        34,
+        30
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 15,
+      "lower_bound": 7,
+      "millis": 0.220025,
+      "name": "Chapter 2 · Wednesday",
+      "nodes": 1270,
+      "number": 73,
+      "par": 7,
+      "setup_millis": 6357.762303,
+      "solution": [
+        50,
+        25,
+        80,
+        49,
+        63,
+        52,
+        21
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 20,
+      "lower_bound": 7,
+      "millis": 0.09011999999999999,
+      "name": "Chapter 3 · Monday",
+      "nodes": 474,
+      "number": 74,
+      "par": 7,
+      "setup_millis": 5128.717661,
+      "solution": [
+        36,
+        23,
+        20,
+        23,
+        45,
+        53,
+        65
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 6,
+      "millis": 0.001974,
+      "name": "Chapter 3 · Wednesday",
+      "nodes": 0,
+      "number": 75,
+      "par": 6,
+      "setup_millis": 6147.742212,
+      "solution": [
+        67,
+        46,
+        38,
+        73,
+        45,
+        48
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 8,
+      "lower_bound": 8,
+      "millis": 0.197933,
+      "name": "Chapter 1 · Thursday",
+      "nodes": 1689,
+      "number": 76,
+      "par": 8,
+      "setup_millis": 4708.19231,
+      "solution": [
+        21,
+        65,
+        66,
+        31,
+        72,
+        45,
+        25,
+        74
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 9,
+      "lower_bound": 6,
+      "millis": 0.012853999999999999,
+      "name": "Chapter 5 · Thursday",
+      "nodes": 2,
+      "number": 77,
+      "par": 6,
+      "setup_millis": 4692.639109,
+      "solution": [
+        16,
+        21,
+        74,
+        72,
+        47,
+        34
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 10,
+      "lower_bound": 6,
+      "millis": 0.010841,
+      "name": "Chapter 5 · Wednesday",
+      "nodes": 5,
+      "number": 78,
+      "par": 6,
+      "setup_millis": 1990.263849,
+      "solution": [
+        19,
+        30,
+        32,
+        39,
+        24,
+        78
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 14,
+      "lower_bound": 9,
+      "millis": 29.772485,
+      "name": "Chapter 2 · Thursday",
+      "nodes": 429944,
+      "number": 79,
+      "par": 9,
+      "setup_millis": 7259.5323929999995,
+      "solution": [
+        31,
+        50,
+        25,
+        75,
+        65,
+        46,
+        30,
+        67,
+        79
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 16,
+      "lower_bound": 6,
+      "millis": 0.011021,
+      "name": "Chapter 1 · Wednesday",
+      "nodes": 1,
+      "number": 80,
+      "par": 6,
+      "setup_millis": 8840.951095999999,
+      "solution": [
+        31,
+        37,
+        61,
+        32,
+        22,
+        79
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 19,
+      "lower_bound": 4,
+      "millis": 0.0046890000000000005,
+      "name": "Chapter 1 · Monday",
+      "nodes": 1,
+      "number": 81,
+      "par": 4,
+      "setup_millis": 7.037331,
+      "solution": [
+        19,
+        38,
+        48,
+        37
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 5,
+      "lower_bound": 5,
+      "millis": 0.001373,
+      "name": "Chapter 2 · Friday",
+      "nodes": 0,
+      "number": 82,
+      "par": 5,
+      "setup_millis": 4440.018142,
+      "solution": [
+        48,
+        47,
+        76,
+        45,
+        79
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 7,
+      "lower_bound": 4,
+      "millis": 0.0109,
+      "name": "Chapter 2 · Monday",
+      "nodes": 1,
+      "number": 83,
+      "par": 4,
+      "setup_millis": 31191.238504,
+      "solution": [
+        23,
+        62,
+        77,
+        67
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 8,
+      "lower_bound": 8,
+      "millis": 0.347566,
+      "name": "Chapter 3 · Tuesday",
+      "nodes": 1876,
+      "number": 84,
+      "par": 8,
+      "setup_millis": 8811.62965,
+      "solution": [
+        39,
+        48,
+        31,
+        18,
+        62,
+        30,
+        67,
+        39
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 10,
+      "lower_bound": 8,
+      "millis": 4.400849,
+      "name": "Chapter 4 · Friday",
+      "nodes": 27806,
+      "number": 85,
+      "par": 8,
+      "setup_millis": 6143.365117,
+      "solution": [
+        38,
+        52,
+        52,
+        20,
+        74,
+        60,
+        73,
+        45
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 13,
+      "lower_bound": 7,
+      "millis": 0.128222,
+      "name": "Chapter 4 · Wednesday",
+      "nodes": 919,
+      "number": 86,
+      "par": 7,
+      "setup_millis": 6890.756583,
+      "solution": [
+        46,
+        17,
+        75,
+        49,
+        18,
+        37,
+        78
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 18,
+      "lower_bound": 7,
+      "millis": 0.121339,
+      "name": "Chapter 4 · Tuesday",
+      "nodes": 760,
+      "number": 87,
+      "par": 7,
+      "setup_millis": 2896.985268,
+      "solution": [
+        38,
+        20,
+        59,
+        44,
+        80,
+        77,
+        50
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 16,
+      "lower_bound": 8,
+      "millis": 3.849189,
+      "name": "Chapter 1 · Friday",
+      "nodes": 35441,
+      "number": 88,
+      "par": 8,
+      "setup_millis": 4787.625784,
+      "solution": [
+        48,
+        65,
+        38,
+        21,
+        45,
+        47,
+        44,
+        80
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 4,
+      "lower_bound": 3,
+      "millis": 0.006582,
+      "name": "Chapter 5 · Tuesday",
+      "nodes": 1,
+      "number": 89,
+      "par": 3,
+      "setup_millis": 5059.472076999999,
+      "solution": [
+        16,
+        25,
+        73
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 8,
+      "lower_bound": 5,
+      "millis": 0.007774999999999999,
+      "name": "Chapter 1 · Tuesday",
+      "nodes": 1,
+      "number": 90,
+      "par": 5,
+      "setup_millis": 818.721461,
+      "solution": [
+        16,
+        24,
+        75,
+        46,
+        34
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 10,
+      "lower_bound": 6,
+      "millis": 0.019537,
+      "name": "Chapter 3 · Friday",
+      "nodes": 12,
+      "number": 91,
+      "par": 6,
+      "setup_millis": 7062.134013,
+      "solution": [
+        30,
+        62,
+        78,
+        46,
+        61,
+        66
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 8,
+      "millis": 2.11577,
+      "name": "Chapter 4 · Thursday",
+      "nodes": 31233,
+      "number": 92,
+      "par": 8,
+      "setup_millis": 520.477654,
+      "solution": [
+        17,
+        81,
+        66,
+        64,
+        61,
+        37,
+        32,
+        32
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 15,
+      "lower_bound": 4,
+      "millis": 0.003788,
+      "name": "Chapter 4 · Monday",
+      "nodes": 1,
+      "number": 93,
+      "par": 4,
+      "setup_millis": 241.363562,
+      "solution": [
+        23,
+        30,
+        36,
+        20
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 16,
+      "lower_bound": 10,
+      "millis": 471.48868100000004,
+      "name": "Chapter 3 · Thursday",
+      "nodes": 5585554,
+      "number": 94,
+      "par": 10,
+      "setup_millis": 7359.930349,
+      "solution": [
+        23,
+        39,
+        73,
+        62,
+        35,
+        21,
+        76,
+        73,
+        80,
+        64
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 20,
+      "lower_bound": 6,
+      "millis": 0.018636,
+      "name": "Chapter 5 · Monday",
+      "nodes": 24,
+      "number": 95,
+      "par": 6,
+      "setup_millis": 12391.616326,
+      "solution": [
+        46,
+        18,
+        65,
+        36,
+        39,
+        78
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 5,
+      "lower_bound": 4,
+      "millis": 0.009708999999999999,
+      "name": "Chapter 2 · Tuesday",
+      "nodes": 1,
+      "number": 96,
+      "par": 4,
+      "setup_millis": 6910.564942999999,
+      "solution": [
+        32,
+        50,
+        23,
+        66
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 6,
+      "lower_bound": 6,
+      "millis": 0.001593,
+      "name": "Chapter 1 · Thursday",
+      "nodes": 0,
+      "number": 97,
+      "par": 6,
+      "setup_millis": 4708.19231,
+      "solution": [
+        74,
+        21,
+        72,
+        21,
+        46,
+        18
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 10,
+      "lower_bound": 4,
+      "millis": 0.009127,
+      "name": "Chapter 4 · Tuesday",
+      "nodes": 1,
+      "number": 98,
+      "par": 4,
+      "setup_millis": 2896.985268,
+      "solution": [
+        31,
+        52,
+        72,
+        46
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 9,
+      "millis": 35.573163,
+      "name": "Chapter 3 · Friday",
+      "nodes": 307986,
+      "number": 99,
+      "par": 9,
+      "setup_millis": 7062.134013,
+      "solution": [
+        23,
+        21,
+        33,
+        58,
+        74,
+        49,
+        24,
+        67,
+        51
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 14,
+      "lower_bound": 8,
+      "millis": 1.878682,
+      "name": "Chapter 5 · Monday",
+      "nodes": 9440,
+      "number": 100,
+      "par": 8,
+      "setup_millis": 12391.616326,
+      "solution": [
+        20,
+        45,
+        19,
+        49,
+        64,
+        32,
+        35,
+        75
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 17,
+      "lower_bound": 9,
+      "millis": 18.651272,
+      "name": "Chapter 1 · Friday",
+      "nodes": 245867,
+      "number": 101,
+      "par": 9,
+      "setup_millis": 4787.625784,
+      "solution": [
+        25,
+        79,
+        46,
+        20,
+        30,
+        65,
+        46,
+        73,
+        62
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 16,
+      "lower_bound": 7,
+      "millis": 0.067648,
+      "name": "Chapter 5 · Tuesday",
+      "nodes": 249,
+      "number": 102,
+      "par": 7,
+      "setup_millis": 5059.472076999999,
+      "solution": [
+        24,
+        30,
+        80,
+        78,
+        60,
+        31,
+        73
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 5,
+      "millis": 0.009167,
+      "name": "Chapter 2 · Monday",
+      "nodes": 1,
+      "number": 103,
+      "par": 5,
+      "setup_millis": 31191.238504,
+      "solution": [
+        21,
+        31,
+        53,
+        36,
+        60
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 7,
+      "lower_bound": 6,
+      "millis": 0.018085,
+      "name": "Chapter 4 · Friday",
+      "nodes": 19,
+      "number": 104,
+      "par": 6,
+      "setup_millis": 6143.365117,
+      "solution": [
+        37,
+        32,
+        46,
+        44,
+        53,
+        78
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 8,
+      "lower_bound": 7,
+      "millis": 0.061846000000000005,
+      "name": "Chapter 3 · Thursday",
+      "nodes": 233,
+      "number": 105,
+      "par": 7,
+      "setup_millis": 7359.930349,
+      "solution": [
+        19,
+        60,
+        33,
+        23,
+        73,
+        58,
+        76
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 7,
+      "millis": 0.039765,
+      "name": "Chapter 5 · Wednesday",
+      "nodes": 116,
+      "number": 106,
+      "par": 7,
+      "setup_millis": 1990.263849,
+      "solution": [
+        17,
+        50,
+        20,
+        32,
+        72,
+        77,
+        75
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 12,
+      "lower_bound": 8,
+      "millis": 0.135766,
+      "name": "Chapter 5 · Thursday",
+      "nodes": 916,
+      "number": 107,
+      "par": 8,
+      "setup_millis": 4692.639109,
+      "solution": [
+        17,
+        46,
+        79,
+        46,
+        53,
+        39,
+        23,
+        32
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 17,
+      "lower_bound": 8,
+      "millis": 0.822521,
+      "name": "Chapter 3 · Tuesday",
+      "nodes": 7571,
+      "number": 108,
+      "par": 8,
+      "setup_millis": 8811.62965,
+      "solution": [
+        22,
+        24,
+        31,
+        48,
+        17,
+        23,
+        62,
+        72
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 20,
+      "lower_bound": 9,
+      "millis": 0.27508900000000003,
+      "name": "Chapter 4 · Wednesday",
+      "nodes": 3702,
+      "number": 109,
+      "par": 9,
+      "setup_millis": 6890.756583,
+      "solution": [
+        16,
+        24,
+        36,
+        53,
+        62,
+        31,
+        16,
+        73,
+        80
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 4,
+      "millis": 0.008015,
+      "name": "Chapter 4 · Thursday",
+      "nodes": 1,
+      "number": 110,
+      "par": 4,
+      "setup_millis": 520.477654,
+      "solution": [
+        48,
+        24,
+        32,
+        53
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 7,
+      "lower_bound": 6,
+      "millis": 0.028363,
+      "name": "Chapter 2 · Thursday",
+      "nodes": 12,
+      "number": 111,
+      "par": 6,
+      "setup_millis": 7259.5323929999995,
+      "solution": [
+        30,
+        59,
+        63,
+        61,
+        76,
+        67
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 8,
+      "lower_bound": 4,
+      "millis": 0.007525,
+      "name": "Chapter 4 · Monday",
+      "nodes": 1,
+      "number": 112,
+      "par": 4,
+      "setup_millis": 241.363562,
+      "solution": [
+        18,
+        58,
+        45,
+        62
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 10,
+      "lower_bound": 5,
+      "millis": 0.005671000000000001,
+      "name": "Chapter 1 · Monday",
+      "nodes": 1,
+      "number": 113,
+      "par": 5,
+      "setup_millis": 7.037331,
+      "solution": [
+        18,
+        24,
+        24,
+        34,
+        77
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 13,
+      "lower_bound": 8,
+      "millis": 0.654995,
+      "name": "Chapter 2 · Wednesday",
+      "nodes": 3686,
+      "number": 114,
+      "par": 8,
+      "setup_millis": 6357.762303,
+      "solution": [
+        17,
+        34,
+        49,
+        51,
+        73,
+        47,
+        16,
+        81
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 14,
+      "lower_bound": 6,
+      "millis": 0.0104,
+      "name": "Chapter 1 · Tuesday",
+      "nodes": 1,
+      "number": 115,
+      "par": 6,
+      "setup_millis": 818.721461,
+      "solution": [
+        18,
+        21,
+        17,
+        59,
+        61,
+        46
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 19,
+      "lower_bound": 9,
+      "millis": 5.158518,
+      "name": "Chapter 3 · Monday",
+      "nodes": 87010,
+      "number": 116,
+      "par": 9,
+      "setup_millis": 5128.717661,
+      "solution": [
+        18,
+        16,
+        25,
+        81,
+        63,
+        52,
+        49,
+        65,
+        73
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 5,
+      "millis": 0.013546,
+      "name": "Chapter 1 · Wednesday",
+      "nodes": 1,
+      "number": 117,
+      "par": 5,
+      "setup_millis": 8840.951095999999,
+      "solution": [
+        19,
+        62,
+        72,
+        78,
+        76
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 8,
+      "lower_bound": 7,
+      "millis": 0.156255,
+      "name": "Chapter 3 · Wednesday",
+      "nodes": 1021,
+      "number": 118,
+      "par": 7,
+      "setup_millis": 6147.742212,
+      "solution": [
+        52,
+        73,
+        46,
+        48,
+        16,
+        75,
+        46
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 8,
+      "lower_bound": 6,
+      "millis": 0.018244,
+      "name": "Chapter 2 · Tuesday",
+      "nodes": 13,
+      "number": 119,
+      "par": 6,
+      "setup_millis": 6910.564942999999,
+      "solution": [
+        31,
+        36,
+        77,
+        79,
+        61,
+        34
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 10,
+      "lower_bound": 8,
+      "millis": 0.854712,
+      "name": "Chapter 2 · Friday",
+      "nodes": 8451,
+      "number": 120,
+      "par": 8,
+      "setup_millis": 4440.018142,
+      "solution": [
+        20,
+        51,
+        39,
+        47,
+        45,
+        49,
+        30,
+        62
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 14,
+      "lower_bound": 10,
+      "millis": 129.756223,
+      "name": "Chapter 3 · Wednesday",
+      "nodes": 1676312,
+      "number": 121,
+      "par": 10,
+      "setup_millis": 6147.742212,
+      "solution": [
+        33,
+        66,
+        35,
+        45,
+        72,
+        80,
+        53,
+        49,
+        25,
+        78
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 17,
+      "lower_bound": 8,
+      "millis": 0.875491,
+      "name": "Chapter 2 · Tuesday",
+      "nodes": 7735,
+      "number": 122,
+      "par": 8,
+      "setup_millis": 6910.564942999999,
+      "solution": [
+        22,
+        24,
+        48,
+        20,
+        72,
+        59,
+        30,
+        78
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 15,
+      "lower_bound": 6,
+      "millis": 0.018004,
+      "name": "Chapter 5 · Monday",
+      "nodes": 12,
+      "number": 123,
+      "par": 6,
+      "setup_millis": 12391.616326,
+      "solution": [
+        30,
+        38,
+        77,
+        46,
+        31,
+        74
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 5,
+      "lower_bound": 4,
+      "millis": 0.007113,
+      "name": "Chapter 4 · Monday",
+      "nodes": 1,
+      "number": 124,
+      "par": 4,
+      "setup_millis": 241.363562,
+      "solution": [
+        19,
+        35,
+        52,
+        60
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 7,
+      "lower_bound": 5,
+      "millis": 0.007574,
+      "name": "Chapter 4 · Tuesday",
+      "nodes": 1,
+      "number": 125,
+      "par": 5,
+      "setup_millis": 2896.985268,
+      "solution": [
+        18,
+        49,
+        30,
+        50,
+        35
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 9,
+      "lower_bound": 6,
+      "millis": 0.012774,
+      "name": "Chapter 1 · Thursday",
+      "nodes": 13,
+      "number": 126,
+      "par": 6,
+      "setup_millis": 4708.19231,
+      "solution": [
+        31,
+        16,
+        35,
+        16,
+        50,
+        72
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 10,
+      "lower_bound": 7,
+      "millis": 0.042921,
+      "name": "Chapter 3 · Monday",
+      "nodes": 199,
+      "number": 127,
+      "par": 7,
+      "setup_millis": 5128.717661,
+      "solution": [
+        19,
+        34,
+        63,
+        32,
+        59,
+        80,
+        66
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 13,
+      "lower_bound": 5,
+      "millis": 0.008306,
+      "name": "Chapter 1 · Wednesday",
+      "nodes": 1,
+      "number": 128,
+      "par": 5,
+      "setup_millis": 8840.951095999999,
+      "solution": [
+        22,
+        19,
+        62,
+        36,
+        78
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 16,
+      "lower_bound": 4,
+      "millis": 0.004338,
+      "name": "Chapter 1 · Monday",
+      "nodes": 1,
+      "number": 129,
+      "par": 4,
+      "setup_millis": 7.037331,
+      "solution": [
+        50,
+        47,
+        59,
+        61
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 20,
+      "lower_bound": 10,
+      "millis": 543.63814,
+      "name": "Chapter 4 · Friday",
+      "nodes": 5875664,
+      "number": 130,
+      "par": 10,
+      "setup_millis": 6143.365117,
+      "solution": [
+        23,
+        18,
+        16,
+        81,
+        64,
+        36,
+        66,
+        77,
+        72,
+        74
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 4,
+      "lower_bound": 3,
+      "millis": 0.006241,
+      "name": "Chapter 1 · Tuesday",
+      "nodes": 1,
+      "number": 131,
+      "par": 3,
+      "setup_millis": 818.721461,
+      "solution": [
+        19,
+        50,
+        65
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 7,
+      "lower_bound": 5,
+      "millis": 0.01584,
+      "name": "Chapter 4 · Thursday",
+      "nodes": 18,
+      "number": 132,
+      "par": 5,
+      "setup_millis": 520.477654,
+      "solution": [
+        36,
+        34,
+        62,
+        46,
+        52
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 10,
+      "lower_bound": 7,
+      "millis": 0.059001,
+      "name": "Chapter 3 · Friday",
+      "nodes": 208,
+      "number": 133,
+      "par": 7,
+      "setup_millis": 7062.134013,
+      "solution": [
+        20,
+        20,
+        77,
+        65,
+        37,
+        22,
+        74
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 10,
+      "lower_bound": 7,
+      "millis": 0.056997000000000006,
+      "name": "Chapter 2 · Friday",
+      "nodes": 185,
+      "number": 134,
+      "par": 7,
+      "setup_millis": 4440.018142,
+      "solution": [
+        18,
+        61,
+        34,
+        53,
+        80,
+        62,
+        30
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 12,
+      "lower_bound": 7,
+      "millis": 0.040216,
+      "name": "Chapter 5 · Tuesday",
+      "nodes": 70,
+      "number": 135,
+      "par": 7,
+      "setup_millis": 5059.472076999999,
+      "solution": [
+        16,
+        37,
+        72,
+        75,
+        50,
+        62,
+        37
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 14,
+      "lower_bound": 8,
+      "millis": 0.315125,
+      "name": "Chapter 2 · Thursday",
+      "nodes": 3489,
+      "number": 136,
+      "par": 8,
+      "setup_millis": 7259.5323929999995,
+      "solution": [
+        24,
+        24,
+        21,
+        22,
+        46,
+        18,
+        63,
+        79
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 20,
+      "lower_bound": 7,
+      "millis": 0.09429699999999999,
+      "name": "Chapter 4 · Wednesday",
+      "nodes": 528,
+      "number": 137,
+      "par": 7,
+      "setup_millis": 6890.756583,
+      "solution": [
+        39,
+        46,
+        59,
+        30,
+        19,
+        76,
+        73
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 5,
+      "lower_bound": 5,
+      "millis": 0.001854,
+      "name": "Chapter 5 · Thursday",
+      "nodes": 0,
+      "number": 138,
+      "par": 5,
+      "setup_millis": 4692.639109,
+      "solution": [
+        25,
+        77,
+        30,
+        37,
+        62
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 8,
+      "lower_bound": 6,
+      "millis": 0.023294000000000002,
+      "name": "Chapter 5 · Wednesday",
+      "nodes": 41,
+      "number": 139,
+      "par": 6,
+      "setup_millis": 1990.263849,
+      "solution": [
+        81,
+        50,
+        37,
+        79,
+        49,
+        30
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 8,
+      "lower_bound": 6,
+      "millis": 0.024867,
+      "name": "Chapter 3 · Thursday",
+      "nodes": 12,
+      "number": 140,
+      "par": 6,
+      "setup_millis": 7359.930349,
+      "solution": [
+        30,
+        51,
+        67,
+        78,
+        47,
+        81
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 12,
+      "lower_bound": 8,
+      "millis": 0.237999,
+      "name": "Chapter 1 · Friday",
+      "nodes": 1517,
+      "number": 141,
+      "par": 8,
+      "setup_millis": 4787.625784,
+      "solution": [
+        16,
+        16,
+        50,
+        52,
+        50,
+        34,
+        73,
+        74
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 13,
+      "lower_bound": 9,
+      "millis": 4.241279,
+      "name": "Chapter 2 · Wednesday",
+      "nodes": 56405,
+      "number": 142,
+      "par": 9,
+      "setup_millis": 6357.762303,
+      "solution": [
+        19,
+        22,
+        35,
+        62,
+        81,
+        77,
+        72,
+        46,
+        77
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 18,
+      "lower_bound": 6,
+      "millis": 0.014147,
+      "name": "Chapter 3 · Tuesday",
+      "nodes": 4,
+      "number": 143,
+      "par": 6,
+      "setup_millis": 8811.62965,
+      "solution": [
+        18,
+        23,
+        24,
+        50,
+        81,
+        52
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 19,
+      "lower_bound": 6,
+      "millis": 0.015619000000000001,
+      "name": "Chapter 2 · Monday",
+      "nodes": 8,
+      "number": 144,
+      "par": 6,
+      "setup_millis": 31191.238504,
+      "solution": [
+        24,
+        49,
+        23,
+        53,
+        72,
+        80
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 4,
+      "millis": 0.009528,
+      "name": "Chapter 4 · Tuesday",
+      "nodes": 1,
+      "number": 145,
+      "par": 4,
+      "setup_millis": 2896.985268,
+      "solution": [
+        30,
+        44,
+        81,
+        65
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 7,
+      "lower_bound": 6,
+      "millis": 0.013094,
+      "name": "Chapter 3 · Monday",
+      "nodes": 2,
+      "number": 146,
+      "par": 6,
+      "setup_millis": 5128.717661,
+      "solution": [
+        20,
+        38,
+        63,
+        33,
+        48,
+        59
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 8,
+      "lower_bound": 6,
+      "millis": 0.013184,
+      "name": "Chapter 2 · Monday",
+      "nodes": 2,
+      "number": 147,
+      "par": 6,
+      "setup_millis": 31191.238504,
+      "solution": [
+        16,
+        33,
+        59,
+        65,
+        73,
+        60
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 12,
+      "lower_bound": 9,
+      "millis": 18.894912,
+      "name": "Chapter 4 · Friday",
+      "nodes": 191807,
+      "number": 148,
+      "par": 9,
+      "setup_millis": 6143.365117,
+      "solution": [
+        21,
+        16,
+        38,
+        52,
+        72,
+        62,
+        30,
+        65,
+        46
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 12,
+      "lower_bound": 6,
+      "millis": 0.011182000000000001,
+      "name": "Chapter 4 · Monday",
+      "nodes": 1,
+      "number": 149,
+      "par": 6,
+      "setup_millis": 241.363562,
+      "solution": [
+        31,
+        36,
+        18,
+        79,
+        52,
+        65
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 16,
+      "lower_bound": 9,
+      "millis": 31.477570000000004,
+      "name": "Chapter 4 · Thursday",
+      "nodes": 644130,
+      "number": 150,
+      "par": 9,
+      "setup_millis": 520.477654,
+      "solution": [
+        20,
+        25,
+        31,
+        36,
+        45,
+        34,
+        23,
+        38,
+        63
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 16,
+      "lower_bound": 9,
+      "millis": 8.499509,
+      "name": "Chapter 2 · Wednesday",
+      "nodes": 97988,
+      "number": 151,
+      "par": 9,
+      "setup_millis": 6357.762303,
+      "solution": [
+        17,
+        45,
+        49,
+        18,
+        36,
+        24,
+        38,
+        66,
+        73
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 4,
+      "lower_bound": 3,
+      "millis": 0.010119,
+      "name": "Chapter 5 · Monday",
+      "nodes": 1,
+      "number": 152,
+      "par": 3,
+      "setup_millis": 12391.616326,
+      "solution": [
+        60,
+        62,
+        36
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 6,
+      "lower_bound": 6,
+      "millis": 0.002415,
+      "name": "Chapter 3 · Thursday",
+      "nodes": 0,
+      "number": 153,
+      "par": 6,
+      "setup_millis": 7359.930349,
+      "solution": [
+        76,
+        17,
+        20,
+        30,
+        50,
+        30
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 9,
+      "lower_bound": 8,
+      "millis": 0.253418,
+      "name": "Chapter 3 · Wednesday",
+      "nodes": 1691,
+      "number": 154,
+      "par": 8,
+      "setup_millis": 6147.742212,
+      "solution": [
+        16,
+        22,
+        18,
+        72,
+        63,
+        65,
+        48,
+        45
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 10,
+      "lower_bound": 5,
+      "millis": 0.015058,
+      "name": "Chapter 5 · Thursday",
+      "nodes": 1,
+      "number": 155,
+      "par": 5,
+      "setup_millis": 4692.639109,
+      "solution": [
+        31,
+        60,
+        66,
+        63,
+        67
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 14,
+      "lower_bound": 8,
+      "millis": 0.79008,
+      "name": "Chapter 3 · Tuesday",
+      "nodes": 8255,
+      "number": 156,
+      "par": 8,
+      "setup_millis": 8811.62965,
+      "solution": [
+        24,
+        62,
+        59,
+        33,
+        76,
+        51,
+        52,
+        67
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 18,
+      "lower_bound": 4,
+      "millis": 0.003406,
+      "name": "Chapter 1 · Monday",
+      "nodes": 1,
+      "number": 157,
+      "par": 4,
+      "setup_millis": 7.037331,
+      "solution": [
+        18,
+        24,
+        21,
+        51
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 18,
+      "lower_bound": 8,
+      "millis": 7.414081,
+      "name": "Chapter 3 · Friday",
+      "nodes": 46364,
+      "number": 158,
+      "par": 8,
+      "setup_millis": 7062.134013,
+      "solution": [
+        51,
+        52,
+        48,
+        47,
+        72,
+        44,
+        30,
+        18
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 5,
+      "millis": 0.011732000000000001,
+      "name": "Chapter 4 · Wednesday",
+      "nodes": 1,
+      "number": 159,
+      "par": 5,
+      "setup_millis": 6890.756583,
+      "solution": [
+        34,
+        17,
+        30,
+        79,
+        62
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 7,
+      "lower_bound": 5,
+      "millis": 0.01048,
+      "name": "Chapter 1 · Tuesday",
+      "nodes": 1,
+      "number": 160,
+      "par": 5,
+      "setup_millis": 818.721461,
+      "solution": [
+        36,
+        45,
+        79,
+        47,
+        65
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 8,
+      "lower_bound": 6,
+      "millis": 0.019196,
+      "name": "Chapter 2 · Thursday",
+      "nodes": 2,
+      "number": 161,
+      "par": 6,
+      "setup_millis": 7259.5323929999995,
+      "solution": [
+        16,
+        65,
+        67,
+        78,
+        77,
+        62
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 7,
+      "millis": 0.083898,
+      "name": "Chapter 5 · Tuesday",
+      "nodes": 298,
+      "number": 162,
+      "par": 7,
+      "setup_millis": 5059.472076999999,
+      "solution": [
+        21,
+        22,
+        24,
+        35,
+        46,
+        60,
+        45
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 13,
+      "lower_bound": 8,
+      "millis": 1.2605769999999998,
+      "name": "Chapter 1 · Thursday",
+      "nodes": 7231,
+      "number": 163,
+      "par": 8,
+      "setup_millis": 4708.19231,
+      "solution": [
+        21,
+        18,
+        44,
+        51,
+        75,
+        78,
+        49,
+        74
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 14,
+      "lower_bound": 9,
+      "millis": 6.5798879999999995,
+      "name": "Chapter 1 · Friday",
+      "nodes": 68123,
+      "number": 164,
+      "par": 9,
+      "setup_millis": 4787.625784,
+      "solution": [
+        16,
+        48,
+        31,
+        59,
+        64,
+        46,
+        77,
+        62,
+        52
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 15,
+      "lower_bound": 7,
+      "millis": 0.014878,
+      "name": "Chapter 1 · Wednesday",
+      "nodes": 4,
+      "number": 165,
+      "par": 7,
+      "setup_millis": 8840.951095999999,
+      "solution": [
+        20,
+        20,
+        24,
+        34,
+        52,
+        76,
+        78
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 4,
+      "lower_bound": 4,
+      "millis": 0.0019240000000000001,
+      "name": "Chapter 2 · Tuesday",
+      "nodes": 0,
+      "number": 166,
+      "par": 4,
+      "setup_millis": 6910.564942999999,
+      "solution": [
+        48,
+        19,
+        24,
+        73
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 8,
+      "lower_bound": 7,
+      "millis": 0.034285,
+      "name": "Chapter 5 · Wednesday",
+      "nodes": 100,
+      "number": 167,
+      "par": 7,
+      "setup_millis": 1990.263849,
+      "solution": [
+        17,
+        18,
+        61,
+        66,
+        39,
+        21,
+        30
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 8,
+      "lower_bound": 8,
+      "millis": 0.187524,
+      "name": "Chapter 2 · Friday",
+      "nodes": 1545,
+      "number": 168,
+      "par": 8,
+      "setup_millis": 4440.018142,
+      "solution": [
+        19,
+        50,
+        61,
+        22,
+        44,
+        47,
+        24,
+        80
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 7,
+      "millis": 0.072878,
+      "name": "Chapter 3 · Monday",
+      "nodes": 251,
+      "number": 169,
+      "par": 7,
+      "setup_millis": 5128.717661,
+      "solution": [
+        20,
+        32,
+        37,
+        81,
+        77,
+        63,
+        58
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 14,
+      "lower_bound": 9,
+      "millis": 28.087517,
+      "name": "Chapter 3 · Thursday",
+      "nodes": 331361,
+      "number": 170,
+      "par": 9,
+      "setup_millis": 7359.930349,
+      "solution": [
+        32,
+        18,
+        62,
+        64,
+        38,
+        24,
+        49,
+        78,
+        81
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 14,
+      "lower_bound": 9,
+      "millis": 21.914897,
+      "name": "Chapter 4 · Thursday",
+      "nodes": 418224,
+      "number": 171,
+      "par": 9,
+      "setup_millis": 520.477654,
+      "solution": [
+        16,
+        16,
+        21,
+        18,
+        74,
+        50,
+        35,
+        67,
+        79
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 17,
+      "lower_bound": 8,
+      "millis": 2.8557550000000003,
+      "name": "Chapter 3 · Wednesday",
+      "nodes": 26016,
+      "number": 172,
+      "par": 8,
+      "setup_millis": 6147.742212,
+      "solution": [
+        51,
+        47,
+        62,
+        45,
+        35,
+        52,
+        79,
+        64
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 4,
+      "lower_bound": 4,
+      "millis": 0.002294,
+      "name": "Chapter 1 · Friday",
+      "nodes": 0,
+      "number": 173,
+      "par": 4,
+      "setup_millis": 4787.625784,
+      "solution": [
+        61,
+        77,
+        63,
+        47
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 7,
+      "lower_bound": 7,
+      "millis": 0.014647,
+      "name": "Chapter 2 · Friday",
+      "nodes": 49,
+      "number": 174,
+      "par": 7,
+      "setup_millis": 4440.018142,
+      "solution": [
+        19,
+        77,
+        21,
+        50,
+        44,
+        24,
+        30
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 9,
+      "lower_bound": 8,
+      "millis": 1.045892,
+      "name": "Chapter 1 · Thursday",
+      "nodes": 10229,
+      "number": 175,
+      "par": 8,
+      "setup_millis": 4708.19231,
+      "solution": [
+        22,
+        30,
+        34,
+        76,
+        65,
+        50,
+        66,
+        73
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 8,
+      "millis": 0.7397750000000001,
+      "name": "Chapter 5 · Thursday",
+      "nodes": 5802,
+      "number": 176,
+      "par": 8,
+      "setup_millis": 4692.639109,
+      "solution": [
+        30,
+        39,
+        20,
+        23,
+        44,
+        78,
+        46,
+        58
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 12,
+      "lower_bound": 7,
+      "millis": 0.22284,
+      "name": "Chapter 5 · Wednesday",
+      "nodes": 959,
+      "number": 177,
+      "par": 7,
+      "setup_millis": 1990.263849,
+      "solution": [
+        46,
+        36,
+        38,
+        74,
+        45,
+        17,
+        50
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 14,
+      "lower_bound": 7,
+      "millis": 0.110077,
+      "name": "Chapter 5 · Monday",
+      "nodes": 493,
+      "number": 178,
+      "par": 7,
+      "setup_millis": 12391.616326,
+      "solution": [
+        25,
+        31,
+        33,
+        81,
+        63,
+        60,
+        30
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 18,
+      "lower_bound": 6,
+      "millis": 0.010910999999999999,
+      "name": "Chapter 4 · Tuesday",
+      "nodes": 2,
+      "number": 179,
+      "par": 6,
+      "setup_millis": 2896.985268,
+      "solution": [
+        20,
+        39,
+        46,
+        22,
+        75,
+        62
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 5,
+      "millis": 0.016041,
+      "name": "Chapter 2 · Tuesday",
+      "nodes": 1,
+      "number": 180,
+      "par": 5,
+      "setup_millis": 6910.564942999999,
+      "solution": [
+        78,
+        62,
+        46,
+        58,
+        60
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 6,
+      "lower_bound": 6,
+      "millis": 0.001373,
+      "name": "Chapter 1 · Tuesday",
+      "nodes": 0,
+      "number": 181,
+      "par": 6,
+      "setup_millis": 818.721461,
+      "solution": [
+        39,
+        81,
+        18,
+        76,
+        20,
+        78
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 8,
+      "lower_bound": 6,
+      "millis": 0.018535000000000003,
+      "name": "Chapter 4 · Wednesday",
+      "nodes": 7,
+      "number": 182,
+      "par": 6,
+      "setup_millis": 6890.756583,
+      "solution": [
+        21,
+        52,
+        60,
+        62,
+        65,
+        80
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 7,
+      "millis": 0.28748199999999996,
+      "name": "Chapter 3 · Friday",
+      "nodes": 1320,
+      "number": 183,
+      "par": 7,
+      "setup_millis": 7062.134013,
+      "solution": [
+        73,
+        46,
+        80,
+        66,
+        35,
+        30,
+        38
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 12,
+      "lower_bound": 9,
+      "millis": 11.784994,
+      "name": "Chapter 5 · Tuesday",
+      "nodes": 113991,
+      "number": 184,
+      "par": 9,
+      "setup_millis": 5059.472076999999,
+      "solution": [
+        18,
+        33,
+        39,
+        66,
+        79,
+        74,
+        47,
+        48,
+        22
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 15,
+      "lower_bound": 9,
+      "millis": 14.584193,
+      "name": "Chapter 2 · Wednesday",
+      "nodes": 174229,
+      "number": 185,
+      "par": 9,
+      "setup_millis": 6357.762303,
+      "solution": [
+        25,
+        34,
+        60,
+        81,
+        67,
+        76,
+        45,
+        79,
+        61
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 20,
+      "lower_bound": 9,
+      "millis": 22.627741,
+      "name": "Chapter 3 · Tuesday",
+      "nodes": 322099,
+      "number": 186,
+      "par": 9,
+      "setup_millis": 8811.62965,
+      "solution": [
+        22,
+        24,
+        23,
+        44,
+        33,
+        65,
+        80,
+        63,
+        72
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 6,
+      "millis": 0.002034,
+      "name": "Chapter 2 · Monday",
+      "nodes": 0,
+      "number": 187,
+      "par": 6,
+      "setup_millis": 31191.238504,
+      "solution": [
+        63,
+        36,
+        45,
+        64,
+        20,
+        37
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 6,
+      "lower_bound": 5,
+      "millis": 0.008326,
+      "name": "Chapter 4 · Monday",
+      "nodes": 1,
+      "number": 188,
+      "par": 5,
+      "setup_millis": 241.363562,
+      "solution": [
+        17,
+        23,
+        35,
+        52,
+        77
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 10,
+      "lower_bound": 6,
+      "millis": 0.011582,
+      "name": "Chapter 1 · Wednesday",
+      "nodes": 1,
+      "number": 189,
+      "par": 6,
+      "setup_millis": 8840.951095999999,
+      "solution": [
+        32,
+        36,
+        50,
+        72,
+        45,
+        62
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 10,
+      "lower_bound": 4,
+      "millis": 0.00545,
+      "name": "Chapter 1 · Monday",
+      "nodes": 1,
+      "number": 190,
+      "par": 4,
+      "setup_millis": 7.037331,
+      "solution": [
+        38,
+        48,
+        45,
+        62
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 14,
+      "lower_bound": 9,
+      "millis": 28.373276,
+      "name": "Chapter 4 · Friday",
+      "nodes": 279623,
+      "number": 191,
+      "par": 9,
+      "setup_millis": 6143.365117,
+      "solution": [
+        21,
+        25,
+        33,
+        59,
+        72,
+        75,
+        50,
+        23,
+        24
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 17,
+      "lower_bound": 9,
+      "millis": 3.194213,
+      "name": "Chapter 2 · Thursday",
+      "nodes": 43800,
+      "number": 192,
+      "par": 9,
+      "setup_millis": 7259.5323929999995,
+      "solution": [
+        17,
+        33,
+        53,
+        80,
+        50,
+        35,
+        23,
+        74,
+        47
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 20,
+      "lower_bound": 10,
+      "millis": 259.857267,
+      "name": "Chapter 1 · Friday",
+      "nodes": 3545366,
+      "number": 193,
+      "par": 10,
+      "setup_millis": 4787.625784,
+      "solution": [
+        19,
+        53,
+        25,
+        23,
+        21,
+        50,
+        73,
+        49,
+        58,
+        60
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 5,
+      "lower_bound": 4,
+      "millis": 0.010079,
+      "name": "Chapter 1 · Wednesday",
+      "nodes": 1,
+      "number": 194,
+      "par": 4,
+      "setup_millis": 8840.951095999999,
+      "solution": [
+        36,
+        20,
+        80,
+        79
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 7,
+      "lower_bound": 7,
+      "millis": 0.012944,
+      "name": "Chapter 3 · Wednesday",
+      "nodes": 51,
+      "number": 195,
+      "par": 7,
+      "setup_millis": 6147.742212,
+      "solution": [
+        24,
+        63,
+        75,
+        67,
+        30,
+        63,
+        77
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 10,
+      "lower_bound": 7,
+      "millis": 0.053762,
+      "name": "Chapter 4 · Friday",
+      "nodes": 149,
+      "number": 196,
+      "par": 7,
+      "setup_millis": 6143.365117,
+      "solution": [
+        18,
+        18,
+        30,
+        48,
+        45,
+        63,
+        75
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 10,
+      "lower_bound": 7,
+      "millis": 0.065304,
+      "name": "Chapter 5 · Wednesday",
+      "nodes": 349,
+      "number": 197,
+      "par": 7,
+      "setup_millis": 1990.263849,
+      "solution": [
+        23,
+        24,
+        20,
+        30,
+        47,
+        67,
+        75
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 15,
+      "lower_bound": 9,
+      "millis": 3.244308,
+      "name": "Chapter 2 · Thursday",
+      "nodes": 37775,
+      "number": 198,
+      "par": 9,
+      "setup_millis": 7259.5323929999995,
+      "solution": [
+        16,
+        30,
+        60,
+        80,
+        63,
+        39,
+        37,
+        33,
+        19
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 15,
+      "lower_bound": 7,
+      "millis": 0.306798,
+      "name": "Chapter 5 · Thursday",
+      "nodes": 1449,
+      "number": 199,
+      "par": 7,
+      "setup_millis": 4692.639109,
+      "solution": [
+        59,
+        74,
+        76,
+        46,
+        16,
+        51,
+        18
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 17,
+      "lower_bound": 8,
+      "millis": 7.8953500000000005,
+      "name": "Chapter 4 · Thursday",
+      "nodes": 134119,
+      "number": 200,
+      "par": 8,
+      "setup_millis": 520.477654,
+      "solution": [
+        66,
+        72,
+        45,
+        32,
+        46,
+        81,
+        51,
+        81
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 6,
+      "millis": 0.002014,
+      "name": "Chapter 3 · Tuesday",
+      "nodes": 0,
+      "number": 201,
+      "par": 6,
+      "setup_millis": 8811.62965,
+      "solution": [
+        78,
+        25,
+        39,
+        32,
+        64,
+        48
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 6,
+      "lower_bound": 3,
+      "millis": 0.004238,
+      "name": "Chapter 4 · Monday",
+      "nodes": 1,
+      "number": 202,
+      "par": 3,
+      "setup_millis": 241.363562,
+      "solution": [
+        19,
+        46,
+        31
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 10,
+      "lower_bound": 7,
+      "millis": 0.042880999999999996,
+      "name": "Chapter 1 · Thursday",
+      "nodes": 114,
+      "number": 203,
+      "par": 7,
+      "setup_millis": 4708.19231,
+      "solution": [
+        17,
+        34,
+        60,
+        33,
+        81,
+        51,
+        38
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 6,
+      "millis": 0.017223000000000002,
+      "name": "Chapter 4 · Tuesday",
+      "nodes": 9,
+      "number": 204,
+      "par": 6,
+      "setup_millis": 2896.985268,
+      "solution": [
+        31,
+        48,
+        67,
+        62,
+        78,
+        61
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 12,
+      "lower_bound": 7,
+      "millis": 0.068309,
+      "name": "Chapter 4 · Wednesday",
+      "nodes": 335,
+      "number": 205,
+      "par": 7,
+      "setup_millis": 6890.756583,
+      "solution": [
+        24,
+        22,
+        30,
+        76,
+        52,
+        72,
+        81
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 17,
+      "lower_bound": 7,
+      "millis": 0.051177,
+      "name": "Chapter 3 · Monday",
+      "nodes": 200,
+      "number": 206,
+      "par": 7,
+      "setup_millis": 5128.717661,
+      "solution": [
+        19,
+        23,
+        33,
+        52,
+        65,
+        38,
+        67
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 15,
+      "lower_bound": 6,
+      "millis": 0.014467,
+      "name": "Chapter 5 · Monday",
+      "nodes": 2,
+      "number": 207,
+      "par": 6,
+      "setup_millis": 12391.616326,
+      "solution": [
+        16,
+        60,
+        32,
+        49,
+        51,
+        78
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 6,
+      "millis": 0.001984,
+      "name": "Chapter 5 · Tuesday",
+      "nodes": 0,
+      "number": 208,
+      "par": 6,
+      "setup_millis": 5059.472076999999,
+      "solution": [
+        61,
+        22,
+        16,
+        24,
+        74,
+        34
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 7,
+      "lower_bound": 4,
+      "millis": 0.006673,
+      "name": "Chapter 1 · Tuesday",
+      "nodes": 1,
+      "number": 209,
+      "par": 4,
+      "setup_millis": 818.721461,
+      "solution": [
+        31,
+        19,
+        77,
+        64
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 9,
+      "lower_bound": 7,
+      "millis": 0.124034,
+      "name": "Chapter 2 · Tuesday",
+      "nodes": 534,
+      "number": 210,
+      "par": 7,
+      "setup_millis": 6910.564942999999,
+      "solution": [
+        30,
+        19,
+        64,
+        51,
+        20,
+        39,
+        72
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 12,
+      "lower_bound": 4,
+      "millis": 0.005811,
+      "name": "Chapter 1 · Monday",
+      "nodes": 1,
+      "number": 211,
+      "par": 4,
+      "setup_millis": 7.037331,
+      "solution": [
+        31,
+        75,
+        64,
+        48
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 15,
+      "lower_bound": 8,
+      "millis": 0.805059,
+      "name": "Chapter 3 · Friday",
+      "nodes": 5646,
+      "number": 212,
+      "par": 8,
+      "setup_millis": 7062.134013,
+      "solution": [
+        21,
+        18,
+        50,
+        59,
+        62,
+        31,
+        78,
+        61
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 14,
+      "lower_bound": 10,
+      "millis": 108.725083,
+      "name": "Chapter 2 · Wednesday",
+      "nodes": 1470371,
+      "number": 213,
+      "par": 10,
+      "setup_millis": 6357.762303,
+      "solution": [
+        23,
+        19,
+        31,
+        66,
+        49,
+        53,
+        24,
+        76,
+        74,
+        60
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 17,
+      "lower_bound": 6,
+      "millis": 0.014036000000000002,
+      "name": "Chapter 2 · Monday",
+      "nodes": 3,
+      "number": 214,
+      "par": 6,
+      "setup_millis": 31191.238504,
+      "solution": [
+        17,
+        19,
+        32,
+        67,
+        39,
+        75
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 5,
+      "lower_bound": 5,
+      "millis": 0.002244,
+      "name": "Chapter 3 · Thursday",
+      "nodes": 0,
+      "number": 215,
+      "par": 5,
+      "setup_millis": 7359.930349,
+      "solution": [
+        48,
+        47,
+        22,
+        53,
+        35
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 6,
+      "lower_bound": 5,
+      "millis": 0.023004,
+      "name": "Chapter 2 · Friday",
+      "nodes": 1,
+      "number": 216,
+      "par": 5,
+      "setup_millis": 4440.018142,
+      "solution": [
+        81,
+        79,
+        47,
+        62,
+        81
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 8,
+      "lower_bound": 5,
+      "millis": 0.015039,
+      "name": "Chapter 4 · Wednesday",
+      "nodes": 1,
+      "number": 217,
+      "par": 5,
+      "setup_millis": 6890.756583,
+      "solution": [
+        51,
+        21,
+        34,
+        51,
+        78
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 10,
+      "lower_bound": 7,
+      "millis": 0.04758999999999999,
+      "name": "Chapter 1 · Friday",
+      "nodes": 77,
+      "number": 218,
+      "par": 7,
+      "setup_millis": 4787.625784,
+      "solution": [
+        16,
+        50,
+        65,
+        60,
+        67,
+        76,
+        72
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 12,
+      "lower_bound": 5,
+      "millis": 0.008556000000000001,
+      "name": "Chapter 2 · Monday",
+      "nodes": 1,
+      "number": 219,
+      "par": 5,
+      "setup_millis": 31191.238504,
+      "solution": [
+        33,
+        17,
+        51,
+        19,
+        63
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 15,
+      "lower_bound": 10,
+      "millis": 102.101282,
+      "name": "Chapter 2 · Friday",
+      "nodes": 1041133,
+      "number": 220,
+      "par": 10,
+      "setup_millis": 4440.018142,
+      "solution": [
+        18,
+        48,
+        24,
+        52,
+        74,
+        46,
+        73,
+        48,
+        23,
+        74
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 20,
+      "lower_bound": 8,
+      "millis": 0.369016,
+      "name": "Chapter 1 · Thursday",
+      "nodes": 3050,
+      "number": 221,
+      "par": 8,
+      "setup_millis": 4708.19231,
+      "solution": [
+        17,
+        18,
+        58,
+        33,
+        23,
+        46,
+        64,
+        72
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 6,
+      "millis": 0.001974,
+      "name": "Chapter 3 · Tuesday",
+      "nodes": 0,
+      "number": 222,
+      "par": 6,
+      "setup_millis": 8811.62965,
+      "solution": [
+        62,
+        44,
+        30,
+        48,
+        22,
+        65
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 7,
+      "lower_bound": 5,
+      "millis": 0.013936,
+      "name": "Chapter 3 · Monday",
+      "nodes": 1,
+      "number": 223,
+      "par": 5,
+      "setup_millis": 5128.717661,
+      "solution": [
+        24,
+        52,
+        48,
+        51,
+        65
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 9,
+      "lower_bound": 6,
+      "millis": 0.020439,
+      "name": "Chapter 3 · Wednesday",
+      "nodes": 24,
+      "number": 224,
+      "par": 6,
+      "setup_millis": 6147.742212,
+      "solution": [
+        46,
+        30,
+        45,
+        66,
+        36,
+        50
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 6,
+      "millis": 0.023614,
+      "name": "Chapter 5 · Thursday",
+      "nodes": 20,
+      "number": 225,
+      "par": 6,
+      "setup_millis": 4692.639109,
+      "solution": [
+        44,
+        74,
+        50,
+        46,
+        59,
+        67
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 15,
+      "lower_bound": 5,
+      "millis": 0.009568,
+      "name": "Chapter 1 · Tuesday",
+      "nodes": 1,
+      "number": 226,
+      "par": 5,
+      "setup_millis": 818.721461,
+      "solution": [
+        21,
+        38,
+        34,
+        52,
+        79
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 18,
+      "lower_bound": 8,
+      "millis": 0.635348,
+      "name": "Chapter 2 · Wednesday",
+      "nodes": 5757,
+      "number": 227,
+      "par": 8,
+      "setup_millis": 6357.762303,
+      "solution": [
+        30,
+        67,
+        51,
+        35,
+        18,
+        77,
+        79,
+        63
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 20,
+      "lower_bound": 6,
+      "millis": 0.016079999999999997,
+      "name": "Chapter 1 · Wednesday",
+      "nodes": 1,
+      "number": 228,
+      "par": 6,
+      "setup_millis": 8840.951095999999,
+      "solution": [
+        50,
+        58,
+        76,
+        79,
+        63,
+        33
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 3,
+      "millis": 0.00553,
+      "name": "Chapter 1 · Monday",
+      "nodes": 1,
+      "number": 229,
+      "par": 3,
+      "setup_millis": 7.037331,
+      "solution": [
+        19,
+        61,
+        75
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 7,
+      "lower_bound": 5,
+      "millis": 0.010180000000000002,
+      "name": "Chapter 5 · Wednesday",
+      "nodes": 1,
+      "number": 230,
+      "par": 5,
+      "setup_millis": 1990.263849,
+      "solution": [
+        16,
+        16,
+        22,
+        78,
+        62
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 8,
+      "lower_bound": 4,
+      "millis": 0.007163,
+      "name": "Chapter 4 · Monday",
+      "nodes": 1,
+      "number": 231,
+      "par": 4,
+      "setup_millis": 241.363562,
+      "solution": [
+        30,
+        35,
+        33,
+        79
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 8,
+      "millis": 26.340873000000002,
+      "name": "Chapter 4 · Thursday",
+      "nodes": 474160,
+      "number": 232,
+      "par": 8,
+      "setup_millis": 520.477654,
+      "solution": [
+        74,
+        48,
+        16,
+        39,
+        44,
+        63,
+        66,
+        78
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 12,
+      "lower_bound": 8,
+      "millis": 1.0601289999999999,
+      "name": "Chapter 4 · Friday",
+      "nodes": 7278,
+      "number": 233,
+      "par": 8,
+      "setup_millis": 6143.365117,
+      "solution": [
+        19,
+        22,
+        19,
+        64,
+        39,
+        61,
+        50,
+        79
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 17,
+      "lower_bound": 9,
+      "millis": 5.803825000000001,
+      "name": "Chapter 2 · Thursday",
+      "nodes": 79343,
+      "number": 234,
+      "par": 9,
+      "setup_millis": 7259.5323929999995,
+      "solution": [
+        17,
+        23,
+        18,
+        21,
+        60,
+        81,
+        50,
+        66,
+        81
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 18,
+      "lower_bound": 10,
+      "millis": 137.419295,
+      "name": "Chapter 3 · Thursday",
+      "nodes": 1710393,
+      "number": 235,
+      "par": 10,
+      "setup_millis": 7359.930349,
+      "solution": [
+        25,
+        50,
+        21,
+        31,
+        64,
+        53,
+        75,
+        59,
+        60,
+        80
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 5,
+      "lower_bound": 5,
+      "millis": 0.002395,
+      "name": "Chapter 5 · Tuesday",
+      "nodes": 0,
+      "number": 236,
+      "par": 5,
+      "setup_millis": 5059.472076999999,
+      "solution": [
+        16,
+        45,
+        31,
+        19,
+        22
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 6,
+      "lower_bound": 6,
+      "millis": 0.001933,
+      "name": "Chapter 2 · Tuesday",
+      "nodes": 0,
+      "number": 237,
+      "par": 6,
+      "setup_millis": 6910.564942999999,
+      "solution": [
+        62,
+        49,
+        53,
+        33,
+        79,
+        63
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 9,
+      "lower_bound": 8,
+      "millis": 2.973167,
+      "name": "Chapter 3 · Friday",
+      "nodes": 16591,
+      "number": 238,
+      "par": 8,
+      "setup_millis": 7062.134013,
+      "solution": [
+        38,
+        25,
+        46,
+        74,
+        81,
+        48,
+        47,
+        58
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 12,
+      "lower_bound": 8,
+      "millis": 0.47324299999999997,
+      "name": "Chapter 4 · Tuesday",
+      "nodes": 2749,
+      "number": 239,
+      "par": 8,
+      "setup_millis": 2896.985268,
+      "solution": [
+        16,
+        47,
+        45,
+        67,
+        80,
+        78,
+        63,
+        34
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 15,
+      "lower_bound": 9,
+      "millis": 14.537805,
+      "name": "Chapter 5 · Monday",
+      "nodes": 159863,
+      "number": 240,
+      "par": 9,
+      "setup_millis": 12391.616326,
+      "solution": [
+        19,
+        35,
+        39,
+        45,
+        73,
+        78,
+        76,
+        50,
+        20
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 16,
+      "lower_bound": 8,
+      "millis": 0.550609,
+      "name": "Chapter 5 · Thursday",
+      "nodes": 3148,
+      "number": 241,
+      "par": 8,
+      "setup_millis": 4692.639109,
+      "solution": [
+        17,
+        21,
+        61,
+        33,
+        75,
+        81,
+        50,
+        64
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 20,
+      "lower_bound": 9,
+      "millis": 36.534537,
+      "name": "Chapter 3 · Friday",
+      "nodes": 326877,
+      "number": 242,
+      "par": 9,
+      "setup_millis": 7062.134013,
+      "solution": [
+        22,
+        25,
+        44,
+        50,
+        66,
+        78,
+        74,
+        47,
+        19
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 6,
+      "millis": 0.0021339999999999996,
+      "name": "Chapter 2 · Friday",
+      "nodes": 0,
+      "number": 243,
+      "par": 6,
+      "setup_millis": 4440.018142,
+      "solution": [
+        22,
+        66,
+        19,
+        75,
+        30,
+        79
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 8,
+      "lower_bound": 6,
+      "millis": 0.016491,
+      "name": "Chapter 2 · Wednesday",
+      "nodes": 8,
+      "number": 244,
+      "par": 6,
+      "setup_millis": 6357.762303,
+      "solution": [
+        24,
+        36,
+        19,
+        61,
+        77,
+        65
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 10,
+      "lower_bound": 4,
+      "millis": 0.004618,
+      "name": "Chapter 1 · Monday",
+      "nodes": 1,
+      "number": 245,
+      "par": 4,
+      "setup_millis": 7.037331,
+      "solution": [
+        58,
+        45,
+        64,
+        47
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 7,
+      "millis": 0.077266,
+      "name": "Chapter 4 · Tuesday",
+      "nodes": 359,
+      "number": 246,
+      "par": 7,
+      "setup_millis": 2896.985268,
+      "solution": [
+        25,
+        60,
+        31,
+        73,
+        47,
+        20,
+        39
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 13,
+      "lower_bound": 9,
+      "millis": 12.438176,
+      "name": "Chapter 1 · Friday",
+      "nodes": 152675,
+      "number": 247,
+      "par": 9,
+      "setup_millis": 4787.625784,
+      "solution": [
+        24,
+        23,
+        46,
+        65,
+        38,
+        77,
+        46,
+        73,
+        58
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 16,
+      "lower_bound": 7,
+      "millis": 0.224573,
+      "name": "Chapter 5 · Tuesday",
+      "nodes": 873,
+      "number": 248,
+      "par": 7,
+      "setup_millis": 5059.472076999999,
+      "solution": [
+        38,
+        49,
+        22,
+        62,
+        67,
+        74,
+        45
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 17,
+      "lower_bound": 7,
+      "millis": 0.088547,
+      "name": "Chapter 3 · Monday",
+      "nodes": 383,
+      "number": 249,
+      "par": 7,
+      "setup_millis": 5128.717661,
+      "solution": [
+        23,
+        30,
+        48,
+        65,
+        78,
+        46,
+        76
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 4,
+      "lower_bound": 4,
+      "millis": 0.001823,
+      "name": "Chapter 5 · Wednesday",
+      "nodes": 0,
+      "number": 250,
+      "par": 4,
+      "setup_millis": 1990.263849,
+      "solution": [
+        39,
+        16,
+        31,
+        20
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 8,
+      "lower_bound": 7,
+      "millis": 0.232509,
+      "name": "Chapter 3 · Tuesday",
+      "nodes": 928,
+      "number": 251,
+      "par": 7,
+      "setup_millis": 8811.62965,
+      "solution": [
+        38,
+        50,
+        62,
+        45,
+        52,
+        65,
+        75
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 8,
+      "lower_bound": 6,
+      "millis": 0.015389000000000002,
+      "name": "Chapter 4 · Wednesday",
+      "nodes": 5,
+      "number": 252,
+      "par": 6,
+      "setup_millis": 6890.756583,
+      "solution": [
+        19,
+        30,
+        61,
+        58,
+        48,
+        65
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 12,
+      "lower_bound": 8,
+      "millis": 0.43784599999999996,
+      "name": "Chapter 1 · Thursday",
+      "nodes": 2303,
+      "number": 253,
+      "par": 8,
+      "setup_millis": 4708.19231,
+      "solution": [
+        16,
+        24,
+        44,
+        34,
+        51,
+        20,
+        79,
+        60
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 13,
+      "lower_bound": 4,
+      "millis": 0.005981,
+      "name": "Chapter 1 · Tuesday",
+      "nodes": 1,
+      "number": 254,
+      "par": 4,
+      "setup_millis": 818.721461,
+      "solution": [
+        47,
+        63,
+        36,
+        64
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 16,
+      "lower_bound": 9,
+      "millis": 111.839967,
+      "name": "Chapter 4 · Thursday",
+      "nodes": 2117620,
+      "number": 255,
+      "par": 9,
+      "setup_millis": 520.477654,
+      "solution": [
+        30,
+        32,
+        74,
+        65,
+        34,
+        60,
+        30,
+        81,
+        53
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 15,
+      "lower_bound": 6,
+      "millis": 0.01098,
+      "name": "Chapter 1 · Wednesday",
+      "nodes": 1,
+      "number": 256,
+      "par": 6,
+      "setup_millis": 8840.951095999999,
+      "solution": [
+        22,
+        24,
+        22,
+        79,
+        47,
+        61
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 4,
+      "lower_bound": 4,
+      "millis": 0.0017430000000000002,
+      "name": "Chapter 2 · Monday",
+      "nodes": 0,
+      "number": 257,
+      "par": 4,
+      "setup_millis": 31191.238504,
+      "solution": [
+        34,
+        25,
+        23,
+        35
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 8,
+      "lower_bound": 5,
+      "millis": 0.014748,
+      "name": "Chapter 2 · Tuesday",
+      "nodes": 1,
+      "number": 258,
+      "par": 5,
+      "setup_millis": 6910.564942999999,
+      "solution": [
+        16,
+        46,
+        81,
+        64,
+        63
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 10,
+      "lower_bound": 5,
+      "millis": 0.007684,
+      "name": "Chapter 4 · Monday",
+      "nodes": 1,
+      "number": 259,
+      "par": 5,
+      "setup_millis": 241.363562,
+      "solution": [
+        16,
+        21,
+        45,
+        79,
+        53
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 10,
+      "lower_bound": 6,
+      "millis": 0.015909999999999997,
+      "name": "Chapter 4 · Friday",
+      "nodes": 11,
+      "number": 260,
+      "par": 6,
+      "setup_millis": 6143.365117,
+      "solution": [
+        25,
+        52,
+        22,
+        35,
+        50,
+        60
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 13,
+      "lower_bound": 9,
+      "millis": 45.100901,
+      "name": "Chapter 3 · Thursday",
+      "nodes": 557053,
+      "number": 261,
+      "par": 9,
+      "setup_millis": 7359.930349,
+      "solution": [
+        52,
+        38,
+        48,
+        30,
+        53,
+        73,
+        81,
+        49,
+        65
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 17,
+      "lower_bound": 9,
+      "millis": 4.540482,
+      "name": "Chapter 2 · Thursday",
+      "nodes": 54061,
+      "number": 262,
+      "par": 9,
+      "setup_millis": 7259.5323929999995,
+      "solution": [
+        16,
+        18,
+        32,
+        18,
+        72,
+        47,
+        36,
+        66,
+        63
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 20,
+      "lower_bound": 7,
+      "millis": 0.047159,
+      "name": "Chapter 5 · Monday",
+      "nodes": 155,
+      "number": 263,
+      "par": 7,
+      "setup_millis": 12391.616326,
+      "solution": [
+        19,
+        30,
+        80,
+        52,
+        79,
+        61,
+        63
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 4,
+      "lower_bound": 4,
+      "millis": 0.001503,
+      "name": "Chapter 3 · Wednesday",
+      "nodes": 0,
+      "number": 264,
+      "par": 4,
+      "setup_millis": 6147.742212,
+      "solution": [
+        17,
+        49,
+        61,
+        76
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 8,
+      "lower_bound": 7,
+      "millis": 0.05796,
+      "name": "Chapter 3 · Friday",
+      "nodes": 222,
+      "number": 265,
+      "par": 7,
+      "setup_millis": 7062.134013,
+      "solution": [
+        20,
+        39,
+        44,
+        50,
+        24,
+        75,
+        65
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 9,
+      "lower_bound": 6,
+      "millis": 0.015429,
+      "name": "Chapter 1 · Thursday",
+      "nodes": 9,
+      "number": 266,
+      "par": 6,
+      "setup_millis": 4708.19231,
+      "solution": [
+        23,
+        31,
+        36,
+        78,
+        53,
+        38
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 12,
+      "lower_bound": 8,
+      "millis": 1.0515430000000001,
+      "name": "Chapter 4 · Wednesday",
+      "nodes": 13379,
+      "number": 267,
+      "par": 8,
+      "setup_millis": 6890.756583,
+      "solution": [
+        31,
+        32,
+        45,
+        60,
+        79,
+        81,
+        52,
+        39
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 13,
+      "lower_bound": 5,
+      "millis": 0.009598,
+      "name": "Chapter 4 · Monday",
+      "nodes": 1,
+      "number": 268,
+      "par": 5,
+      "setup_millis": 241.363562,
+      "solution": [
+        22,
+        34,
+        45,
+        66,
+        76
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 16,
+      "lower_bound": 4,
+      "millis": 0.004749,
+      "name": "Chapter 1 · Monday",
+      "nodes": 1,
+      "number": 269,
+      "par": 4,
+      "setup_millis": 7.037331,
+      "solution": [
+        19,
+        52,
+        51,
+        36
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 20,
+      "lower_bound": 9,
+      "millis": 23.986844,
+      "name": "Chapter 2 · Tuesday",
+      "nodes": 367914,
+      "number": 270,
+      "par": 9,
+      "setup_millis": 6910.564942999999,
+      "solution": [
+        23,
+        30,
+        46,
+        23,
+        30,
+        78,
+        75,
+        58,
+        81
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 4,
+      "millis": 0.008085,
+      "name": "Chapter 2 · Monday",
+      "nodes": 1,
+      "number": 271,
+      "par": 4,
+      "setup_millis": 31191.238504,
+      "solution": [
+        16,
+        47,
+        44,
+        53
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 7,
+      "lower_bound": 7,
+      "millis": 0.108484,
+      "name": "Chapter 4 · Thursday",
+      "nodes": 1008,
+      "number": 272,
+      "par": 7,
+      "setup_millis": 520.477654,
+      "solution": [
+        46,
+        59,
+        80,
+        66,
+        30,
+        38,
+        46
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 10,
+      "lower_bound": 7,
+      "millis": 0.040305999999999995,
+      "name": "Chapter 5 · Thursday",
+      "nodes": 109,
+      "number": 273,
+      "par": 7,
+      "setup_millis": 4692.639109,
+      "solution": [
+        20,
+        24,
+        74,
+        73,
+        44,
+        81,
+        52
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 10,
+      "lower_bound": 8,
+      "millis": 1.4374909999999999,
+      "name": "Chapter 3 · Wednesday",
+      "nodes": 14428,
+      "number": 274,
+      "par": 8,
+      "setup_millis": 6147.742212,
+      "solution": [
+        45,
+        48,
+        17,
+        63,
+        52,
+        80,
+        51,
+        20
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 13,
+      "lower_bound": 8,
+      "millis": 1.2426430000000002,
+      "name": "Chapter 2 · Friday",
+      "nodes": 9219,
+      "number": 275,
+      "par": 8,
+      "setup_millis": 4440.018142,
+      "solution": [
+        20,
+        24,
+        22,
+        44,
+        20,
+        31,
+        21,
+        44
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 17,
+      "lower_bound": 9,
+      "millis": 32.920632,
+      "name": "Chapter 4 · Friday",
+      "nodes": 312302,
+      "number": 276,
+      "par": 9,
+      "setup_millis": 6143.365117,
+      "solution": [
+        22,
+        75,
+        58,
+        72,
+        48,
+        20,
+        22,
+        47,
+        63
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 16,
+      "lower_bound": 11,
+      "millis": 6389.348161,
+      "name": "Chapter 1 · Friday",
+      "nodes": 92315945,
+      "number": 277,
+      "par": 11,
+      "setup_millis": 4787.625784,
+      "solution": [
+        37,
+        45,
+        18,
+        67,
+        72,
+        63,
+        72,
+        49,
+        50,
+        22,
+        80
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 6,
+      "millis": 0.0025050000000000003,
+      "name": "Chapter 5 · Tuesday",
+      "nodes": 0,
+      "number": 278,
+      "par": 6,
+      "setup_millis": 5059.472076999999,
+      "solution": [
+        34,
+        18,
+        77,
+        49,
+        30,
+        79
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 7,
+      "lower_bound": 6,
+      "millis": 0.019687999999999997,
+      "name": "Chapter 2 · Wednesday",
+      "nodes": 16,
+      "number": 279,
+      "par": 6,
+      "setup_millis": 6357.762303,
+      "solution": [
+        34,
+        24,
+        46,
+        50,
+        67,
+        65
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 10,
+      "lower_bound": 5,
+      "millis": 0.009819,
+      "name": "Chapter 1 · Wednesday",
+      "nodes": 1,
+      "number": 280,
+      "par": 5,
+      "setup_millis": 8840.951095999999,
+      "solution": [
+        18,
+        30,
+        34,
+        63,
+        79
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 7,
+      "millis": 0.03209,
+      "name": "Chapter 5 · Wednesday",
+      "nodes": 50,
+      "number": 281,
+      "par": 7,
+      "setup_millis": 1990.263849,
+      "solution": [
+        16,
+        19,
+        31,
+        46,
+        52,
+        75,
+        62
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 15,
+      "lower_bound": 8,
+      "millis": 0.7404860000000001,
+      "name": "Chapter 3 · Monday",
+      "nodes": 6951,
+      "number": 282,
+      "par": 8,
+      "setup_millis": 5128.717661,
+      "solution": [
+        20,
+        53,
+        72,
+        72,
+        62,
+        33,
+        37,
+        39
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 16,
+      "lower_bound": 7,
+      "millis": 0.08132299999999999,
+      "name": "Chapter 2 · Thursday",
+      "nodes": 606,
+      "number": 283,
+      "par": 7,
+      "setup_millis": 7259.5323929999995,
+      "solution": [
+        34,
+        48,
+        38,
+        45,
+        65,
+        75,
+        76
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 20,
+      "lower_bound": 11,
+      "millis": 16445.409818999997,
+      "name": "Chapter 3 · Thursday",
+      "nodes": 200412138,
+      "number": 284,
+      "par": 11,
+      "setup_millis": 7359.930349,
+      "solution": [
+        22,
+        50,
+        58,
+        65,
+        72,
+        58,
+        30,
+        17,
+        81,
+        53,
+        21
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 5,
+      "lower_bound": 5,
+      "millis": 0.0026850000000000003,
+      "name": "Chapter 5 · Monday",
+      "nodes": 0,
+      "number": 285,
+      "par": 5,
+      "setup_millis": 12391.616326,
+      "solution": [
+        51,
+        45,
+        59,
+        16,
+        25
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 6,
+      "lower_bound": 5,
+      "millis": 0.01049,
+      "name": "Chapter 4 · Tuesday",
+      "nodes": 1,
+      "number": 286,
+      "par": 5,
+      "setup_millis": 2896.985268,
+      "solution": [
+        33,
+        35,
+        39,
+        59,
+        47
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 10,
+      "lower_bound": 4,
+      "millis": 0.007063,
+      "name": "Chapter 1 · Tuesday",
+      "nodes": 1,
+      "number": 287,
+      "par": 4,
+      "setup_millis": 818.721461,
+      "solution": [
+        18,
+        47,
+        61,
+        48
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 10,
+      "lower_bound": 9,
+      "millis": 11.572844,
+      "name": "Chapter 3 · Tuesday",
+      "nodes": 158412,
+      "number": 288,
+      "par": 9,
+      "setup_millis": 8811.62965,
+      "solution": [
+        19,
+        30,
+        52,
+        24,
+        65,
+        34,
+        20,
+        58,
+        75
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 12,
+      "lower_bound": 9,
+      "millis": 0.808945,
+      "name": "Chapter 2 · Tuesday",
+      "nodes": 13946,
+      "number": 289,
+      "par": 9,
+      "setup_millis": 6910.564942999999,
+      "solution": [
+        16,
+        20,
+        20,
+        30,
+        76,
+        67,
+        76,
+        52,
+        60
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 15,
+      "lower_bound": 7,
+      "millis": 0.241595,
+      "name": "Chapter 5 · Wednesday",
+      "nodes": 1228,
+      "number": 290,
+      "par": 7,
+      "setup_millis": 1990.263849,
+      "solution": [
+        67,
+        37,
+        21,
+        47,
+        21,
+        47,
+        74
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 16,
+      "lower_bound": 10,
+      "millis": 35.625162,
+      "name": "Chapter 2 · Thursday",
+      "nodes": 609788,
+      "number": 291,
+      "par": 10,
+      "setup_millis": 7259.5323929999995,
+      "solution": [
+        20,
+        23,
+        32,
+        46,
+        74,
+        81,
+        48,
+        59,
+        67,
+        65
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 4,
+      "lower_bound": 4,
+      "millis": 0.002064,
+      "name": "Chapter 2 · Monday",
+      "nodes": 0,
+      "number": 292,
+      "par": 4,
+      "setup_millis": 31191.238504,
+      "solution": [
+        44,
+        33,
+        23,
+        72
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 6,
+      "lower_bound": 6,
+      "millis": 0.002615,
+      "name": "Chapter 5 · Tuesday",
+      "nodes": 0,
+      "number": 293,
+      "par": 6,
+      "setup_millis": 5059.472076999999,
+      "solution": [
+        76,
+        62,
+        37,
+        45,
+        16,
+        74
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 10,
+      "lower_bound": 9,
+      "millis": 11.767721,
+      "name": "Chapter 2 · Wednesday",
+      "nodes": 150053,
+      "number": 294,
+      "par": 9,
+      "setup_millis": 6357.762303,
+      "solution": [
+        19,
+        53,
+        24,
+        61,
+        35,
+        45,
+        31,
+        74,
+        63
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 5,
+      "millis": 0.014587,
+      "name": "Chapter 4 · Tuesday",
+      "nodes": 1,
+      "number": 295,
+      "par": 5,
+      "setup_millis": 2896.985268,
+      "solution": [
+        35,
+        37,
+        45,
+        76,
+        76
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 12,
+      "lower_bound": 8,
+      "millis": 0.559866,
+      "name": "Chapter 3 · Thursday",
+      "nodes": 4978,
+      "number": 296,
+      "par": 8,
+      "setup_millis": 7359.930349,
+      "solution": [
+        21,
+        35,
+        77,
+        44,
+        16,
+        31,
+        81,
+        49
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 18,
+      "lower_bound": 10,
+      "millis": 32.206034,
+      "name": "Chapter 3 · Tuesday",
+      "nodes": 531592,
+      "number": 297,
+      "par": 10,
+      "setup_millis": 8811.62965,
+      "solution": [
+        20,
+        18,
+        24,
+        39,
+        59,
+        61,
+        80,
+        78,
+        65,
+        62
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 19,
+      "lower_bound": 9,
+      "millis": 5.856453999999999,
+      "name": "Chapter 5 · Monday",
+      "nodes": 79684,
+      "number": 298,
+      "par": 9,
+      "setup_millis": 12391.616326,
+      "solution": [
+        18,
+        16,
+        21,
+        53,
+        61,
+        74,
+        50,
+        38,
+        80
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 5,
+      "lower_bound": 4,
+      "millis": 0.005971,
+      "name": "Chapter 4 · Monday",
+      "nodes": 1,
+      "number": 299,
+      "par": 4,
+      "setup_millis": 241.363562,
+      "solution": [
+        22,
+        30,
+        53,
+        36
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 7,
+      "lower_bound": 5,
+      "millis": 0.010319,
+      "name": "Chapter 5 · Thursday",
+      "nodes": 1,
+      "number": 300,
+      "par": 5,
+      "setup_millis": 4692.639109,
+      "solution": [
+        39,
+        34,
+        18,
+        37,
+        74
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 8,
+      "lower_bound": 6,
+      "millis": 0.026961000000000002,
+      "name": "Chapter 1 · Friday",
+      "nodes": 35,
+      "number": 301,
+      "par": 6,
+      "setup_millis": 4787.625784,
+      "solution": [
+        61,
+        45,
+        79,
+        53,
+        50,
+        48
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 8,
+      "millis": 5.700539999999999,
+      "name": "Chapter 3 · Friday",
+      "nodes": 35006,
+      "number": 302,
+      "par": 8,
+      "setup_millis": 7062.134013,
+      "solution": [
+        44,
+        18,
+        52,
+        52,
+        59,
+        61,
+        33,
+        75
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 13,
+      "lower_bound": 7,
+      "millis": 0.133622,
+      "name": "Chapter 4 · Wednesday",
+      "nodes": 801,
+      "number": 303,
+      "par": 7,
+      "setup_millis": 6890.756583,
+      "solution": [
+        36,
+        23,
+        78,
+        76,
+        48,
+        47,
+        81
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 16,
+      "lower_bound": 9,
+      "millis": 29.412265,
+      "name": "Chapter 3 · Wednesday",
+      "nodes": 340693,
+      "number": 304,
+      "par": 9,
+      "setup_millis": 6147.742212,
+      "solution": [
+        25,
+        20,
+        58,
+        78,
+        50,
+        33,
+        21,
+        47,
+        64
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 17,
+      "lower_bound": 6,
+      "millis": 0.016079999999999997,
+      "name": "Chapter 1 · Wednesday",
+      "nodes": 1,
+      "number": 305,
+      "par": 6,
+      "setup_millis": 8840.951095999999,
+      "solution": [
+        66,
+        35,
+        20,
+        76,
+        63,
+        48
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 4,
+      "lower_bound": 4,
+      "millis": 0.001954,
+      "name": "Chapter 4 · Thursday",
+      "nodes": 0,
+      "number": 306,
+      "par": 4,
+      "setup_millis": 520.477654,
+      "solution": [
+        49,
+        75,
+        80,
+        21
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 6,
+      "lower_bound": 5,
+      "millis": 0.012062999999999999,
+      "name": "Chapter 1 · Thursday",
+      "nodes": 1,
+      "number": 307,
+      "par": 5,
+      "setup_millis": 4708.19231,
+      "solution": [
+        21,
+        79,
+        48,
+        21,
+        52
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 8,
+      "lower_bound": 4,
+      "millis": 0.003466,
+      "name": "Chapter 1 · Monday",
+      "nodes": 1,
+      "number": 308,
+      "par": 4,
+      "setup_millis": 7.037331,
+      "solution": [
+        21,
+        24,
+        22,
+        46
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 12,
+      "lower_bound": 7,
+      "millis": 0.059953,
+      "name": "Chapter 2 · Friday",
+      "nodes": 157,
+      "number": 309,
+      "par": 7,
+      "setup_millis": 4440.018142,
+      "solution": [
+        18,
+        21,
+        37,
+        23,
+        62,
+        65,
+        80
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 13,
+      "lower_bound": 4,
+      "millis": 0.009878,
+      "name": "Chapter 1 · Tuesday",
+      "nodes": 1,
+      "number": 310,
+      "par": 4,
+      "setup_millis": 818.721461,
+      "solution": [
+        49,
+        61,
+        76,
+        50
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 14,
+      "lower_bound": 7,
+      "millis": 0.038352000000000004,
+      "name": "Chapter 3 · Monday",
+      "nodes": 99,
+      "number": 311,
+      "par": 7,
+      "setup_millis": 5128.717661,
+      "solution": [
+        21,
+        23,
+        20,
+        58,
+        77,
+        63,
+        80
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 19,
+      "lower_bound": 11,
+      "millis": 8539.26401,
+      "name": "Chapter 4 · Friday",
+      "nodes": 98169169,
+      "number": 312,
+      "par": 11,
+      "setup_millis": 6143.365117,
+      "solution": [
+        18,
+        32,
+        39,
+        23,
+        25,
+        49,
+        65,
+        73,
+        44,
+        72,
+        78
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 4,
+      "lower_bound": 2,
+      "millis": 0.003186,
+      "name": "Chapter 1 · Monday",
+      "nodes": 1,
+      "number": 313,
+      "par": 2,
+      "setup_millis": 7.037331,
+      "solution": [
+        53,
+        36
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 7,
+      "lower_bound": 6,
+      "millis": 0.018404,
+      "name": "Chapter 2 · Tuesday",
+      "nodes": 17,
+      "number": 314,
+      "par": 6,
+      "setup_millis": 6910.564942999999,
+      "solution": [
+        35,
+        37,
+        61,
+        35,
+        52,
+        62
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 10,
+      "lower_bound": 8,
+      "millis": 0.550879,
+      "name": "Chapter 5 · Tuesday",
+      "nodes": 2324,
+      "number": 315,
+      "par": 8,
+      "setup_millis": 5059.472076999999,
+      "solution": [
+        16,
+        37,
+        39,
+        25,
+        77,
+        49,
+        33,
+        72
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 8,
+      "millis": 1.6520350000000001,
+      "name": "Chapter 5 · Thursday",
+      "nodes": 11543,
+      "number": 316,
+      "par": 8,
+      "setup_millis": 4692.639109,
+      "solution": [
+        25,
+        44,
+        31,
+        50,
+        67,
+        79,
+        64,
+        38
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 14,
+      "lower_bound": 8,
+      "millis": 0.191051,
+      "name": "Chapter 2 · Wednesday",
+      "nodes": 1304,
+      "number": 317,
+      "par": 8,
+      "setup_millis": 6357.762303,
+      "solution": [
+        16,
+        18,
+        24,
+        45,
+        48,
+        47,
+        34,
+        18
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 18,
+      "lower_bound": 6,
+      "millis": 0.017914000000000003,
+      "name": "Chapter 4 · Tuesday",
+      "nodes": 9,
+      "number": 318,
+      "par": 6,
+      "setup_millis": 2896.985268,
+      "solution": [
+        23,
+        34,
+        64,
+        78,
+        60,
+        62
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 15,
+      "lower_bound": 8,
+      "millis": 0.16532100000000002,
+      "name": "Chapter 3 · Wednesday",
+      "nodes": 1146,
+      "number": 319,
+      "par": 8,
+      "setup_millis": 6147.742212,
+      "solution": [
+        16,
+        35,
+        44,
+        35,
+        23,
+        24,
+        58,
+        78
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 6,
+      "millis": 0.001573,
+      "name": "Chapter 5 · Monday",
+      "nodes": 0,
+      "number": 320,
+      "par": 6,
+      "setup_millis": 12391.616326,
+      "solution": [
+        60,
+        58,
+        79,
+        39,
+        75,
+        35
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 8,
+      "lower_bound": 5,
+      "millis": 0.007384,
+      "name": "Chapter 2 · Monday",
+      "nodes": 1,
+      "number": 321,
+      "par": 5,
+      "setup_millis": 31191.238504,
+      "solution": [
+        44,
+        16,
+        53,
+        24,
+        24
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 10,
+      "lower_bound": 7,
+      "millis": 0.044934,
+      "name": "Chapter 4 · Wednesday",
+      "nodes": 164,
+      "number": 322,
+      "par": 7,
+      "setup_millis": 6890.756583,
+      "solution": [
+        18,
+        32,
+        76,
+        52,
+        61,
+        44,
+        20
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 12,
+      "lower_bound": 9,
+      "millis": 5.659962999999999,
+      "name": "Chapter 3 · Monday",
+      "nodes": 65102,
+      "number": 323,
+      "par": 9,
+      "setup_millis": 5128.717661,
+      "solution": [
+        16,
+        16,
+        47,
+        22,
+        61,
+        79,
+        48,
+        74,
+        45
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 14,
+      "lower_bound": 9,
+      "millis": 2.207713,
+      "name": "Chapter 3 · Tuesday",
+      "nodes": 31935,
+      "number": 324,
+      "par": 9,
+      "setup_millis": 8811.62965,
+      "solution": [
+        17,
+        80,
+        49,
+        47,
+        30,
+        59,
+        62,
+        36,
+        66
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 18,
+      "lower_bound": 8,
+      "millis": 4.232642,
+      "name": "Chapter 4 · Thursday",
+      "nodes": 75469,
+      "number": 325,
+      "par": 8,
+      "setup_millis": 520.477654,
+      "solution": [
+        19,
+        23,
+        77,
+        74,
+        47,
+        37,
+        21,
+        38
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 20,
+      "lower_bound": 10,
+      "millis": 166.43945,
+      "name": "Chapter 1 · Thursday",
+      "nodes": 3179901,
+      "number": 326,
+      "par": 10,
+      "setup_millis": 4708.19231,
+      "solution": [
+        22,
+        34,
+        65,
+        46,
+        21,
+        25,
+        81,
+        76,
+        44,
+        81
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 5,
+      "lower_bound": 5,
+      "millis": 0.002434,
+      "name": "Chapter 5 · Wednesday",
+      "nodes": 0,
+      "number": 327,
+      "par": 5,
+      "setup_millis": 1990.263849,
+      "solution": [
+        23,
+        16,
+        60,
+        64,
+        31
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 7,
+      "lower_bound": 7,
+      "millis": 0.013716,
+      "name": "Chapter 1 · Friday",
+      "nodes": 51,
+      "number": 328,
+      "par": 7,
+      "setup_millis": 4787.625784,
+      "solution": [
+        38,
+        45,
+        76,
+        80,
+        34,
+        74,
+        53
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 10,
+      "lower_bound": 8,
+      "millis": 1.871359,
+      "name": "Chapter 2 · Thursday",
+      "nodes": 21745,
+      "number": 329,
+      "par": 8,
+      "setup_millis": 7259.5323929999995,
+      "solution": [
+        37,
+        22,
+        18,
+        20,
+        45,
+        63,
+        73,
+        47
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 5,
+      "millis": 0.01065,
+      "name": "Chapter 1 · Wednesday",
+      "nodes": 1,
+      "number": 330,
+      "par": 5,
+      "setup_millis": 8840.951095999999,
+      "solution": [
+        19,
+        47,
+        49,
+        61,
+        79
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 14,
+      "lower_bound": 5,
+      "millis": 0.008847,
+      "name": "Chapter 1 · Tuesday",
+      "nodes": 1,
+      "number": 331,
+      "par": 5,
+      "setup_millis": 818.721461,
+      "solution": [
+        21,
+        37,
+        72,
+        46,
+        60
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 15,
+      "lower_bound": 10,
+      "millis": 17.772645999999998,
+      "name": "Chapter 2 · Friday",
+      "nodes": 255759,
+      "number": 332,
+      "par": 10,
+      "setup_millis": 4440.018142,
+      "solution": [
+        17,
+        24,
+        21,
+        64,
+        72,
+        61,
+        30,
+        59,
+        80,
+        67
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 15,
+      "lower_bound": 7,
+      "millis": 0.011642,
+      "name": "Chapter 4 · Monday",
+      "nodes": 1,
+      "number": 333,
+      "par": 7,
+      "setup_millis": 241.363562,
+      "solution": [
+        18,
+        25,
+        37,
+        45,
+        66,
+        72,
+        74
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 4,
+      "lower_bound": 4,
+      "millis": 0.001764,
+      "name": "Chapter 4 · Friday",
+      "nodes": 0,
+      "number": 334,
+      "par": 4,
+      "setup_millis": 6143.365117,
+      "solution": [
+        17,
+        37,
+        64,
+        46
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 8,
+      "lower_bound": 8,
+      "millis": 0.303512,
+      "name": "Chapter 3 · Thursday",
+      "nodes": 1975,
+      "number": 335,
+      "par": 8,
+      "setup_millis": 7359.930349,
+      "solution": [
+        24,
+        49,
+        35,
+        50,
+        64,
+        44,
+        79,
+        38
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 10,
+      "lower_bound": 8,
+      "millis": 7.385809,
+      "name": "Chapter 3 · Friday",
+      "nodes": 49835,
+      "number": 336,
+      "par": 8,
+      "setup_millis": 7062.134013,
+      "solution": [
+        61,
+        51,
+        18,
+        22,
+        18,
+        66,
+        77,
+        58
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 12,
+      "lower_bound": 8,
+      "millis": 1.91426,
+      "name": "Chapter 3 · Tuesday",
+      "nodes": 12821,
+      "number": 337,
+      "par": 8,
+      "setup_millis": 8811.62965,
+      "solution": [
+        22,
+        34,
+        23,
+        30,
+        75,
+        58,
+        32,
+        31
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 13,
+      "lower_bound": 9,
+      "millis": 12.560256,
+      "name": "Chapter 2 · Thursday",
+      "nodes": 174009,
+      "number": 338,
+      "par": 9,
+      "setup_millis": 7259.5323929999995,
+      "solution": [
+        19,
+        34,
+        16,
+        52,
+        64,
+        48,
+        74,
+        61,
+        79
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 16,
+      "lower_bound": 8,
+      "millis": 0.015339,
+      "name": "Chapter 2 · Monday",
+      "nodes": 45,
+      "number": 339,
+      "par": 8,
+      "setup_millis": 31191.238504,
+      "solution": [
+        16,
+        21,
+        75,
+        46,
+        16,
+        78,
+        52,
+        21
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 17,
+      "lower_bound": 8,
+      "millis": 2.981482,
+      "name": "Chapter 5 · Thursday",
+      "nodes": 21245,
+      "number": 340,
+      "par": 8,
+      "setup_millis": 4692.639109,
+      "solution": [
+        32,
+        38,
+        64,
+        51,
+        74,
+        63,
+        44,
+        46
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 6,
+      "millis": 0.001563,
+      "name": "Chapter 5 · Wednesday",
+      "nodes": 0,
+      "number": 341,
+      "par": 6,
+      "setup_millis": 1990.263849,
+      "solution": [
+        32,
+        25,
+        81,
+        46,
+        16,
+        19
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 6,
+      "lower_bound": 5,
+      "millis": 0.014127,
+      "name": "Chapter 2 · Wednesday",
+      "nodes": 1,
+      "number": 342,
+      "par": 5,
+      "setup_millis": 6357.762303,
+      "solution": [
+        23,
+        37,
+        62,
+        76,
+        75
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 10,
+      "lower_bound": 4,
+      "millis": 0.004928999999999999,
+      "name": "Chapter 1 · Monday",
+      "nodes": 1,
+      "number": 343,
+      "par": 4,
+      "setup_millis": 7.037331,
+      "solution": [
+        17,
+        19,
+        34,
+        75
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 5,
+      "millis": 0.007084,
+      "name": "Chapter 1 · Wednesday",
+      "nodes": 1,
+      "number": 344,
+      "par": 5,
+      "setup_millis": 8840.951095999999,
+      "solution": [
+        22,
+        38,
+        37,
+        22,
+        60
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 12,
+      "lower_bound": 6,
+      "millis": 0.011582,
+      "name": "Chapter 5 · Tuesday",
+      "nodes": 3,
+      "number": 345,
+      "par": 6,
+      "setup_millis": 5059.472076999999,
+      "solution": [
+        17,
+        49,
+        36,
+        25,
+        34,
+        67
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 15,
+      "lower_bound": 6,
+      "millis": 0.015389000000000002,
+      "name": "Chapter 3 · Thursday",
+      "nodes": 12,
+      "number": 346,
+      "par": 6,
+      "setup_millis": 7359.930349,
+      "solution": [
+        30,
+        52,
+        34,
+        24,
+        46,
+        65
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 20,
+      "lower_bound": 6,
+      "millis": 0.012853999999999999,
+      "name": "Chapter 1 · Tuesday",
+      "nodes": 1,
+      "number": 347,
+      "par": 6,
+      "setup_millis": 818.721461,
+      "solution": [
+        21,
+        32,
+        31,
+        63,
+        78,
+        76
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 4,
+      "lower_bound": 4,
+      "millis": 0.0020329999999999997,
+      "name": "Chapter 5 · Monday",
+      "nodes": 0,
+      "number": 348,
+      "par": 4,
+      "setup_millis": 12391.616326,
+      "solution": [
+        59,
+        60,
+        44,
+        16
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 8,
+      "lower_bound": 6,
+      "millis": 0.019747,
+      "name": "Chapter 3 · Monday",
+      "nodes": 20,
+      "number": 349,
+      "par": 6,
+      "setup_millis": 5128.717661,
+      "solution": [
+        38,
+        63,
+        50,
+        52,
+        77,
+        47
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 8,
+      "lower_bound": 6,
+      "millis": 0.021861,
+      "name": "Chapter 4 · Friday",
+      "nodes": 15,
+      "number": 350,
+      "par": 6,
+      "setup_millis": 6143.365117,
+      "solution": [
+        33,
+        45,
+        78,
+        77,
+        60,
+        64
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 11,
+      "lower_bound": 7,
+      "millis": 0.030858,
+      "name": "Chapter 1 · Thursday",
+      "nodes": 64,
+      "number": 351,
+      "par": 7,
+      "setup_millis": 4708.19231,
+      "solution": [
+        16,
+        31,
+        77,
+        65,
+        53,
+        23,
+        48
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 13,
+      "lower_bound": 7,
+      "millis": 0.057689000000000004,
+      "name": "Chapter 4 · Tuesday",
+      "nodes": 238,
+      "number": 352,
+      "par": 7,
+      "setup_millis": 2896.985268,
+      "solution": [
+        21,
+        24,
+        20,
+        34,
+        58,
+        31,
+        65
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 16,
+      "lower_bound": 8,
+      "millis": 6.115613,
+      "name": "Chapter 4 · Thursday",
+      "nodes": 108691,
+      "number": 353,
+      "par": 8,
+      "setup_millis": 520.477654,
+      "solution": [
+        19,
+        24,
+        37,
+        44,
+        72,
+        47,
+        16,
+        74
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 19,
+      "lower_bound": 9,
+      "millis": 2.077187,
+      "name": "Chapter 2 · Tuesday",
+      "nodes": 30824,
+      "number": 354,
+      "par": 9,
+      "setup_millis": 6910.564942999999,
+      "solution": [
+        16,
+        21,
+        66,
+        65,
+        73,
+        46,
+        20,
+        49,
+        38
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 6,
+      "lower_bound": 6,
+      "millis": 0.001563,
+      "name": "Chapter 3 · Friday",
+      "nodes": 0,
+      "number": 355,
+      "par": 6,
+      "setup_millis": 7062.134013,
+      "solution": [
+        16,
+        64,
+        58,
+        81,
+        36,
+        72
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 6,
+      "lower_bound": 4,
+      "millis": 0.01032,
+      "name": "Chapter 4 · Monday",
+      "nodes": 1,
+      "number": 356,
+      "par": 4,
+      "setup_millis": 241.363562,
+      "solution": [
+        21,
+        75,
+        48,
+        75
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 9,
+      "lower_bound": 6,
+      "millis": 0.015068,
+      "name": "Chapter 4 · Wednesday",
+      "nodes": 10,
+      "number": 357,
+      "par": 6,
+      "setup_millis": 6890.756583,
+      "solution": [
+        24,
+        45,
+        46,
+        17,
+        67,
+        80
+      ],
+      "weekday": 2
+    },
+    {
+      "given": 10,
+      "lower_bound": 8,
+      "millis": 2.063301,
+      "name": "Chapter 3 · Wednesday",
+      "nodes": 15142,
+      "number": 358,
+      "par": 8,
+      "setup_millis": 6147.742212,
+      "solution": [
+        23,
+        36,
+        22,
+        64,
+        81,
+        76,
+        58,
+        46
+      ],
+      "weekday": 3
+    },
+    {
+      "given": 15,
+      "lower_bound": 7,
+      "millis": 0.08525100000000001,
+      "name": "Chapter 1 · Friday",
+      "nodes": 265,
+      "number": 359,
+      "par": 7,
+      "setup_millis": 4787.625784,
+      "solution": [
+        20,
+        34,
+        50,
+        52,
+        63,
+        49,
+        74
+      ],
+      "weekday": 4
+    },
+    {
+      "given": 17,
+      "lower_bound": 10,
+      "millis": 27.698875,
+      "name": "Chapter 2 · Friday",
+      "nodes": 391301,
+      "number": 360,
+      "par": 10,
+      "setup_millis": 4440.018142,
+      "solution": [
+        17,
+        32,
+        37,
+        61,
+        50,
+        59,
+        74,
+        78,
+        66,
+        38
+      ],
+      "weekday": 5
+    },
+    {
+      "given": 15,
+      "lower_bound": 7,
+      "millis": 0.014097,
+      "name": "Chapter 2 · Monday",
+      "nodes": 24,
+      "number": 361,
+      "par": 7,
+      "setup_millis": 31191.238504,
+      "solution": [
+        20,
+        38,
+        25,
+        60,
+        46,
+        32,
+        73
+      ],
+      "weekday": 6
+    },
+    {
+      "given": 5,
+      "lower_bound": 4,
+      "millis": 0.00505,
+      "name": "Chapter 1 · Tuesday",
+      "nodes": 1,
+      "number": 362,
+      "par": 4,
+      "setup_millis": 818.721461,
+      "solution": [
+        18,
+        20,
+        32,
+        60
+      ],
+      "weekday": 0
+    },
+    {
+      "given": 8,
+      "lower_bound": 7,
+      "millis": 0.044725,
+      "name": "Chapter 5 · Wednesday",
+      "nodes": 208,
+      "number": 363,
+      "par": 7,
+      "setup_millis": 1990.263849,
+      "solution": [
+        20,
+        37,
+        39,
+        49,
+        62,
+        79,
+        81
+      ],
+      "weekday": 1
+    },
+    {
+      "given": 9,
+      "lower_bound": 7,
+      "millis": 0.182955,
+      "name": "Chapter 2 · Tuesday",
+      "nodes": 833,
+      "number": 364,
+      "par": 7,
+      "setup_millis": 6910.564942999999,
+      "solution": [
+        36,
+        46,
+        17,
+        50,
+        49,
+        66,
+        79
+      ],
+      "weekday": 2
+    }
+  ]
+}
