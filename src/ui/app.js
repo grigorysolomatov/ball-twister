@@ -100,6 +100,7 @@ function updateButtons() {
   const n = game.session.moves.length;
   $('undo').disabled = n === 0;
   $('restart').disabled = n === 0;
+  if (n === 0) disarmRestart();
 }
 
 function doTwist(r, c, dir) {
@@ -119,7 +120,27 @@ function doUndo() {
   updateButtons();
 }
 
+// Restart asks for a second tap within two seconds once twists exist.
+let restartTimer = null;
+
+function disarmRestart() {
+  clearTimeout(restartTimer);
+  restartTimer = null;
+  const b = $('restart');
+  b.classList.remove('confirm');
+  b.textContent = 'Restart';
+}
+
 function doRestart() {
+  if (game.session.moves.length === 0) return;
+  if (restartTimer === null) {
+    const b = $('restart');
+    b.classList.add('confirm');
+    b.textContent = 'Restart? Tap again';
+    restartTimer = setTimeout(disarmRestart, 2000);
+    return;
+  }
+  disarmRestart();
   game.session.restart();
   renderBalls();
   updateButtons();
@@ -187,6 +208,7 @@ function bindBoard() {
 // --- screens -----------------------------------------------------------
 
 const HINTS = [
+  'One ball is off its ring. Tap the centre ball to send it home.',
   'Tap a ball to turn the eight around it. Match the faint rings.',
   'Hold a ball a moment to turn the other way.',
   'Undo takes back a twist. Hold the eye button to see the solved board.',
@@ -197,6 +219,7 @@ function start(modeId, level) {
   game.level = level || game.mode.next(ctx);
   game.session = createSession(game.level);
   game.t0 = Date.now();
+  disarmRestart();
   $('label').textContent = game.mode.label(game.level);
   $('hint').textContent = modeId === 'tutorial'
     ? HINTS[game.level.step]

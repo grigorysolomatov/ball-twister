@@ -9,7 +9,7 @@ import {
   dailyInfo, dailyLevel, practiceLevel, scramble, shortestWithin,
   targetFor, tutorialLevel, TUTORIAL_STEPS, DEPTHS,
 } from '../src/core/puzzle.js';
-import { PATTERNS } from '../src/core/patterns.js';
+import { LEVELS } from '../src/core/levels.js';
 import { hashSeed, mulberry32 } from '../src/core/prng.js';
 import { shareText, sparkline } from '../src/core/share.js';
 import { histogram, streakAt, updateRecord } from '../src/core/stats.js';
@@ -76,16 +76,17 @@ test('prng is deterministic', () => {
   assert.notEqual(hashSeed('x', 1), hashSeed('x', 2));
 });
 
-test('patterns are valid, distinct, and at least 30', () => {
-  assert.ok(PATTERNS.length >= 30);
+test('levels: his two-colour list, valid and distinct', () => {
+  assert.equal(LEVELS.length, 24);
+  assert.equal(LEVELS[0].target.replaceAll('.', '').length, 3);
   const seen = new Set();
-  for (const [name, text] of PATTERNS) {
-    assert.equal(text.length, 49, name);
-    assert.match(text, /^[X.]+$/, name);
-    assert.ok(!seen.has(text), name);
-    seen.add(text);
-    const ones = [...text].filter((ch) => ch === 'X').length;
-    assert.ok(ones > 5 && ones < 44, name);
+  for (const l of LEVELS) {
+    assert.equal(l.target.length, 49, l.name);
+    assert.match(l.target, /^[X.]+$/, l.name);
+    assert.ok(!seen.has(l.target), l.name);
+    seen.add(l.target);
+    assert.ok(l.chapter >= 1 && l.chapter <= 5);
+    assert.ok(l.day >= 0 && l.day <= 4);
   }
 });
 
@@ -112,7 +113,7 @@ test('daily levels are deterministic, solvable, in depth range', () => {
 
 test('scramble never cancels at once and is not trivially short', () => {
   for (let s = 0; s < 40; s++) {
-    const [, text] = PATTERNS[s % PATTERNS.length];
+    const text = LEVELS[s % LEVELS.length].target;
     const { start, solution } = scramble(text, 8, mulberry32(s));
     const pivots = solution.map((m) => m >> 1);
     for (let i = 1; i < pivots.length; i++) {
@@ -123,10 +124,15 @@ test('scramble never cancels at once and is not trivially short', () => {
   }
 });
 
-test('targets cover all patterns across a cycle', () => {
+test('targets cover all levels across a cycle, all from his list', () => {
   const names = new Set();
-  for (let n = 1; n <= PATTERNS.length; n++) names.add(targetFor(n).name);
-  assert.equal(names.size, PATTERNS.length);
+  const all = new Set(LEVELS.map((l) => l.target));
+  for (let n = 1; n <= LEVELS.length * 2; n++) {
+    const t = targetFor(n);
+    assert.ok(all.has(t.target));
+    if (n <= LEVELS.length) names.add(t.name);
+  }
+  assert.equal(names.size, LEVELS.length);
 });
 
 test('difficulty rises from Monday to Sunday', () => {
@@ -174,11 +180,15 @@ test('replay rejects bad moves', () => {
   assert.equal(replay(level, []).solved, false);
 });
 
-test('tutorial levels are 1-3 twists and solvable', () => {
-  assert.equal(TUTORIAL_STEPS, 3);
-  for (let i = 0; i < 3; i++) {
+test('tutorial: first step one ball, 1-2 twists, solvable', () => {
+  assert.equal(TUTORIAL_STEPS, 4);
+  const first = tutorialLevel(0);
+  assert.equal(first.target.replaceAll('.', '').length, 1);
+  assert.equal(tutorialLevel(1).target, LEVELS[0].target);
+  for (let i = 0; i < TUTORIAL_STEPS; i++) {
     const l = tutorialLevel(i);
-    assert.ok(l.solution.length >= 1 && l.solution.length <= 3);
+    assert.ok(l.solution.length >= 1 && l.solution.length <= 2);
+    assert.notEqual(l.start, l.target);
     assert.ok(replay(l, l.solution).solved);
   }
 });

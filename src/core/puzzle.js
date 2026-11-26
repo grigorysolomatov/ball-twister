@@ -5,7 +5,7 @@ import {
   applyMove, encodeMove, inverseMove, twist, twistCells,
 } from './board.js';
 import { hashSeed, mulberry32, randInt, shuffle } from './prng.js';
-import { PATTERNS } from './patterns.js';
+import { LEVELS } from './levels.js';
 
 // Puzzle #1 is this local calendar day (year, month 1-12, day).
 export const EPOCH = { y: 2026, m: 11, d: 26 };
@@ -31,14 +31,15 @@ export function dateInfo(date = new Date()) {
   return dailyInfo(date.getFullYear(), date.getMonth() + 1, date.getDate());
 }
 
-// Every cycle through the pattern list uses its own seeded order.
+// Daily targets come from the level list. Every cycle through the list
+// uses its own seeded order, so each level appears once per cycle.
 export function targetFor(number) {
   const n = Math.max(0, number - 1);
-  const cycle = Math.floor(n / PATTERNS.length);
+  const cycle = Math.floor(n / LEVELS.length);
   const order = shuffle(
-    PATTERNS.map((_, i) => i), mulberry32(hashSeed('order', cycle)));
-  const [name, text] = PATTERNS[order[n % PATTERNS.length]];
-  return { name, target: text };
+    LEVELS.map((_, i) => i), mulberry32(hashSeed('order', cycle)));
+  const { name, target } = LEVELS[order[n % LEVELS.length]];
+  return { name, target };
 }
 
 // Smallest number of twists (up to maxDepth) solving start, else null.
@@ -115,23 +116,28 @@ export function dailyLevel(number, weekday) {
 
 export function practiceLevel(seed, depth = 8) {
   const rng = mulberry32(hashSeed('practice', seed));
-  const [name, target] = PATTERNS[randInt(rng, 0, PATTERNS.length - 1)];
+  const { name, target } = LEVELS[randInt(rng, 0, LEVELS.length - 1)];
   const { start, solution } = scramble(target, depth, rng);
   return { kind: 'practice', seed, name, target, start, solution };
 }
 
-// Hand-built tutorial levels: target plus the twists that scramble it.
+// Tutorial: a single ball first, then the first levels of the list.
+// Each step is a target plus the one or two twists that scramble it.
+const ONE_BALL = '.'.repeat(17) + 'X' + '.'.repeat(31);
 const TUTORIAL = [
-  { name: 'tap', target: 'house', moves: [[3, 3, CCW]] },
-  { name: 'hold', target: 'heart', moves: [[4, 2, CW]] },
-  { name: 'undo', target: 'smile', moves: [[1, 2, CW], [4, 1, CCW]] },
+  { name: 'one ball', target: ONE_BALL, moves: [[3, 3, CCW]] },
+  { name: 'tap', target: LEVELS[0].target, moves: [[3, 3, CCW]] },
+  { name: 'hold', target: LEVELS[1].target,
+    moves: [[2, 3, CW], [4, 3, CCW]] },
+  { name: 'undo', target: LEVELS[2].target,
+    moves: [[3, 3, CW], [2, 2, CW]] },
 ];
 
 export const TUTORIAL_STEPS = TUTORIAL.length;
 
 export function tutorialLevel(step) {
   const spec = TUTORIAL[step];
-  const text = PATTERNS.find(([name]) => name === spec.target)[1];
+  const text = spec.target;
   const board = boardFromString(text);
   for (const [r, c, dir] of spec.moves) twist(board, r, c, dir);
   const solution = spec.moves

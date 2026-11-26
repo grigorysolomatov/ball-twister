@@ -61,11 +61,25 @@ h1 {
 .solved .ball { animation: pulse .6s ease; }
 @keyframes pulse { 50% { transform: scale(1.0); filter: brightness(1.08); } }
 
-.btns { display: flex; gap: 10px; margin-top: 18px; }
+.btns { display: flex; gap: 10px; margin-top: 18px; width: 100%;
+  max-width: 342px; }
 .btns button {
   padding: 12px 16px; border-radius: 14px; font-size: 15px;
   font-weight: 600; background: var(--btn); color: var(--btn-text);
 }
+.btns button.primary {
+  flex: 1; padding: 20px 16px; font-size: 20px; border-radius: 18px;
+  background: var(--accent); color: #fff;
+}
+header { position: relative; width: 100%; }
+.restart {
+  position: absolute; top: -14px; right: -10px; padding: 6px 10px;
+  font-size: 12px; border-radius: 10px; background: transparent;
+  color: var(--muted); border: 1px solid var(--btn);
+}
+.restart:disabled { opacity: .35; cursor: default; }
+.restart.confirm { background: var(--accent); color: #fff;
+  border-color: var(--accent); }
 .btns button:disabled { opacity: .4; cursor: default; }
 .modes { display: flex; gap: 8px; margin-top: auto; padding-top: 12px; }
 .modes button {
