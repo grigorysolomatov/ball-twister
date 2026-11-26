@@ -81,22 +81,46 @@ function renderBalls() {
   }
 }
 
-// Place the eight balls of a ring as if it were turned by theta radians
-// (clockwise positive), travelling along the square ring path.
+// Turn a ring as ONE rigid square: the 3x3 block is lifted into a group
+// that rotates around the ring centre, so corners stay corners and edge
+// balls stay edge midpoints at every angle. Balls are counter-rotated so
+// their drop shadow keeps pointing down and they do not look like they
+// spin.
+function spinGroup(r, c) {
+  if (game.spin && game.spin.r === r && game.spin.c === c) {
+    return game.spin;
+  }
+  const el = document.createElement('div');
+  el.className = 'spin';
+  el.style.left = `${(c - 1) * 100 / SIZE}%`;
+  el.style.top = `${(r - 1) * 100 / SIZE}%`;
+  const balls = [];
+  for (let dr = -1; dr <= 1; dr++) {
+    for (let dc = -1; dc <= 1; dc++) {
+      const b = game.balls[(r + dr) * SIZE + c + dc];
+      b.style.transition = 'none';
+      b.style.transform = `translate(${(dc + 1) * 100}%, ${(dr + 1) * 100}%)`;
+      el.appendChild(b);
+      balls.push(b);
+    }
+  }
+  $('balls').appendChild(el);
+  game.spin = { r, c, el, balls };
+  return game.spin;
+}
+
 function poseRing(r, c, theta) {
-  const cells = ringCells(r, c);
-  const shift = (theta / QUARTER) * 2;
-  cells.forEach(([cr, cc], i) => {
-    const f = (((i + shift) % 8) + 8) % 8;
-    const lo = Math.floor(f);
-    const [r0, c0] = cells[lo % 8];
-    const [r1, c1] = cells[(lo + 1) % 8];
-    const t = f - lo;
-    const el = game.balls[cr * SIZE + cc];
-    el.style.transition = 'none';
-    el.style.transform = `translate(${(c0 + (c1 - c0) * t) * 100}%, `
-      + `${(r0 + (r1 - r0) * t) * 100}%)`;
-  });
+  const s = spinGroup(r, c);
+  const deg = theta * 180 / Math.PI;
+  s.el.style.transform = `rotate(${deg}deg)`;
+  for (const b of s.balls) b.firstChild.style.transform = `rotate(${-deg}deg)`;
+}
+
+// Light detents: the shown angle lingers a little at each quarter turn.
+function magnet(theta) {
+  const m = Math.round(theta / QUARTER) * QUARTER;
+  const d = theta - m;
+  return m + d * (0.65 + 0.35 * Math.min(1, Math.abs(d) / 0.35));
 }
 
 // Animate a ring from one angle to another, then call done. A running
@@ -175,7 +199,8 @@ function commitTurn(r, c, k, from, ms, ease) {
   const turned = !s.solved() && s.turn(r, c, k);
   const to = k * QUARTER;
   animateRing(r, c, from, to, ms, ease, () => {
-    if (turned) renderBalls();
+    game.spin = null;
+    renderBalls();
     updateButtons();
     if (turned && s.solved()) setTimeout(onSolved, 250);
   });
@@ -195,6 +220,7 @@ function doUndo() {
   // Show the ring turning back by the shorter way round.
   const back = q <= 2 ? -q : 4 - q;
   animateRing(r, c, 0, back * QUARTER, CLICK_MS, easeOutQuint, () => {
+    game.spin = null;
     renderBalls();
     updateButtons();
   });
@@ -246,8 +272,16 @@ function bindBoard() {
   layer.addEventListener('pointermove', (ev) => {
     if (!press || press.id !== ev.pointerId) return;
     dragMove(press.g, ev.clientX, ev.clientY);
-    if (press.g.theta !== 0) poseRing(press.cell[0], press.cell[1],
-      press.g.theta);
+    if (press.g.theta === 0 && !press.spun) return;
+    press.spun = true;
+    const shown = magnet(press.g.theta);
+    press.shown = shown;
+    const q = Math.round(shown / QUARTER);
+    if (press.q !== undefined && q !== press.q && navigator.vibrate) {
+      navigator.vibrate(5);
+    }
+    press.q = q;
+    poseRing(press.cell[0], press.cell[1], shown);
   });
   const finish = (ev, cancel) => {
     if (!press || press.id !== ev.pointerId) return;
@@ -262,7 +296,8 @@ function bindBoard() {
       else dragHint(p.cell);
       return;
     }
-    commitTurn(r, c, k, p.g.theta, SNAP_MS, easeOutCubic);
+    commitTurn(r, c, k, p.shown === undefined ? p.g.theta : p.shown,
+      SNAP_MS, easeOutCubic);
   };
   layer.addEventListener('pointerup', (ev) => finish(ev, false));
   layer.addEventListener('pointercancel', (ev) => finish(ev, true));
