@@ -104,6 +104,7 @@ export function install(api) {
       <div id="ed-list" class="ed-list"></div>
       <div class="ed-main">
         <button type="button" id="ed-export">Export all</button>
+        <button type="button" id="ed-share">Share</button>
         <button type="button" id="ed-import">Import</button>
       </div>
       <div class="ed-main"><button type="button" id="ed-back">Back</button>
@@ -556,6 +557,28 @@ export function install(api) {
     try { await navigator.clipboard.writeText(json); copied = true; } catch (err) { /* ignore */ }
     msg(`Exported ${count} level${count === 1 ? '' : 's'}`
       + (copied ? ', file downloaded and copied.' : ', file downloaded.'));
+  };
+
+  // Share sheet on phones (Gmail, chat); clipboard where unavailable.
+  $('ed-share').onclick = async () => {
+    const count = allSaved().length;
+    if (!count) return msg('Save a level first, then share.', true);
+    const json = JSON.stringify(St.exportData(store), null, 2);
+    const d = new Date();
+    const stamp = d.toISOString().slice(0, 10);
+    const name = `ball-twister-levels-${stamp}.json`;
+    const title = `Ball Twister levels ${stamp}`;
+    if (navigator.share) {
+      const file = new File([json], name, { type: 'application/json' });
+      const data = navigator.canShare && navigator.canShare({ files: [file] })
+        ? { title, text: json, files: [file] } : { title, text: json };
+      try { await navigator.share(data); return msg('Shared.'); }
+      catch (err) { if (err && err.name === 'AbortError') return; }
+    }
+    try {
+      await navigator.clipboard.writeText(json);
+      msg(`Copied ${count} level${count === 1 ? '' : 's'}; paste it to Euler.`);
+    } catch (err) { msg('Could not share or copy; use Export.', true); }
   };
 
   function importText(text) {
