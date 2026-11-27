@@ -127,11 +127,11 @@ export function practiceLevel(seed, depth = 8) {
 
 // One of his levels by id. The scramble is random on every play: pass a
 // fresh seed each time (a given seed always gives the same scramble).
-// Depth follows the level's weekday slot, so later days are harder.
+// Depth grows with the level's place in its chapter (level 1 easiest).
 export function levelPlay(id, seed = 0) {
-  const { name, target, day } = LEVELS[id];
+  const { name, target, level } = LEVELS[id];
   const rng = mulberry32(hashSeed('level', id, seed));
-  const [lo, hi] = DEPTHS[day];
+  const [lo, hi] = DEPTHS[Math.min(level - 1, DEPTHS.length - 1)];
   const depth = randInt(rng, lo, hi);
   const { start, solution } = scramble(target, depth, rng);
   return { kind: 'level', id, name, target, start, solution };

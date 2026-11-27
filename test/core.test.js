@@ -92,7 +92,8 @@ test('levels: his two-colour list, valid and distinct', () => {
     assert.ok(!seen.has(l.target), l.name);
     seen.add(l.target);
     assert.ok(l.chapter >= 1 && l.chapter <= 5);
-    assert.ok(l.day >= 0 && l.day <= 4);
+    assert.ok(l.level >= 1 && l.level <= 5);
+    assert.equal(l.name, `Chapter ${l.chapter} \u00b7 Level ${l.level}`);
   }
 });
 

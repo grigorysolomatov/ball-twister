@@ -4,7 +4,7 @@
 import { CCW, CW, SIZE, canTwist, decodeTurn, ringCells }
   from '../core/board.js';
 import { createSession } from '../core/session.js';
-import { DAYS, LEVELS } from '../core/levels.js';
+import { LEVELS } from '../core/levels.js';
 import { unlockedCount, visibleChapters } from '../core/progress.js';
 import { dateInfo } from '../core/puzzle.js';
 import { shareText } from '../core/share.js';
@@ -596,7 +596,7 @@ function showLevels() {
       const b = document.createElement('button');
       b.type = 'button';
       b.className = store.levels[l.id] ? 'done' : '';
-      b.innerHTML = `<b>${l.id + 1}</b>${DAYS[l.day].slice(0, 3)}`;
+      b.innerHTML = `<b>${l.level}</b>`;
       b.onclick = () => playLevel(l.id);
       row.appendChild(b);
     }
