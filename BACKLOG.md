@@ -24,6 +24,8 @@ when they make sense. Nothing here runs until Grigory says go.
   basketballs, Go stones, billiard, fruit, emoji. Curiosity about which
   themes exist is a reason to keep playing. Piece art via image
   generation (his OpenAI login works; sample docs/theme-pieces.png).
+- Levels fit their chapter's theme (billiards: balls in the corners like
+  pockets...). Every level has a name.
 - Share export shows the player's theme, so people show their taste and
   what they have unlocked.
 
@@ -31,6 +33,8 @@ when they make sense. Nothing here runs until Grigory says go.
 
 - Reveal chapters one at a time; never show the full level count up
   front (a wall of levels, as in Baba Is You, makes people quit).
+- Grigory authors levels in the editor plugin; sort into chapters later;
+  remove the plugin before release.
 
 ## Social and online
 

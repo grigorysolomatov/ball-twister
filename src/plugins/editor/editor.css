@@ -1,0 +1,57 @@
+/* Level editor plugin styles; delete with the plugin folder. */
+.ed { overflow: hidden; }
+.ed h1 { font-size: 28px; }
+.ed-scroll { width: 100%; flex: 1; min-height: 0; overflow-y: auto;
+  display: flex; flex-direction: column; align-items: center;
+  padding-bottom: 20px; -webkit-user-select: text; user-select: text; }
+.ed-fields { display: flex; gap: 8px; width: 100%; max-width: 342px;
+  margin: 12px 0; }
+.ed input[type=text], .ed input[type=number], .ed-text {
+  font: inherit; font-size: 16px; padding: 10px 12px; border: 0;
+  border-radius: 12px; background: var(--btn); color: var(--btn-text);
+  min-width: 0; }
+.ed input[type=text] { flex: 1 1 0; }
+.ed input[type=number] { width: 104px; }
+.ed input::placeholder, .ed-text::placeholder { color: var(--muted); }
+.ed-board { margin: 0 auto; flex-shrink: 0; width: min(100%, 342px); }
+.ed-tools, .ed-main { display: flex; gap: 8px; width: 100%;
+  max-width: 342px; margin-top: 12px; flex-wrap: wrap; }
+.ed-tools button, .ed-main button { flex: 1 1 0; padding: 12px 6px;
+  border-radius: 14px; font-weight: 600; font-size: 15px;
+  background: var(--btn); color: var(--btn-text); }
+.ed-main button.primary { background: var(--accent); color: #fff; }
+.ed-depth { display: block; width: 100%; max-width: 342px; margin-top: 14px;
+  font-size: 14px; color: var(--muted); text-align: left; }
+.ed-depth input { width: 100%; accent-color: var(--accent); }
+.ed-msg { min-height: 20px; max-width: 342px; }
+.ed-msg.warn { color: var(--accent); }
+.ed h3 { align-self: flex-start; margin: 16px 0 6px; font-size: 14px;
+  font-weight: 600; color: var(--muted); }
+.ed-list { width: 100%; max-width: 342px; display: flex;
+  flex-direction: column; gap: 8px; }
+.ed-item { display: flex; gap: 6px; align-items: stretch;
+  border-radius: 14px; background: var(--btn); padding: 6px; }
+.ed-item.on { outline: 2.5px solid var(--accent); }
+.ed-open { flex: 1; display: flex; align-items: center; gap: 10px;
+  background: transparent; text-align: left; min-width: 0; font-size: 16px;
+  font-weight: 600; }
+.ed-open span { overflow: hidden; text-overflow: ellipsis;
+  white-space: nowrap; flex: 1; }
+.ed-open small { color: var(--muted); font-weight: 400; font-size: 11px; }
+.ed-mini { padding: 4px 10px; border-radius: 10px; font-size: 12px;
+  background: transparent; color: var(--muted); }
+.ed-mini.confirm { background: var(--accent); color: #fff; }
+.thumb { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px;
+  width: 42px; height: 42px; padding: 3px; border-radius: 6px;
+  background: var(--board); flex-shrink: 0; }
+.thumb i { border-radius: 50%; background: var(--ball0); opacity: .35; }
+.thumb i.on { background: var(--ball1); opacity: 1; }
+.ed-text { width: 100%; margin-top: 10px; resize: vertical;
+  -webkit-user-select: text; user-select: text; font-size: 13px; }
+#imp-file { margin-top: 10px; font-size: 13px; max-width: 100%; }
+.ed-built { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px;
+  margin-top: 12px; }
+.ed-built button { padding: 8px; border-radius: 10px; font-size: 14px;
+  background: var(--btn); color: var(--btn-text); text-align: left; }
+.card .ed-msg { text-align: center; margin: 10px 0 0; font-size: 13px; }
+.card .ed-msg.warn { color: var(--accent); }

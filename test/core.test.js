@@ -93,8 +93,11 @@ test('levels: his two-colour list, valid and distinct', () => {
     seen.add(l.target);
     assert.ok(l.chapter >= 1 && l.chapter <= 5);
     assert.ok(l.level >= 1 && l.level <= 5);
-    assert.equal(l.name, `Chapter ${l.chapter} \u00b7 Level ${l.level}`);
+    assert.equal(l.label, `Chapter ${l.chapter} \u00b7 Level ${l.level}`);
+    assert.equal(l.name, l.title);
+    assert.ok(l.title.trim().length > 0 && l.title.length <= 20);
   }
+  assert.equal(new Set(LEVELS.map((l) => l.title)).size, LEVELS.length);
 });
 
 test('level play: deterministic, solvable, scrambled', () => {

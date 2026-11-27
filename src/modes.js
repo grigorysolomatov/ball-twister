@@ -58,7 +58,7 @@ registerMode({
     // Fresh random scramble on every play; only the daily is seeded.
     return levelPlay(ctx.levelId || 0, Math.floor(Math.random() * 2 ** 32));
   },
-  label(level) { return level.name; },
+  label(level) { return level.label; },
   tracksStats: false,
   shareable: false,
   replayable: true,

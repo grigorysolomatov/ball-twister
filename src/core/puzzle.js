@@ -129,12 +129,14 @@ export function practiceLevel(seed, depth = 8) {
 // fresh seed each time (a given seed always gives the same scramble).
 // Depth grows with the level's place in its chapter (level 1 easiest).
 export function levelPlay(id, seed = 0) {
-  const { name, target, level } = LEVELS[id];
+  const { name, label, target, level } = LEVELS[id];
   const rng = mulberry32(hashSeed('level', id, seed));
   const [lo, hi] = DEPTHS[Math.min(level - 1, DEPTHS.length - 1)];
   const depth = randInt(rng, lo, hi);
   const { start, solution } = scramble(target, depth, rng);
-  return { kind: 'level', id, name, target, start, solution };
+  return {
+    kind: 'level', id, name, label, heading: name, target, start, solution,
+  };
 }
 
 // Tutorial: a single ball first, then the first levels of the list.

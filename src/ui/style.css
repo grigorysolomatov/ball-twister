@@ -129,7 +129,11 @@ header { width: 100%; }
 .levelrow button { flex: 1; padding: 12px 0; border-radius: 12px;
   font-size: 12px; background: var(--btn); color: var(--btn-text);
   position: relative; }
+.levelrow button { min-width: 0; padding: 10px 2px; }
 .levelrow button b { display: block; font-size: 18px; }
+.levelrow button span { display: block; font-size: 10px; opacity: .75;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  padding: 0 3px; line-height: 1.2; }
 .levelrow button.done { background: var(--accent); color: #fff; }
 .levelrow button.done::after { content: '\2713'; position: absolute;
   top: 2px; right: 6px; font-size: 11px; }

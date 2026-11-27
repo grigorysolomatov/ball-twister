@@ -343,7 +343,9 @@ function start(modeId, level) {
   game.session = createSession(game.level);
   game.t0 = Date.now();
   $('label').textContent = game.mode.label(game.level);
-  $('hint').textContent = modeId === 'tutorial'
+  $('ptitle').textContent = game.level.heading || 'Ball Twister';
+  $('hint').textContent = game.level.hint ? game.level.hint
+    : modeId === 'tutorial'
     ? HINTS[game.level.step]
     : modeId === 'daily'
       ? 'Make the balls match the rings.'
@@ -417,6 +419,7 @@ function onSolved() {
   const result = game.session.result();
   const secs = Math.round((Date.now() - game.t0) / 1000);
   const id = game.mode.id;
+  if (game.mode.onSolved) return game.mode.onSolved(result);
   if (id === 'tutorial') return tutorialDone();
   if (id === 'practice') return practiceDone(result);
   if (id === 'level') return levelDone(result);
@@ -567,6 +570,7 @@ function chooseTheme() {
 function showPage(id) {
   for (const p of ['start', 'levels', 'play']) $(p).hidden = p !== id;
   game.page = id;
+  document.dispatchEvent(new CustomEvent('bt:page', { detail: id }));
 }
 
 function showStart() {
@@ -596,7 +600,8 @@ function showLevels() {
       const b = document.createElement('button');
       b.type = 'button';
       b.className = store.levels[l.id] ? 'done' : '';
-      b.innerHTML = `<b>${l.level}</b>`;
+      b.innerHTML = `<b>${l.level}</b><span></span>`;
+      b.lastChild.textContent = l.title;
       b.onclick = () => playLevel(l.id);
       row.appendChild(b);
     }
@@ -659,6 +664,17 @@ function registerWorker() {
   });
 }
 
+// Optional plugins (src/plugins). Deleting that folder is enough: a
+// failed import is ignored. See src/plugins/editor/README.md.
+function loadPlugins() {
+  const api = { LEVELS, play: (level) => start('editor-test', level),
+    sheet, closeSheet, toast, showPage, showStart, page: () => game.page };
+  import('../plugins/config.js')
+    .then((c) => c.EDITOR_ENABLED && import('../plugins/editor/editor.js'))
+    .then((m) => m && m.install(api))
+    .catch(() => {});
+}
+
 function init() {
   applyTheme(params.get('theme') || store.settings.theme);
   bindBoard();
@@ -673,6 +689,7 @@ function init() {
   if (first) start('tutorial');
   else showStart();
   registerWorker();
+  loadPlugins();
   // Read-only hooks for automated checks.
   window.__bt = {
     level: () => game.level,
