@@ -1,0 +1,252 @@
+{
+ "version": 2,
+ "tabs": [
+  {
+   "id": "tmwyouyzc1",
+   "name": "Medieval",
+   "levels": [
+    {
+     "title": "Shield",
+     "rows": [
+      ".XXXXX.",
+      "X.....X",
+      "X.....X",
+      "X.....X",
+      ".X...X.",
+      "..X.X..",
+      "...X..."
+     ]
+    },
+    {
+     "title": "Dagger",
+     "rows": [
+      "...X...",
+      "..X.X..",
+      "..X.X..",
+      "..X.X..",
+      ".XX.XX.",
+      "...X...",
+      "...X..."
+     ]
+    },
+    {
+     "title": "Arrow",
+     "rows": [
+      "....XXX",
+      ".....XX",
+      "....X.X",
+      "...X...",
+      "XXX....",
+      "..X....",
+      "..X...."
+     ]
+    },
+    {
+     "title": "Sword",
+     "rows": [
+      ".....XX",
+      "....X.X",
+      "...X.X.",
+      "X.X.X..",
+      ".X.X...",
+      ".XX....",
+      "X..X..."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tmwyov6pi1",
+   "name": "Fruits",
+   "levels": [
+    {
+     "title": "Cherry",
+     "rows": [
+      ".......",
+      "...X...",
+      "..X.X..",
+      ".X...X.",
+      "XXX.XXX",
+      "X.X.X.X",
+      "XXX.XXX"
+     ]
+    },
+    {
+     "title": "Banana",
+     "rows": [
+      ".X.....",
+      ".X.....",
+      "X.X....",
+      "X.X....",
+      "X..XXX.",
+      ".X....X",
+      "..XXXX."
+     ]
+    },
+    {
+     "title": "Apple",
+     "rows": [
+      "...X...",
+      ".XXXXX.",
+      "X..X..X",
+      "X.....X",
+      "X.....X",
+      ".X...X.",
+      "..XXX.."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tmwyowopd2",
+   "name": "Cosmos",
+   "levels": [
+    {
+     "title": "Big Bang",
+     "rows": [
+      ".......",
+      ".......",
+      ".......",
+      "...X...",
+      ".......",
+      ".......",
+      "......."
+     ]
+    },
+    {
+     "title": "Milky Way",
+     "rows": [
+      "....X..",
+      ".XX..X.",
+      "X..X.X.",
+      "..XXX..",
+      ".X.X..X",
+      ".X..XX.",
+      "..X...."
+     ]
+    },
+    {
+     "title": "Sun",
+     "rows": [
+      ".......",
+      ".X.X.X.",
+      "..XXX..",
+      ".XX.XX.",
+      "..XXX..",
+      ".X.X.X.",
+      "......."
+     ]
+    },
+    {
+     "title": "Earth",
+     "rows": [
+      ".......",
+      "..XXX..",
+      ".X...X.",
+      ".X...X.",
+      ".X...X.",
+      "..XXX..",
+      "......."
+     ]
+    },
+    {
+     "title": "Saturn",
+     "rows": [
+      ".......",
+      "..XXX..",
+      ".X...X.",
+      "XXXXXXX",
+      ".X...X.",
+      "..XXX..",
+      "......."
+     ]
+    },
+    {
+     "title": "Jupiter",
+     "rows": [
+      "..XXX..",
+      ".X...X.",
+      "X.....X",
+      "X.....X",
+      "X.....X",
+      ".X...X.",
+      "..XXX.."
+     ]
+    },
+    {
+     "title": "Black Hole",
+     "rows": [
+      ".......",
+      "..XXX..",
+      ".XXXXX.",
+      ".XXXXX.",
+      ".XXXXX.",
+      "..XXX..",
+      "......."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tmwypowsw3",
+   "name": "Town",
+   "levels": [
+    {
+     "title": "Hut",
+     "rows": [
+      "...X...",
+      "..X.X..",
+      ".X...X.",
+      "XXXXXXX",
+      ".X...X.",
+      ".X...X.",
+      ".XXXXX."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tmwypw7zw4",
+   "name": "Animals",
+   "levels": [
+    {
+     "title": "Homo Sapiens",
+     "rows": [
+      "..XXX..",
+      "..X.X..",
+      "..XXX..",
+      "...X...",
+      "..XXX..",
+      "...X...",
+      "..X.X.."
+     ]
+    },
+    {
+     "title": "Hen",
+     "rows": [
+      ".......",
+      "....XX.",
+      ".X..X.X",
+      ".XXXXX.",
+      ".X...X.",
+      "..XXX..",
+      "...X..."
+     ]
+    },
+    {
+     "title": "Seagul",
+     "rows": [
+      ".......",
+      ".......",
+      ".XX.XX.",
+      "X..X..X",
+      ".......",
+      ".......",
+      "......."
+     ]
+    }
+   ]
+  }
+ ],
+ "selected": "tmwypw7zw4"
+}
