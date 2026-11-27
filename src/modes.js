@@ -4,6 +4,7 @@
 import {
   dateInfo, dailyLevel, levelPlay, practiceLevel, tutorialLevel, TUTORIAL_STEPS,
 } from './core/puzzle.js';
+import { DAILY_QUEUE } from './core/daily-queue.js';
 
 const modes = new Map();
 
@@ -24,13 +25,11 @@ registerMode({
   title: 'Daily',
   // Same level for everyone on a given local date.
   next(ctx) {
-    const { number, weekday } = dateInfo(ctx.now());
-    return dailyLevel(number, weekday);
+    const { number } = dateInfo(ctx.now());
+    return dailyLevel(number, DAILY_QUEUE);
   },
   label(level) {
-    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
-      'Saturday', 'Sunday'];
-    return `#${level.number} \u00b7 ${days[level.weekday]}`;
+    return `Daily #${level.number} \u00b7 ${level.name}`;
   },
   tracksStats: true,
   shareable: true,

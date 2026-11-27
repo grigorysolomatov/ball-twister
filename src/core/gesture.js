@@ -57,3 +57,51 @@ export function dragTurns(g) {
 export function isTap(g, slop = TAP_SLOP) {
   return g.maxDist < slop;
 }
+
+// --- tap controls ------------------------------------------------------
+// Alternative to dragging. A press that never moves is a tap; what it
+// means depends on the controls mode:
+//   'tap2'  tap = clockwise, double-tap = counter-clockwise. A single tap
+//           must wait out the double-tap window before it fires.
+//   'hold'  tap = clockwise, press and hold = counter-clockwise. Nothing
+//           waits: a tap fires on release, a hold fires on release too
+//           (the UI may show it earlier when HOLD_MS has passed).
+// Both functions are pure: the caller passes timestamps in ms.
+
+export const DOUBLE_MS = 250;
+export const HOLD_MS = 400;
+export const CONTROLS = ['drag', 'tap2', 'hold'];
+
+// 'hold' mode: direction for a press that lasted `ms`.
+export function holdDirection(ms) {
+  return ms >= HOLD_MS ? CCW : CW;
+}
+
+export function createTaps() {
+  return { pending: null };
+}
+
+// Register a tap on `key` (any string, e.g. "r,c") at time t. Returns the
+// list of resolved twists [{ key, dir }]: a second tap on the same key
+// inside the window gives CCW at once; a tap elsewhere flushes the older
+// pending tap as CW. A lone tap stays pending until tapDue() says so.
+export function tapUp(s, key, t) {
+  const out = [];
+  const p = s.pending;
+  if (p && p.key === key && t - p.t <= DOUBLE_MS) {
+    s.pending = null;
+    out.push({ key, dir: CCW });
+    return out;
+  }
+  if (p) out.push({ key: p.key, dir: CW });
+  s.pending = { key, t };
+  return out;
+}
+
+// Ask whether a pending single tap has outlived the window at time t.
+export function tapDue(s, t) {
+  const p = s.pending;
+  if (!p || t - p.t < DOUBLE_MS) return [];
+  s.pending = null;
+  return [{ key: p.key, dir: CW }];
+}

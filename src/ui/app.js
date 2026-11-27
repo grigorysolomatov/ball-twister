@@ -10,9 +10,11 @@ import { dateInfo } from '../core/puzzle.js';
 import { shareText } from '../core/share.js';
 import { summarize, updateRecord } from '../core/stats.js';
 import { getMode } from '../modes.js';
-import { THEME_ORDER, THEMES, applyTheme } from './themes.js';
+import { PART_ORDER, PARTS, PRESETS, applyLook, isUnlocked,
+  resolveLook } from './themes.js';
 import { load, save } from './storage.js';
-import { QUARTER, createDrag, dragMove, dragStart, dragTurns, isTap }
+import { CONTROLS, HOLD_MS, QUARTER, createDrag, createTaps, dragMove,
+  dragStart, dragTurns, holdDirection, isTap, tapDue, tapUp }
   from '../core/gesture.js';
 
 const SNAP_MS = 240;
@@ -179,6 +181,79 @@ function showFocus(cell) {
   el.style.top = `${(r - 1) * 100 / SIZE}%`;
 }
 
+// --- drag handle -------------------------------------------------------
+// A soft line from the pivot to the finger plus two curved arrows around
+// the ring. The arrow for the current turning direction lights up.
+const SVGNS = 'http://www.w3.org/2000/svg';
+const HANDLE_R = 1.62; // arrow radius in cells
+
+function svgEl(name, attrs) {
+  const el = document.createElementNS(SVGNS, name);
+  for (const [k, v] of Object.entries(attrs || {})) el.setAttribute(k, v);
+  return el;
+}
+
+function arcPath(cx, cy, r, a0, a1) {
+  const pt = (a) => `${cx + r * Math.cos(a)} ${cy + r * Math.sin(a)}`;
+  return `M ${pt(a0)} A ${r} ${r} 0 0 ${a1 > a0 ? 1 : 0} ${pt(a1)}`;
+}
+
+function arrowHead(cx, cy, r, a, dir, size) {
+  // Tip sits on the arc at angle a; points along the direction of travel.
+  const tx = cx + r * Math.cos(a);
+  const ty = cy + r * Math.sin(a);
+  const t = a + dir * Math.PI / 2; // tangent angle
+  const w = (k) => [tx - size * Math.cos(t) + k * size * 0.7 * Math.cos(t + Math.PI / 2),
+    ty - size * Math.sin(t) + k * size * 0.7 * Math.sin(t + Math.PI / 2)];
+  const [x1, y1] = w(1);
+  const [x2, y2] = w(-1);
+  return `M ${x1} ${y1} L ${tx} ${ty} L ${x2} ${y2}`;
+}
+
+function makeHandle(cx, cy, cellPx) {
+  const layer = $('hits');
+  killHandle();
+  const r = cellPx * HANDLE_R;
+  const svg = svgEl('svg', { class: 'handle' });
+  const line = svgEl('line', { x1: cx, y1: cy, x2: cx, y2: cy, class: 'h-line' });
+  const dot = svgEl('circle', { cx, cy, r: cellPx * 0.1, class: 'h-dot' });
+  const mk = (cls, a0, a1, dir) => {
+    const g = svgEl('g', { class: `h-arrow ${cls}` });
+    g.appendChild(svgEl('path', { d: arcPath(cx, cy, r, a0, a1) }));
+    g.appendChild(svgEl('path', { d: arrowHead(cx, cy, r, a1, dir, cellPx * 0.2) }));
+    svg.appendChild(g);
+    return g;
+  };
+  const d = Math.PI / 180;
+  const cw = mk('cw', -80 * d, -20 * d, 1);
+  const ccw = mk('ccw', 100 * d, 160 * d, 1);
+  // The second arrow runs the other way round: reverse its path.
+  ccw.firstChild.setAttribute('d', arcPath(cx, cy, r, 160 * d, 100 * d));
+  ccw.lastChild.setAttribute('d', arrowHead(cx, cy, r, 100 * d, -1, cellPx * 0.2));
+  svg.insertBefore(line, svg.firstChild);
+  svg.insertBefore(dot, svg.firstChild);
+  layer.appendChild(svg);
+  requestAnimationFrame(() => svg.classList.add('on'));
+  game.handle = { svg, line, cw, ccw, cx, cy };
+}
+
+function moveHandle(x, y, theta) {
+  const h = game.handle;
+  if (!h) return;
+  h.line.setAttribute('x2', x);
+  h.line.setAttribute('y2', y);
+  h.cw.classList.toggle('hot', theta > 0.08);
+  h.ccw.classList.toggle('hot', theta < -0.08);
+}
+
+function killHandle() {
+  const h = game.handle;
+  if (!h) return;
+  game.handle = null;
+  h.svg.classList.remove('on');
+  setTimeout(() => h.svg.remove(), 260);
+}
+
 function dragHint(cell) {
   showFocus(cell);
   setTimeout(() => showFocus(null), 350);
@@ -202,7 +277,10 @@ function commitTurn(r, c, k, from, ms, ease) {
     game.spin = null;
     renderBalls();
     updateButtons();
-    if (turned && s.solved()) setTimeout(onSolved, 250);
+    if (turned && s.solved()) {
+      $('board').classList.add('solved');
+      setTimeout(onSolved, 650);
+    }
   });
   updateButtons();
 }
@@ -235,6 +313,28 @@ function doRestart() {
 
 // --- input -------------------------------------------------------------
 
+function controlMode() {
+  const m = store.settings.controls;
+  return CONTROLS.includes(m) ? m : 'drag';
+}
+
+// Double-tap mode: a lone tap fires once the window has passed.
+const taps = createTaps();
+let tapTimer = 0;
+function tapInput(r, c) {
+  const flush = (list) => {
+    for (const t of list) {
+      const [tr, tc] = t.key.split(',').map(Number);
+      doTwist(tr, tc, t.dir);
+    }
+  };
+  flush(tapUp(taps, `${r},${c}`, performance.now()));
+  clearTimeout(tapTimer);
+  tapTimer = setTimeout(() => flush(tapDue(taps, performance.now())),
+    DOUBLE_WAIT);
+}
+const DOUBLE_WAIT = 255;
+
 function bindBoard() {
   const layer = $('hits');
   let press = null;
@@ -243,8 +343,11 @@ function bindBoard() {
     return el ? [+el.dataset.r, +el.dataset.c] : null;
   };
   const drop = () => {
+    if (press) clearTimeout(press.holdTimer);
     press = null;
     showFocus(null);
+    const f = $('focus');
+    if (f) f.classList.remove('hold');
   };
   layer.addEventListener('pointerdown', (ev) => {
     ev.preventDefault();
@@ -265,13 +368,32 @@ function bindBoard() {
     const g = createDrag({ x: rect.left + rect.width / 2,
       y: rect.top + rect.height / 2 }, rect.width);
     dragStart(g, ev.clientX, ev.clientY);
-    press = { cell, id: ev.pointerId, g, mouse };
+    press = { cell, id: ev.pointerId, g, mouse, t0: performance.now() };
     try { layer.setPointerCapture(ev.pointerId); } catch (err) { /* ok */ }
     showFocus(cell);
+    const lr = layer.getBoundingClientRect();
+    if (controlMode() === 'drag') {
+      makeHandle(g.centre.x - lr.left, g.centre.y - lr.top, rect.width);
+      press.lr = lr;
+    } else if (controlMode() === 'hold') {
+      press.holdTimer = setTimeout(() => {
+        if (press && press.id === ev.pointerId && isTap(press.g)) {
+          press.held = true;
+          if (navigator.vibrate) navigator.vibrate(10);
+          showFocus(press.cell);
+          $('focus').classList.add('hold');
+        }
+      }, HOLD_MS);
+    }
   });
   layer.addEventListener('pointermove', (ev) => {
     if (!press || press.id !== ev.pointerId) return;
     dragMove(press.g, ev.clientX, ev.clientY);
+    if (press.lr) {
+      moveHandle(ev.clientX - press.lr.left, ev.clientY - press.lr.top,
+        press.g.theta);
+    }
+    if (controlMode() !== 'drag' && isTap(press.g)) return;
     if (press.g.theta === 0 && !press.spun) return;
     press.spun = true;
     const shown = magnet(press.g.theta);
@@ -286,14 +408,24 @@ function bindBoard() {
   const finish = (ev, cancel) => {
     if (!press || press.id !== ev.pointerId) return;
     const p = press;
+    clearTimeout(p.holdTimer);
     drop();
+    killHandle();
     const [r, c] = p.cell;
     if (!cancel) dragMove(p.g, ev.clientX, ev.clientY);
     const k = cancel ? 0 : dragTurns(p.g);
     if (!cancel && p.g.theta === 0 && isTap(p.g)) {
-      // Mouse: left click is counter-clockwise. Touch: just a hint.
-      if (p.mouse) doTwist(r, c, CCW);
-      else dragHint(p.cell);
+      const mode = controlMode();
+      if (mode === 'hold') {
+        doTwist(r, c, holdDirection(performance.now() - p.t0));
+      } else if (mode === 'tap2') {
+        tapInput(r, c);
+      } else if (p.mouse) {
+        // Mouse: left click is counter-clockwise. Touch: just a hint.
+        doTwist(r, c, CCW);
+      } else {
+        dragHint(p.cell);
+      }
       return;
     }
     commitTurn(r, c, k, p.shown === undefined ? p.g.theta : p.shown,
@@ -353,6 +485,7 @@ function start(modeId, level) {
         ? 'Make the balls match the rings.'
         : 'Practice puzzles do not count towards stats.';
   closeSheet();
+  $('board').classList.remove('solved');
   showPage('play');
   renderStatic();
   renderBalls();
@@ -533,7 +666,7 @@ function showHelp() {
     and turning the same ring again keeps it the same move. Turn it back
     to the start and the move disappears.</p>
     <p>On a computer: left click turns counter-clockwise, right click
-    clockwise. Dragging works too.</p>
+    clockwise. Dragging works too. The Controls setting in the menu offers tap and double-tap or tap and hold instead.</p>
     <p>Make the board match the faint rings. Fewer moves is a better
     score. Undo takes a move back.</p>
     <p>A new daily puzzle appears at midnight.</p>
@@ -547,28 +680,106 @@ function showHelp() {
   });
 }
 
-function chooseTheme() {
-  const cur = store.settings.theme;
-  sheet(`<h2>Theme</h2><div class="menulist">${THEME_ORDER.map((id) =>
-    `<button data-id="${id}" class="${id === cur ? 'on' : ''}">`
-    + `${THEMES[id].name}</button>`).join('')}</div>
-    <div class="row"><button id="close">Close</button></div>`, (c) => {
+const CONTROL_LABELS = {
+  drag: ['Drag', 'Press a ball and drag around it'],
+  tap2: ['Tap and double-tap', 'Tap turns clockwise, double-tap counter-clockwise'],
+  hold: ['Tap and hold', 'Tap turns clockwise, press and hold counter-clockwise'],
+};
+
+function chooseControls() {
+  const cur = controlMode();
+  sheet(`<h2>Controls</h2><div class="menulist">${CONTROLS.map((id) =>
+    `<button data-id="${id}" class="opt ${id === cur ? 'on' : ''}">`
+    + `<b>${CONTROL_LABELS[id][0]}</b><small>${CONTROL_LABELS[id][1]}</small>`
+    + '</button>').join('')}</div>
+    <div class="row"><button id="back">Back</button></div>`, (c) => {
     c.querySelectorAll('[data-id]').forEach((b) => {
       b.onclick = () => {
-        store.settings.theme = b.dataset.id;
+        store.settings.controls = b.dataset.id;
         save(store);
-        applyTheme(b.dataset.id);
-        chooseTheme();
+        c.querySelectorAll('[data-id]').forEach((o) =>
+          o.classList.toggle('on', o === b));
       };
     });
-    c.querySelector('#close').onclick = closeSheet;
+    c.querySelector('#back').onclick = showMenu;
   });
+}
+
+// Customise: four pickers, each option drawn as a live mini board or
+// swatch. Picks apply at once and persist in settings.look.
+function swatchHtml(part, o, look) {
+  const l = { ...look, [part]: o.id };
+  const v = lookVarsFor(l);
+  const st = Object.entries(v).map(([k, x]) => `${k}:${x}`).join(';');
+  if (part === 'board') {
+    return `<span class="sw board" style="${st};background:${o.css};`
+      + 'box-shadow:var(--board-shadow)"><i class="c0"></i><i class="c1">'
+      + '</i><i class="c1"></i><i class="c0"></i></span>';
+  }
+  if (part === 'background') {
+    return `<span class="sw bgsw" style="background:${o.css};${st}">`
+      + '<em style="background:var(--btn)"></em>'
+      + '<em style="background:var(--accent)"></em></span>';
+  }
+  return `<span class="sw orb" style="background:${o.css}"></span>`;
+}
+
+function lookVarsFor(look) {
+  const out = {};
+  const probe = { style: { setProperty: (k, v) => { out[k] = v; } } };
+  applyLook(look, probe);
+  return out;
+}
+
+function showCustomise() {
+  const look = resolveLook(store.settings.look);
+  const sections = PART_ORDER.map((part) => `<h3>${PARTS[part].label}</h3>
+    <div class="picker" data-part="${part}">${PARTS[part].options
+    .filter(isUnlocked).map((o) =>
+      `<button type="button" data-id="${o.id}" aria-label="${o.name}"
+        class="${o.id === look[part] ? 'on' : ''}">`
+      + `${swatchHtml(part, o, look)}<small>${o.name}</small></button>`)
+    .join('')}</div>`).join('');
+  sheet(`<h2>Customize</h2><div class="custom">${sections}</div>
+    <div class="row"><button id="reset">Reset</button>
+    <button class="primary" id="done">Done</button></div>`, (c) => {
+    c.classList.add('wide');
+    const pick = (part, id) => {
+      const next = { ...resolveLook(store.settings.look), [part]: id };
+      store.settings.look = next;
+      save(store);
+      applyLook(next);
+      const sc = c.querySelector('.custom').scrollTop;
+      showCustomise();
+      c.querySelector('.custom').scrollTop = sc;
+    };
+    c.querySelectorAll('.picker').forEach((pk) => {
+      pk.querySelectorAll('button').forEach((b) => {
+        b.onclick = () => pick(pk.dataset.part, b.dataset.id);
+      });
+    });
+    c.querySelector('#reset').onclick = () => {
+      store.settings.look = null;
+      save(store);
+      applyLook(PRESETS.terracotta);
+      showCustomise();
+    };
+    c.querySelector('#done').onclick = closeSheet;
+  });
+}
+
+function currentLook() {
+  const t = params.get('theme');
+  return t && PRESETS[t] ? PRESETS[t] : store.settings.look;
 }
 
 // --- pages and menu ----------------------------------------------------
 
 function showPage(id) {
   for (const p of ['start', 'levels', 'play']) $(p).hidden = p !== id;
+  $(id).classList.remove('enter');
+  void $(id).offsetWidth; // restart the fade-in
+  $(id).classList.add('enter');
   game.page = id;
   document.dispatchEvent(new CustomEvent('bt:page', { detail: id }));
 }
@@ -627,7 +838,8 @@ function showMenu() {
   sheet(`<h2>Menu</h2><div class="menulist">
     <button id="m-help">How to play</button>
     <button id="m-stats">Stats</button>
-    <button id="m-theme">Theme</button>
+    <button id="m-custom">Customize</button>
+    <button id="m-controls">Controls</button>
     ${inPlay ? `<button id="m-restart" ${canRestart ? '' : 'disabled'}>`
       + 'Restart</button>' : ''}
     ${game.page !== 'start'
@@ -635,7 +847,8 @@ function showMenu() {
     </div><div class="row"><button id="close">Close</button></div>`, (c) => {
     c.querySelector('#m-help').onclick = showHelp;
     c.querySelector('#m-stats').onclick = showStats;
-    c.querySelector('#m-theme').onclick = chooseTheme;
+    c.querySelector('#m-custom').onclick = showCustomise;
+    c.querySelector('#m-controls').onclick = chooseControls;
     c.querySelector('#close').onclick = closeSheet;
     const st = c.querySelector('#m-start');
     if (st) st.onclick = showStart;
@@ -676,12 +889,12 @@ function loadPlugins() {
 }
 
 function init() {
-  applyTheme(params.get('theme') || store.settings.theme);
+  applyLook(currentLook());
   bindBoard();
   $('menu').onclick = showMenu;
   $('go-daily').onclick = () => start('daily');
   $('go-levels').onclick = showLevels;
-  $('go-custom').onclick = chooseTheme;
+  $('go-custom').onclick = showCustomise;
   $('sheet').addEventListener('pointerdown', (ev) => {
     if (ev.target === $('sheet')) closeSheet();
   });

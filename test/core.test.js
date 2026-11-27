@@ -8,7 +8,8 @@ import {
 import { createSession, replay } from '../src/core/session.js';
 import {
   dailyInfo, dailyLevel, levelPlay, practiceLevel, scramble, shortestWithin,
-  targetFor, tutorialLevel, TUTORIAL_STEPS, DEPTHS,
+  targetFor, tutorialLevel, TUTORIAL_STEPS, DEPTHS, DAILY_DEPTH,
+  TUTORIAL_LEVELS, dateOfNumber, queuedFor, queueTarget,
 } from '../src/core/puzzle.js';
 import {
   QUARTER, createDrag, dragMove, dragStart, dragTurns, isTap,
@@ -124,16 +125,77 @@ test('daily info: epoch, weekday', () => {
 
 test('daily levels are deterministic, solvable, in depth range', () => {
   for (let n = 1; n <= 70; n++) {
-    const weekday = (n + 2) % 7;
-    const a = dailyLevel(n, weekday);
-    const b = dailyLevel(n, weekday);
+    const a = dailyLevel(n);
+    const b = dailyLevel(n);
     assert.deepEqual(a, b);
+    assert.equal(a.date, dateOfNumber(n));
+    assert.equal(a.queued, false);
     assert.notEqual(a.start, a.target);
-    const [lo, hi] = DEPTHS[weekday];
+    const [lo, hi] = DAILY_DEPTH;
     assert.ok(a.solution.length >= lo && a.solution.length <= hi);
     const r = replay(a, a.solution);
     assert.ok(r.valid && r.solved, `puzzle ${n}`);
   }
+});
+
+test('puzzle number and date round trip', () => {
+  assert.equal(dateOfNumber(1), '2026-11-26');
+  assert.equal(dateOfNumber(37), '2027-01-01');
+  for (let n = 1; n < 900; n += 37) {
+    const [y, m, d] = dateOfNumber(n).split('-').map(Number);
+    assert.equal(dailyInfo(y, m, d).number, n);
+  }
+});
+
+const PLUS = ['.......', '...X...', '...X...', '.XXXXX.', '...X...',
+  '...X...', '.......'];
+
+test('daily queue: dated entry plays on its date only', () => {
+  const queue = [{ date: dateOfNumber(9), title: 'Plus', rows: PLUS }];
+  const q = dailyLevel(9, queue);
+  assert.equal(q.queued, true);
+  assert.equal(q.name, 'Plus');
+  assert.equal(q.target, PLUS.join(''));
+  assert.deepEqual(dailyLevel(10, queue), dailyLevel(10));
+  assert.ok(replay(q, q.solution).solved);
+  const [lo, hi] = DAILY_DEPTH;
+  assert.ok(q.solution.length >= lo && q.solution.length <= hi);
+});
+
+test('daily queue: levelId, depth, bad entries fall back', () => {
+  const d = dateOfNumber(11);
+  const byId = dailyLevel(11, [{ date: d, levelId: 12, depth: 6 }]);
+  assert.equal(byId.name, LEVELS[12].name);
+  assert.equal(byId.target, LEVELS[12].target);
+  assert.equal(byId.solution.length, 6);
+  assert.equal(queueTarget({ rows: ['XXX'] }), null);
+  assert.equal(queueTarget({ rows: Array(7).fill('XXXXXXX') }), null);
+  assert.equal(queueTarget({ levelId: 999 }), null);
+  assert.equal(queuedFor(d, [{ date: d, rows: ['bad'] }]), null);
+  assert.deepEqual(dailyLevel(11, [{ date: d, rows: ['bad'] }]),
+    dailyLevel(11));
+  assert.deepEqual(dailyLevel(11, 'junk'), dailyLevel(11));
+});
+
+test('the shipped daily queue is valid and fully dated', async () => {
+  const { readFileSync } = await import('node:fs');
+  const queue = JSON.parse(readFileSync(
+    new URL('../data/daily-queue.json', import.meta.url), 'utf8'));
+  assert.ok(Array.isArray(queue));
+  const dates = new Set();
+  for (const e of queue) {
+    assert.ok(queueTarget(e), JSON.stringify(e));
+    assert.match(e.date || '', /^\d{4}-\d{2}-\d{2}$/,
+      'run node tools/daily-queue.mjs to date new entries');
+    assert.ok(!dates.has(e.date), `two entries on ${e.date}`);
+    dates.add(e.date);
+  }
+});
+
+test('daily mode label: number and level title, no weekday', () => {
+  const mode = getMode('daily');
+  const level = dailyLevel(12);
+  assert.equal(mode.label(level), `Daily #12 \u00b7 ${level.name}`);
 });
 
 test('scramble never cancels at once and is not trivially short', () => {
@@ -149,18 +211,19 @@ test('scramble never cancels at once and is not trivially short', () => {
   }
 });
 
-test('targets cover all levels across a cycle, all from his list', () => {
+test('fallback targets cover the non-tutorial levels each cycle', () => {
+  const pool = LEVELS.slice(TUTORIAL_LEVELS);
+  const tutorial = new Set(LEVELS.slice(0, TUTORIAL_LEVELS).map((l) => l.name));
   const names = new Set();
-  const all = new Set(LEVELS.map((l) => l.target));
-  for (let n = 1; n <= LEVELS.length * 2; n++) {
+  for (let n = 1; n <= pool.length * 3; n++) {
     const t = targetFor(n);
-    assert.ok(all.has(t.target));
-    if (n <= LEVELS.length) names.add(t.name);
+    assert.ok(!tutorial.has(t.name), t.name);
+    if (n <= pool.length) names.add(t.name);
   }
-  assert.equal(names.size, LEVELS.length);
+  assert.equal(names.size, pool.length);
 });
 
-test('difficulty rises from Monday to Sunday', () => {
+test('level depth ranges rise with the place in the chapter', () => {
   for (let i = 1; i < 7; i++) {
     assert.ok(DEPTHS[i][0] >= DEPTHS[i - 1][0]);
     assert.ok(DEPTHS[i][1] >= DEPTHS[i - 1][1]);
@@ -168,7 +231,7 @@ test('difficulty rises from Monday to Sunday', () => {
 });
 
 test('session: twist, undo removes fully, restart, solve', () => {
-  const level = dailyLevel(3, 5);
+  const level = dailyLevel(3);
   const s = createSession(level);
   assert.equal(s.twist(0, 0, CW), false);
   assert.equal(s.twist(3, 3, CW), true);
@@ -190,7 +253,7 @@ test('session: twist, undo removes fully, restart, solve', () => {
 });
 
 test('undo after a wrong move lowers the score', () => {
-  const level = dailyLevel(2, 4);
+  const level = dailyLevel(2);
   const s = createSession(level);
   s.twist(3, 3, CW);
   s.twist(2, 2, CW);
@@ -199,7 +262,7 @@ test('undo after a wrong move lowers the score', () => {
 });
 
 test('replay rejects bad moves', () => {
-  const level = dailyLevel(2, 4);
+  const level = dailyLevel(2);
   assert.equal(replay(level, [9999]).valid, false);
   assert.equal(replay(level, [0]).valid, false);
   assert.equal(replay(level, []).solved, false);
@@ -315,7 +378,7 @@ test('toTurns merges quarter-move lists', () => {
 });
 
 test('session: same ring merges into one move', () => {
-  const s = createSession(dailyLevel(3, 5));
+  const s = createSession(dailyLevel(3));
   s.turn(3, 3, 1);
   s.turn(3, 3, 1);
   s.turn(3, 3, 2);
@@ -332,7 +395,7 @@ test('session: same ring merges into one move', () => {
 });
 
 test('session: net zero restores the board and the count', () => {
-  const level = dailyLevel(4, 2);
+  const level = dailyLevel(4);
   const s = createSession(level);
   s.turn(3, 3, 2);
   s.turn(3, 3, -2);
@@ -343,7 +406,7 @@ test('session: net zero restores the board and the count', () => {
 });
 
 test('session: undo takes back the whole merged move', () => {
-  const level = dailyLevel(4, 2);
+  const level = dailyLevel(4);
   const s = createSession(level);
   s.turn(2, 2, 1);
   s.turn(3, 3, 1);
@@ -357,7 +420,7 @@ test('session: undo takes back the whole merged move', () => {
 });
 
 test('replay validates normalised move lists', () => {
-  const l = dailyLevel(5, 3);
+  const l = dailyLevel(5);
   assert.ok(replay(l, l.solution).solved);
   assert.equal(replay(l, l.solution).twists, l.solution.length);
   const c = encodeTurn(3, 3, 1);
@@ -440,4 +503,50 @@ test('drag: works when the finger leaves the ring area', () => {
 test('drag: pressing on the centre then moving out starts cleanly', () => {
   const g = drag([[100, 100], ...arc(90, 180)]);
   assert.equal(dragTurns(g), 1);
+});
+
+import {
+  DOUBLE_MS, HOLD_MS, createTaps, holdDirection, tapDue, tapUp,
+} from '../src/core/gesture.js';
+
+test('hold mode: short press is clockwise, long press counter-clockwise',
+  () => {
+    assert.equal(holdDirection(80), 1);
+    assert.equal(holdDirection(HOLD_MS - 1), 1);
+    assert.equal(holdDirection(HOLD_MS), -1);
+    assert.equal(holdDirection(900), -1);
+  });
+
+test('double-tap mode: single tap waits out the window, then clockwise',
+  () => {
+    const s = createTaps();
+    assert.deepEqual(tapUp(s, '3,3', 1000), []);
+    assert.deepEqual(tapDue(s, 1000 + DOUBLE_MS - 1), []);
+    assert.deepEqual(tapDue(s, 1000 + DOUBLE_MS), [{ key: '3,3', dir: 1 }]);
+    assert.deepEqual(tapDue(s, 5000), []);
+  });
+
+test('double-tap mode: second tap in the window is counter-clockwise once',
+  () => {
+    const s = createTaps();
+    tapUp(s, '3,3', 1000);
+    assert.deepEqual(tapUp(s, '3,3', 1200), [{ key: '3,3', dir: -1 }]);
+    assert.deepEqual(tapDue(s, 2000), []);
+    // A third quick tap starts a new pending tap, not another CCW.
+    assert.deepEqual(tapUp(s, '3,3', 1300), []);
+  });
+
+test('double-tap mode: second tap too late is two clockwise turns', () => {
+  const s = createTaps();
+  tapUp(s, '3,3', 1000);
+  assert.deepEqual(tapUp(s, '3,3', 1000 + DOUBLE_MS + 1),
+    [{ key: '3,3', dir: 1 }]);
+  assert.deepEqual(tapDue(s, 3000), [{ key: '3,3', dir: 1 }]);
+});
+
+test('double-tap mode: tap on another ring flushes the first', () => {
+  const s = createTaps();
+  tapUp(s, '2,2', 1000);
+  assert.deepEqual(tapUp(s, '4,4', 1100), [{ key: '2,2', dir: 1 }]);
+  assert.deepEqual(tapDue(s, 1400), [{ key: '4,4', dir: 1 }]);
 });

@@ -39,8 +39,11 @@ when they make sense. Nothing here runs until Grigory says go.
 ## Social and online
 
 - Global histogram (Opus Magnum style): Cloudflare Worker + D1, anonymous
-  score per puzzle, server replays the submitted twist list. Solvers are
-  not a concern.
+  score per daily, server replays the submitted twist list with the
+  game's own core code. Solvers are not a concern. Scaffold built and
+  tested locally (worker/, 11-27); not deployed. Deploy needs Grigory's
+  OK on his own Cloudflare account (steps in worker/README.md), then set
+  SCORES_URL in src/core/scores-client.js and wire the solve sheet.
 - AI benchmark for marketing: MCP server, official model markers on the
   histogram ("beat 3 of 4 AIs"). Run a small cost/skill test first;
   API spend needs approval.
@@ -61,6 +64,13 @@ when they make sense. Nothing here runs until Grigory says go.
   solve time).
 - Daily only: same scramble for everyone that day, so histograms make
   sense. Normal levels scramble randomly each play, no histogram.
+- Daily source (built 11-27): Grigory's queue in data/daily-queue.json,
+  filled when he likes (rows or levelId, optional depth;
+  tools/daily-queue.mjs dates new entries). Days without an entry use a
+  non-tutorial level picked and scrambled with a date seed. Name is
+  "Daily #N \u00b7 level title"; no weekday ramp, depth 10-14.
+- Axes stored now: twists and time (buckets 30 s .. 30 min). Rings used
+  not yet.
 - Several score axes like Zachtronics: twists, time (measured silently,
   no visible timer during play), maybe a third (candidate: rings used =
   distinct centres touched, the 'area' analogue). Undo stays free.

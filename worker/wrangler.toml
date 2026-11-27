@@ -1,0 +1,14 @@
+# Placeholders: fill in on Grigory's own Cloudflare account (see README).
+name = "ball-twister-scores"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+
+[vars]
+# Live queue, so filling data/daily-queue.json needs no redeploy.
+QUEUE_URL = "https://grigorysolomatov.github.io/ball-twister/data/daily-queue.json"
+ALLOW_ORIGIN = "https://grigorysolomatov.github.io"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ball-twister-scores"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"

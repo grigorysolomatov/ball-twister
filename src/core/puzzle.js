@@ -10,7 +10,7 @@ import { LEVELS } from './levels.js';
 // Puzzle #1 is this local calendar day (year, month 1-12, day).
 export const EPOCH = { y: 2026, m: 11, d: 26 };
 
-// Scramble depth range by weekday, Monday first.
+// Scramble depth ranges for levels by place in chapter (level 1 first).
 export const DEPTHS = [
   [4, 6], [6, 8], [8, 10], [10, 12], [12, 15], [14, 18], [15, 20],
 ];
@@ -31,15 +31,62 @@ export function dateInfo(date = new Date()) {
   return dailyInfo(date.getFullYear(), date.getMonth() + 1, date.getDate());
 }
 
-// Daily targets come from the level list. Every cycle through the list
-// uses its own seeded order, so each level appears once per cycle.
+// Puzzle number of a calendar date, and back. Days are calendar days
+// (the player's local date picks the number; the number fixes the date).
+export function dateOfNumber(number) {
+  const t = (dayNumber(EPOCH.y, EPOCH.m, EPOCH.d) + number - 1) * 86400000;
+  return new Date(t).toISOString().slice(0, 10);
+}
+
+// Dailies use one depth range every day (no weekday ramp).
+export const DAILY_DEPTH = [10, 14];
+
+// The first levels belong to the tutorial and never become a daily.
+export const TUTORIAL_LEVELS = 3;
+
+// Fallback daily target: a seeded shuffle of the non-tutorial levels,
+// one cycle per pass so a level does not repeat within a cycle.
 export function targetFor(number) {
+  const pool = LEVELS.slice(TUTORIAL_LEVELS);
   const n = Math.max(0, number - 1);
-  const cycle = Math.floor(n / LEVELS.length);
+  const cycle = Math.floor(n / pool.length);
   const order = shuffle(
-    LEVELS.map((_, i) => i), mulberry32(hashSeed('order', cycle)));
-  const { name, target } = LEVELS[order[n % LEVELS.length]];
+    pool.map((_, i) => i), mulberry32(hashSeed('order', cycle)));
+  const { name, target } = pool[order[n % pool.length]];
   return { name, target };
+}
+
+// A queue entry's target and title, or null if the entry is unusable.
+// Entry: { date?, title?, rows?: [7 strings of X and .], levelId?, depth? }
+export function queueTarget(entry) {
+  if (!entry || typeof entry !== 'object') return null;
+  let target = null;
+  let name = entry.title;
+  if (Array.isArray(entry.rows)) {
+    if (entry.rows.length !== 7) return null;
+    if (!entry.rows.every((r) => /^[X.]{7}$/.test(r))) return null;
+    target = entry.rows.join('');
+  } else if (Number.isInteger(entry.levelId) && LEVELS[entry.levelId]) {
+    target = LEVELS[entry.levelId].target;
+    name = name || LEVELS[entry.levelId].name;
+  }
+  if (!target || !target.includes('X') || !target.includes('.')) return null;
+  return { name: name || 'Untitled', target };
+}
+
+function depthRange(depth) {
+  if (Number.isInteger(depth) && depth >= 1) return [depth, depth];
+  if (Array.isArray(depth) && depth.length === 2
+    && depth.every((d) => Number.isInteger(d) && d >= 1)
+    && depth[0] <= depth[1]) return depth;
+  return DAILY_DEPTH;
+}
+
+// Queued entry for a date ('YYYY-MM-DD'), else null. Only dated entries
+// play; tools/daily-queue.mjs stamps the next free dates on new ones.
+export function queuedFor(date, queue = []) {
+  if (!Array.isArray(queue)) return null;
+  return queue.find((e) => e && e.date === date && queueTarget(e)) || null;
 }
 
 // Smallest number of moves (up to maxDepth) solving start, else null.
@@ -109,13 +156,21 @@ export function scramble(targetText, depth, rng) {
   throw new Error('scramble failed');
 }
 
-export function dailyLevel(number, weekday) {
-  const { name, target } = targetFor(number);
-  const [lo, hi] = DEPTHS[weekday];
-  const rng = mulberry32(hashSeed('daily', number));
+// The daily: the queued puzzle for its date, else a fallback level.
+// Seeded by the date, so everyone (and the score server) gets the same
+// scramble. `key` identifies the exact board for score storage.
+export function dailyLevel(number, queue = []) {
+  const date = dateOfNumber(number);
+  const entry = queuedFor(date, queue);
+  const { name, target } = entry ? queueTarget(entry) : targetFor(number);
+  const [lo, hi] = depthRange(entry && entry.depth);
+  const rng = mulberry32(hashSeed('daily', date));
   const depth = randInt(rng, lo, hi);
   const { start, solution } = scramble(target, depth, rng);
-  return { kind: 'daily', number, weekday, name, target, start, solution };
+  return {
+    kind: 'daily', number, date, name, target, start, solution,
+    queued: Boolean(entry), key: `${number}:${start}:${target}`,
+  };
 }
 
 export function practiceLevel(seed, depth = 8) {
