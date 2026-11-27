@@ -3,13 +3,16 @@
 Lets one author levels inside the app. Everything lives in this folder;
 the app only has one small loader (`loadPlugins` in `src/ui/app.js`).
 
-Features: paint a 7x7 board, name and chapter, play-test with a random
-scramble, save (localStorage key `bt-editor-levels`), duplicate, delete,
-load a built-in level, export/import JSON.
+Features: paint a 7x7 board, name, play-test (with Back to editor),
+save into theme tabs (rename, delete, drag to reorder, Move between
+tabs), read-only "Old levels" tab (the built-in 24), export/import.
+Storage: `bt-editor-levels` = `{version:2, tabs:[{id,name,levels}],
+selected}`; the round-8 flat list is migrated into a "Medieval" tab and
+its raw value kept in `bt-editor-levels-backup-v1`. Pure logic lives in
+`store.js` (tested in `test/editor-store.test.js`).
 
-Export format: a list of `{ "title", "chapter", "rows": [7 strings] }`
-where rows use `X` for a ball and `.` for empty, exactly like `RAW` in
-`src/core/levels.js`. `chapter` is a number or `null` (unsorted).
+Export: `{version:2, tabs:[{name, levels:[{title, rows}]}]}` with rows
+of `X` (ball) and `.`. Import also accepts the old flat list.
 
 ## Turn it off for release
 

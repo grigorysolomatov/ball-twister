@@ -4,11 +4,11 @@
 import { registerMode } from '../../modes.js';
 import { scramble } from '../../core/puzzle.js';
 import { mulberry32 } from '../../core/prng.js';
+import * as St from './store.js';
 
-const KEY = 'bt-editor-levels';
 const N = 7;
 const CELLS = N * N;
-const RE_ROW = /^[X.]{7}$/;
+const OLD = 'old';
 
 // --- data --------------------------------------------------------------
 
@@ -25,57 +25,6 @@ export function cellsOf(rows) {
   return rows.join('').split('').map((ch) => (ch === 'X' ? 1 : 0));
 }
 
-function loadSaved() {
-  try {
-    const list = JSON.parse(localStorage.getItem(KEY));
-    if (Array.isArray(list)) return list.filter(valid);
-  } catch (err) { /* empty or broken storage */ }
-  return [];
-}
-
-function valid(l) {
-  return l && typeof l.title === 'string' && Array.isArray(l.rows)
-    && l.rows.length === N && l.rows.every((r) => RE_ROW.test(r));
-}
-
-function persist(list) {
-  localStorage.setItem(KEY, JSON.stringify(list));
-}
-
-// Returns { levels, error } from pasted or file text.
-export function parseImport(text) {
-  let data;
-  try { data = JSON.parse(text); } catch (err) {
-    return { error: 'That is not valid JSON.' };
-  }
-  if (!Array.isArray(data) || data.length === 0) {
-    return { error: 'Expected a list of levels.' };
-  }
-  const levels = [];
-  for (let i = 0; i < data.length; i++) {
-    const l = data[i];
-    const at = `Level ${i + 1}`;
-    if (!l || !Array.isArray(l.rows) || l.rows.length !== N
-      || !l.rows.every((r) => typeof r === 'string' && RE_ROW.test(r))) {
-      return { error: `${at}: rows must be 7 strings of 7 X or . characters.` };
-    }
-    const balls = l.rows.join('').replaceAll('.', '').length;
-    if (balls === 0) return { error: `${at}: the board is empty.` };
-    if (balls === CELLS) return { error: `${at}: the board is full.` };
-    let chapter = null;
-    if (l.chapter !== null && l.chapter !== undefined && l.chapter !== '') {
-      chapter = Number(l.chapter);
-      if (!Number.isInteger(chapter) || chapter < 1) {
-        return { error: `${at}: chapter must be a whole number or empty.` };
-      }
-    }
-    const title = typeof l.title === 'string' && l.title.trim()
-      ? l.title.trim() : 'Untitled';
-    levels.push({ title, chapter, rows: l.rows.slice() });
-  }
-  return { levels };
-}
-
 // --- install -----------------------------------------------------------
 
 export function install(api) {
@@ -84,8 +33,13 @@ export function install(api) {
   css.href = new URL('./editor.css', import.meta.url).href;
   document.head.appendChild(css);
 
-  let saved = loadSaved();
-  const cur = { index: null, title: '', chapter: '', cells: new Array(CELLS).fill(0) };
+  const store = St.loadStore(localStorage);
+  const persist = () => St.saveStore(localStorage, store);
+  const curTab = () => store.tabs.find((t) => t.id === store.selected);
+  const allSaved = () => store.tabs.flatMap((t) => t.levels);
+  let testing = false;
+  const cur = { tab: null, index: null, title: '',
+    cells: new Array(CELLS).fill(0) };
   let depth = 9;
   let last = null;
 
@@ -126,8 +80,6 @@ export function install(api) {
       <div class="ed-fields">
         <input id="ed-title" type="text" maxlength="20"
           placeholder="Level name" autocomplete="off">
-        <input id="ed-chapter" type="number" min="1" step="1"
-          inputmode="numeric" placeholder="unsorted">
       </div>
       <div id="ed-board" class="board ed-board"><div class="layer"
         id="ed-balls"></div></div>
@@ -148,9 +100,9 @@ export function install(api) {
       </div>
       <p id="ed-msg" class="sub ed-msg"></p>
       <h3>Saved levels</h3>
+      <div id="ed-tabs" class="ed-tabs"></div>
       <div id="ed-list" class="ed-list"></div>
       <div class="ed-main">
-        <button type="button" id="ed-builtin">Load built-in</button>
         <button type="button" id="ed-export">Export all</button>
         <button type="button" id="ed-import">Import</button>
       </div>
@@ -194,7 +146,6 @@ export function install(api) {
     api.showPage('editor');
     page.hidden = false;
     $('ed-title').value = cur.title;
-    $('ed-chapter').value = cur.chapter;
     draw();
     renderList();
   }
@@ -253,7 +204,6 @@ export function install(api) {
   });
 
   $('ed-title').oninput = (ev) => { cur.title = ev.target.value; };
-  $('ed-chapter').oninput = (ev) => { cur.chapter = ev.target.value; };
   $('ed-depth').oninput = (ev) => { depth = +ev.target.value; draw(); };
 
   function check() {
@@ -263,18 +213,12 @@ export function install(api) {
     return '';
   }
 
-  function chapterValue() {
-    const v = String(cur.chapter).trim();
-    if (!v) return null;
-    const n = Number(v);
-    return Number.isInteger(n) && n >= 1 ? n : NaN;
-  }
-
   function duplicateOf(rows) {
     const text = rows.join('');
     const built = api.LEVELS.find((l) => l.target === text);
     if (built) return `built-in level "${built.title}"`;
-    const mine = saved.find((l, i) => i !== cur.index && l.rows.join('') === text);
+    const here = cur.tab && cur.index !== null ? store.tabs.find((t) => t.id === cur.tab).levels[cur.index] : null;
+    const mine = allSaved().find((l) => l !== here && l.rows.join('') === text);
     return mine ? `saved level "${mine.title}"` : '';
   }
 
@@ -291,6 +235,7 @@ export function install(api) {
       return;
     }
     api.closeSheet();
+    testing = true;
     api.play(last = {
       kind: 'editor-test', name: cur.title || 'Untitled',
       heading: cur.title.trim() || 'Untitled',
@@ -302,16 +247,19 @@ export function install(api) {
   function save() {
     const bad = check();
     if (bad) return msg(bad, true);
-    const chapter = chapterValue();
-    if (Number.isNaN(chapter)) {
-      return msg('Chapter must be a whole number, or empty.', true);
-    }
     const rows = rowsOf(cur.cells);
-    const entry = { title: cur.title.trim() || 'Untitled', chapter, rows };
+    const entry = { title: cur.title.trim() || 'Untitled', rows };
     const dup = duplicateOf(rows);
-    if (cur.index === null) { saved.push(entry); cur.index = saved.length - 1; }
-    else saved[cur.index] = entry;
-    persist(saved);
+    const own = cur.tab && store.tabs.find((t) => t.id === cur.tab);
+    if (own && cur.index !== null && own.levels[cur.index]) {
+      own.levels[cur.index] = entry;
+    } else {
+      const tab = store.selected === OLD ? store.tabs[0] : curTab();
+      tab.levels.push(entry);
+      cur.tab = tab.id; cur.index = tab.levels.length - 1;
+      if (store.selected === OLD) store.selected = tab.id;
+    }
+    persist();
     cur.title = entry.title;
     $('ed-title').value = cur.title;
     draw();
@@ -319,18 +267,16 @@ export function install(api) {
     msg(dup ? `Saved. Note: same pattern as ${dup}.` : 'Saved.', !!dup);
   }
 
-  function load(entry, index) {
-    cur.index = index;
+  function load(entry, tab, index) {
+    cur.tab = tab; cur.index = index;
     cur.title = entry.title;
-    cur.chapter = entry.chapter === null || entry.chapter === undefined
-      ? '' : String(entry.chapter);
     cur.cells = cellsOf(entry.rows);
     msg('');
     open();
   }
 
   function fresh() {
-    cur.index = null; cur.title = ''; cur.chapter = '';
+    cur.tab = null; cur.index = null; cur.title = '';
     cur.cells = new Array(CELLS).fill(0);
     msg('');
     open();
@@ -352,36 +298,171 @@ export function install(api) {
     return t;
   }
 
+  const el = (tag, cls, text) => {
+    const e = document.createElement(tag);
+    if (tag === 'button') e.type = 'button';
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  };
+
+  let panel = null; // { kind: 'rename'|'delete'|'move', ... }
+
+  function renderTabs() {
+    const bar = $('ed-tabs');
+    bar.textContent = '';
+    const strip = el('div', 'ed-tabstrip');
+    for (const t of store.tabs) {
+      const b = el('button', 'ed-tab' + (t.id === store.selected ? ' on' : ''), t.name);
+      b.onclick = () => selectTab(t.id);
+      strip.appendChild(b);
+    }
+    const add = el('button', 'ed-tab ed-add', '+');
+    add.setAttribute('aria-label', 'Add tab');
+    add.onclick = () => {
+      const t = { id: St.newId(), name: 'New tab', levels: [] };
+      store.tabs.push(t); store.selected = t.id; persist();
+      panel = { kind: 'rename' }; renderList();
+    };
+    strip.appendChild(add);
+    const old = el('button', 'ed-tab ed-old' + (store.selected === OLD ? ' on' : ''),
+      'Old levels');
+    old.onclick = () => selectTab(OLD);
+    strip.appendChild(old);
+    bar.appendChild(strip);
+    if (store.selected === OLD) return;
+    const acts = el('div', 'ed-tabacts');
+    const ren = el('button', 'ed-mini', 'Rename tab');
+    ren.onclick = () => { panel = { kind: 'rename' }; renderList(); };
+    const del = el('button', 'ed-mini', 'Delete tab');
+    del.onclick = () => { panel = { kind: 'delete' }; renderList(); };
+    acts.append(ren, del);
+    bar.appendChild(acts);
+    if (panel && panel.kind === 'rename') {
+      const box = el('div', 'ed-panel');
+      const inp = el('input');
+      inp.type = 'text'; inp.maxLength = 24; inp.value = curTab().name;
+      const ok = el('button', 'ed-mini ed-ok', 'OK');
+      const done = () => {
+        curTab().name = inp.value.trim() || curTab().name;
+        persist(); panel = null; renderList();
+      };
+      ok.onclick = done;
+      inp.onkeydown = (ev) => { if (ev.key === 'Enter') done(); };
+      box.append(inp, ok);
+      bar.appendChild(box);
+      setTimeout(() => { inp.focus(); inp.select(); }, 0);
+    } else if (panel && panel.kind === 'delete') {
+      const tab = curTab();
+      const box = el('div', 'ed-panel col');
+      const others = store.tabs.filter((t) => t !== tab);
+      if (!tab.levels.length) {
+        box.appendChild(el('p', 'sub', `Delete empty tab "${tab.name}"?`));
+      } else {
+        box.appendChild(el('p', 'sub',
+          `"${tab.name}" has ${tab.levels.length} level${tab.levels.length === 1 ? '' : 's'}. Move them first, or delete them too.`));
+        const chips = el('div', 'ed-chips');
+        for (const o of others) {
+          const c = el('button', 'ed-chip', `Move all to ${o.name}`);
+          c.onclick = () => {
+            o.levels.push(...tab.levels); tab.levels = [];
+            removeTab(tab); };
+          chips.appendChild(c);
+        }
+        box.appendChild(chips);
+      }
+      const row = el('div', 'ed-chips');
+      const kill = el('button', 'ed-chip danger',
+        tab.levels.length ? 'Delete tab and its levels' : 'Delete tab');
+      kill.onclick = () => removeTab(tab);
+      const cancel = el('button', 'ed-chip', 'Cancel');
+      cancel.onclick = () => { panel = null; renderList(); };
+      row.append(kill, cancel);
+      box.appendChild(row);
+      bar.appendChild(box);
+    }
+  }
+
+  function removeTab(tab) {
+    if (store.tabs.length === 1) {
+      tab.levels = []; tab.name = 'Medieval';
+    } else {
+      store.tabs.splice(store.tabs.indexOf(tab), 1);
+      store.selected = store.tabs[0].id;
+    }
+    if (cur.tab === tab.id) { cur.tab = null; cur.index = null; }
+    persist(); panel = null; draw(); renderList();
+  }
+
+  function selectTab(id) {
+    store.selected = id; panel = null; persist(); renderList();
+  }
+
+  function moveMenu(row, tab, i) {
+    const box = el('div', 'ed-chips ed-moveto');
+    box.appendChild(el('span', 'sub', 'Move to:'));
+    for (const t of store.tabs.filter((x) => x !== tab)) {
+      const c = el('button', 'ed-chip', t.name);
+      c.onclick = () => {
+        St.moveLevel(store, tab.id, i, t.id);
+        if (cur.tab === tab.id) {
+          if (cur.index === i) { cur.tab = t.id; cur.index = t.levels.length - 1; }
+          else if (cur.index > i) cur.index -= 1;
+        }
+        persist(); panel = null; renderList();
+      };
+      box.appendChild(c);
+    }
+    if (box.children.length === 1) box.appendChild(el('span', 'sub', 'add another tab first'));
+    row.after(box);
+  }
+
   function renderList() {
+    renderTabs();
     const list = $('ed-list');
     list.textContent = '';
-    if (!saved.length) {
-      list.innerHTML = '<p class="sub">Nothing saved yet.</p>';
+    if (store.selected === OLD) {
+      api.LEVELS.forEach((l) => {
+        const rows = rowsOf(l.target.split('').map((ch) => (ch === 'X' ? 1 : 0)));
+        const row = el('div', 'ed-item old');
+        const b = el('button', 'ed-open');
+        const name = el('span', '', `${l.id + 1}. ${l.title}`);
+        b.append(thumb(rows), name);
+        b.onclick = () => { load({ title: l.title, rows }, null, null); };
+        row.appendChild(b);
+        list.appendChild(row);
+      });
+      list.appendChild(el('p', 'sub', 'Read only. Tap one to open a copy.'));
       return;
     }
-    saved.forEach((entry, i) => {
-      const row = document.createElement('div');
-      row.className = 'ed-item' + (i === cur.index ? ' on' : '');
-      const open_ = document.createElement('button');
-      open_.type = 'button';
-      open_.className = 'ed-open';
-      const name = document.createElement('span');
-      name.textContent = entry.title;
-      const small = document.createElement('small');
-      small.textContent = entry.chapter ? `Chapter ${entry.chapter}` : 'unsorted';
-      open_.append(thumb(entry.rows), name, small);
-      open_.onclick = () => load(entry, i);
-      const dup = document.createElement('button');
-      dup.type = 'button'; dup.className = 'ed-mini'; dup.textContent = 'Copy';
-      dup.onclick = () => {
-        saved.splice(i + 1, 0, { ...entry, title: `${entry.title} copy`.slice(0, 20),
-          rows: entry.rows.slice() });
-        persist(saved);
-        if (cur.index !== null && cur.index > i) cur.index += 1;
-        renderList();
+    const tab = curTab();
+    if (!tab.levels.length) {
+      list.appendChild(el('p', 'sub', 'Nothing in this tab yet.'));
+      return;
+    }
+    tab.levels.forEach((entry, i) => {
+      const row = el('div', 'ed-item' + (tab.id === cur.tab && i === cur.index ? ' on' : ''));
+      const grip = el('button', 'ed-grip', '\u22ee\u22ee');
+      grip.setAttribute('aria-label', 'Drag to reorder');
+      grip.onpointerdown = (ev) => startDrag(ev, row, tab, i);
+      const open_ = el('button', 'ed-open');
+      open_.append(thumb(entry.rows), el('span', '', entry.title));
+      open_.onclick = () => load(entry, tab.id, i);
+      const mv = el('button', 'ed-mini', 'Move');
+      mv.onclick = () => {
+        const had = row.nextSibling && row.nextSibling.classList
+          && row.nextSibling.classList.contains('ed-moveto');
+        list.querySelectorAll('.ed-moveto').forEach((n) => n.remove());
+        if (!had) moveMenu(row, tab, i);
       };
-      const del = document.createElement('button');
-      del.type = 'button'; del.className = 'ed-mini'; del.textContent = 'Delete';
+      const dup = el('button', 'ed-mini', 'Copy');
+      dup.onclick = () => {
+        tab.levels.splice(i + 1, 0, { title: `${entry.title} copy`.slice(0, 20),
+          rows: entry.rows.slice() });
+        if (cur.tab === tab.id && cur.index !== null && cur.index > i) cur.index += 1;
+        persist(); renderList();
+      };
+      const del = el('button', 'ed-mini', 'Delete');
       del.onclick = () => {
         if (!del.classList.contains('confirm')) {
           del.classList.add('confirm');
@@ -389,41 +470,80 @@ export function install(api) {
           setTimeout(() => { del.classList.remove('confirm'); del.textContent = 'Delete'; }, 3000);
           return;
         }
-        saved.splice(i, 1);
-        persist(saved);
-        if (cur.index === i) cur.index = null;
-        else if (cur.index !== null && cur.index > i) cur.index -= 1;
-        draw();
-        renderList();
+        tab.levels.splice(i, 1);
+        persist();
+        if (cur.tab === tab.id) {
+          if (cur.index === i) { cur.tab = null; cur.index = null; }
+          else if (cur.index > i) cur.index -= 1;
+        }
+        draw(); renderList();
       };
-      row.append(open_, dup, del);
+      const acts = el('div', 'ed-acts');
+      acts.append(mv, dup, del);
+      row.append(grip, open_, acts);
       list.appendChild(row);
     });
   }
 
-  $('ed-builtin').onclick = () => {
-    api.sheet(`<h2>Built-in levels</h2><div class="ed-built">${api.LEVELS.map((l) =>
-      `<button data-id="${l.id}"><b>${l.id + 1}</b> ${l.title}</button>`).join('')}
-      </div><div class="row"><button id="close">Close</button></div>`, (c) => {
-      c.querySelector('#close').onclick = api.closeSheet;
-      c.querySelectorAll('[data-id]').forEach((b) => {
-        b.onclick = () => {
-          const l = api.LEVELS[+b.dataset.id];
-          api.closeSheet();
-          load({ title: l.title, chapter: l.chapter,
-            rows: rowsOf(l.target.split('').map((ch) => (ch === 'X' ? 1 : 0))) }, null);
-        };
+  // Drag to reorder: pointer events on the handle (touch-action none).
+  function startDrag(ev, row, tab, from) {
+    ev.preventDefault();
+    const grip = ev.currentTarget;
+    grip.setPointerCapture(ev.pointerId);
+    const scroller = page.querySelector('.ed-scroll');
+    const rows = [...$('ed-list').querySelectorAll('.ed-item')];
+    const mids0 = rows.map((r) => r.offsetTop + r.offsetHeight / 2);
+    const startY = ev.clientY;
+    const startScroll = scroller.scrollTop;
+    let y = ev.clientY;
+    let to = from;
+    let raf = 0;
+    row.classList.add('drag');
+    const apply = () => {
+      const dy = y - startY + (scroller.scrollTop - startScroll);
+      row.style.transform = `translateY(${dy}px)`;
+      const mine = mids0[from] + dy;
+      // Count rows whose midpoint is above the dragged midpoint.
+      to = mids0.filter((m, k) => k !== from && m < mine).length;
+      rows.forEach((r, k) => {
+        if (k === from) return;
+        let shift = 0;
+        if (from < to && k > from && k <= to) shift = -rows[from].offsetHeight - 8;
+        if (from > to && k < from && k >= to) shift = rows[from].offsetHeight + 8;
+        r.style.transform = shift ? `translateY(${shift}px)` : '';
       });
-    });
-  };
-
-  function exportJson() {
-    return JSON.stringify(saved, null, 2);
+    };
+    const tick = () => {
+      const rect = scroller.getBoundingClientRect();
+      const edge = 60;
+      if (y < rect.top + edge) scroller.scrollTop -= Math.ceil((rect.top + edge - y) / 5);
+      else if (y > rect.bottom - edge) scroller.scrollTop += Math.ceil((y - (rect.bottom - edge)) / 5);
+      apply();
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    grip.onpointermove = (e) => { y = e.clientY; };
+    const end = (commit) => {
+      cancelAnimationFrame(raf);
+      grip.onpointermove = null; grip.onpointerup = null; grip.onpointercancel = null;
+      if (commit && St.reorder(tab.levels, from, to)) {
+        if (cur.tab === tab.id && cur.index !== null) {
+          if (cur.index === from) cur.index = to;
+          else if (from < cur.index && to >= cur.index) cur.index -= 1;
+          else if (from > cur.index && to <= cur.index) cur.index += 1;
+        }
+        persist();
+      }
+      renderList();
+    };
+    grip.onpointerup = () => end(true);
+    grip.onpointercancel = () => end(false);
   }
 
   $('ed-export').onclick = async () => {
-    if (!saved.length) return msg('Save a level first, then export.', true);
-    const json = exportJson();
+    const count = allSaved().length;
+    if (!count) return msg('Save a level first, then export.', true);
+    const json = JSON.stringify(St.exportData(store), null, 2);
     const day = new Date();
     const stamp = `${day.getFullYear()}-${String(day.getMonth() + 1).padStart(2, '0')}-${String(day.getDate()).padStart(2, '0')}`;
     const a = document.createElement('a');
@@ -434,31 +554,24 @@ export function install(api) {
     a.remove();
     let copied = false;
     try { await navigator.clipboard.writeText(json); copied = true; } catch (err) { /* ignore */ }
-    msg(`Exported ${saved.length} level${saved.length === 1 ? '' : 's'}`
+    msg(`Exported ${count} level${count === 1 ? '' : 's'}`
       + (copied ? ', file downloaded and copied.' : ', file downloaded.'));
   };
 
   function importText(text) {
-    const { levels, error } = parseImport(text);
-    if (error) return { error };
-    const have = new Set(saved.map((l) => l.title + l.rows.join('')));
-    let added = 0;
-    let dups = 0;
-    for (const l of levels) {
-      if (have.has(l.title + l.rows.join(''))) continue;
-      if (duplicateOf(l.rows)) dups += 1;
-      saved.push(l);
-      added += 1;
-    }
-    persist(saved);
-    return { added, dups, skipped: levels.length - added };
+    const parsed = St.parseImport(text);
+    if (parsed.error) return { error: parsed.error };
+    if (store.selected === OLD) store.selected = store.tabs[0].id;
+    const res = St.applyImport(store, parsed);
+    persist();
+    return res;
   }
 
   $('ed-import').onclick = () => {
     api.sheet(`<h2>Import</h2>
       <p>Paste exported JSON, or choose a file.</p>
       <textarea id="imp-text" class="ed-text" rows="6"
-        placeholder='[{"title":"Worm","chapter":1,"rows":[...]}]'></textarea>
+        placeholder='{"version":2,"tabs":[...]}'></textarea>
       <input id="imp-file" type="file" accept=".json,application/json">
       <p id="imp-msg" class="ed-msg"></p>
       <div class="row"><button class="primary" id="imp-go">Import</button>
@@ -471,17 +584,28 @@ export function install(api) {
       };
       c.querySelector('#imp-go').onclick = () => {
         const res = importText(c.querySelector('#imp-text').value);
-        out.classList.toggle('warn', !!res.error || res.dups > 0);
+        out.classList.toggle('warn', !!res.error);
         if (res.error) { out.textContent = res.error; return; }
         let text = `Imported ${res.added} level${res.added === 1 ? '' : 's'}.`;
         if (res.skipped) text += ` ${res.skipped} already saved, skipped.`;
-        if (res.dups) text += ` Warning: ${res.dups} match a level that already exists.`;
         out.textContent = text;
         renderList();
       };
     });
   };
 
+  // Exit button during play-test (on the play page, not core markup).
+  const exit = document.createElement('button');
+  exit.type = 'button'; exit.id = 'ed-exit'; exit.textContent = 'Back to editor';
+  exit.hidden = true;
+  exit.onclick = () => { testing = false; open(); };
+  document.querySelector('#play .btns').appendChild(exit);
+  document.addEventListener('bt:page', (ev) => {
+    if (ev.detail !== 'play') testing = false;
+    exit.hidden = !(ev.detail === 'play' && testing);
+  });
+
   // Hooks for automated checks.
-  window.__btEditor = { saved: () => saved, parseImport, current: cur, last: () => last };
+  window.__btEditor = { store, parseImport: St.parseImport, current: cur,
+    last: () => last };
 }
