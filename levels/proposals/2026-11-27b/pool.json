@@ -1,0 +1,1240 @@
+{
+ "version": 2,
+ "tabs": [
+  {
+   "name": "Medieval",
+   "accepted": true,
+   "verdict": "Your four weapons plus Castle, Crown, Ship; Dragon dropped (unreadable).",
+   "levels": [
+    {
+     "title": "Shield",
+     "rows": [
+      ".XXXXX.",
+      "X.....X",
+      "X.....X",
+      "X.....X",
+      ".X...X.",
+      "..X.X..",
+      "...X..."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Dagger",
+     "rows": [
+      "...X...",
+      "..X.X..",
+      "..X.X..",
+      "..X.X..",
+      ".XX.XX.",
+      "...X...",
+      "...X..."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Arrow",
+     "rows": [
+      "....XXX",
+      ".....XX",
+      "....X.X",
+      "...X...",
+      "XXX....",
+      "..X....",
+      "..X...."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Sword",
+     "rows": [
+      ".....XX",
+      "....X.X",
+      "...X.X.",
+      "X.X.X..",
+      ".X.X...",
+      ".XX....",
+      "X..X..."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Castle",
+     "rows": [
+      "X.X.X.X",
+      "XXXXXXX",
+      "X.....X",
+      "X..X..X",
+      "X.X.X.X",
+      "X.X.X.X",
+      "XXX.XXX"
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Crown",
+     "rows": [
+      "X..X..X",
+      "X..X..X",
+      "XX.X.XX",
+      "X.X.X.X",
+      "X.....X",
+      "XXXXXXX",
+      "......."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Ship",
+     "rows": [
+      "...X...",
+      "...XX..",
+      "...XXX.",
+      "...X...",
+      "XXXXXXX",
+      ".X...X.",
+      "..XXX.."
+     ],
+     "by": "euler"
+    }
+   ]
+  },
+  {
+   "name": "Fruits",
+   "accepted": true,
+   "verdict": "Your three plus Pear, Grapes, Strawberry, Watermelon: simple, clear, friendly.",
+   "levels": [
+    {
+     "title": "Cherry",
+     "rows": [
+      ".......",
+      "...X...",
+      "..X.X..",
+      ".X...X.",
+      "XXX.XXX",
+      "X.X.X.X",
+      "XXX.XXX"
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Banana",
+     "rows": [
+      ".X.....",
+      ".X.....",
+      "X.X....",
+      "X.X....",
+      "X..XXX.",
+      ".X....X",
+      "..XXXX."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Apple",
+     "rows": [
+      "...X...",
+      ".XXXXX.",
+      "X..X..X",
+      "X.....X",
+      "X.....X",
+      ".X...X.",
+      "..XXX.."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Pear",
+     "rows": [
+      "...X...",
+      "..XXX..",
+      "..X.X..",
+      ".X...X.",
+      "X.....X",
+      ".X...X.",
+      "..XXX.."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Grapes",
+     "rows": [
+      "...XX..",
+      "...X...",
+      "X.X.X.X",
+      ".X.X.X.",
+      "..X.X..",
+      "...X...",
+      "......."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Strawberry",
+     "rows": [
+      ".X.X.X.",
+      "..XXX..",
+      "X.....X",
+      "X.X.X.X",
+      ".X...X.",
+      "..X.X..",
+      "...X..."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Watermelon",
+     "rows": [
+      ".......",
+      ".......",
+      "XXXXXXX",
+      "X.X.X.X",
+      ".X...X.",
+      "..XXX..",
+      "......."
+     ],
+     "by": "euler"
+    }
+   ]
+  },
+  {
+   "name": "Cosmos",
+   "accepted": true,
+   "verdict": "All yours: the most evocative set, a tiny universe from Big Bang to Black Hole.",
+   "levels": [
+    {
+     "title": "Big Bang",
+     "rows": [
+      ".......",
+      ".......",
+      ".......",
+      "...X...",
+      ".......",
+      ".......",
+      "......."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Milky Way",
+     "rows": [
+      "....X..",
+      ".XX..X.",
+      "X..X.X.",
+      "..XXX..",
+      ".X.X..X",
+      ".X..XX.",
+      "..X...."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Sun",
+     "rows": [
+      ".......",
+      ".X.X.X.",
+      "..XXX..",
+      ".XX.XX.",
+      "..XXX..",
+      ".X.X.X.",
+      "......."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Earth",
+     "rows": [
+      ".......",
+      "..XXX..",
+      ".X...X.",
+      ".X...X.",
+      ".X...X.",
+      "..XXX..",
+      "......."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Saturn",
+     "rows": [
+      ".......",
+      "..XXX..",
+      ".X...X.",
+      "XXXXXXX",
+      ".X...X.",
+      "..XXX..",
+      "......."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Jupiter",
+     "rows": [
+      "..XXX..",
+      ".X...X.",
+      "X.....X",
+      "X.....X",
+      "X.....X",
+      ".X...X.",
+      "..XXX.."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Black Hole",
+     "rows": [
+      ".......",
+      "..XXX..",
+      ".XXXXX.",
+      ".XXXXX.",
+      ".XXXXX.",
+      "..XXX..",
+      "......."
+     ],
+     "by": "grigory"
+    }
+   ]
+  },
+  {
+   "name": "Town",
+   "accepted": true,
+   "verdict": "Your Hut plus Church, Bridge, Car, Street Lamp, Skyscraper, Fountain; House cut (too like Hut).",
+   "levels": [
+    {
+     "title": "Hut",
+     "rows": [
+      "...X...",
+      "..X.X..",
+      ".X...X.",
+      "XXXXXXX",
+      ".X...X.",
+      ".X...X.",
+      ".XXXXX."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Church",
+     "rows": [
+      "...X...",
+      "..XXX..",
+      "...X...",
+      "..XXX..",
+      ".X...X.",
+      ".X.X.X.",
+      ".XXXXX."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Bridge",
+     "rows": [
+      ".......",
+      ".......",
+      "XXXXXXX",
+      "XX...XX",
+      "X.....X",
+      "X.....X",
+      "......."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Car",
+     "rows": [
+      ".......",
+      "..XXX..",
+      ".X...X.",
+      "XXXXXXX",
+      "X.....X",
+      "XXXXXXX",
+      ".X...X."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Street Lamp",
+     "rows": [
+      "..XXX..",
+      ".XXXXX.",
+      "...X...",
+      "...X...",
+      "...X...",
+      "...X...",
+      "..XXX.."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Skyscraper",
+     "rows": [
+      "...X...",
+      ".XXXXX.",
+      ".X.X.X.",
+      ".XXXXX.",
+      ".X.X.X.",
+      ".XXXXX.",
+      ".X.X.X."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Fountain",
+     "rows": [
+      ".X.X.X.",
+      "X..X..X",
+      "...X...",
+      ".XXXXX.",
+      "X.....X",
+      "X.....X",
+      ".XXXXX."
+     ],
+     "by": "euler"
+    }
+   ]
+  },
+  {
+   "name": "Animals",
+   "accepted": true,
+   "verdict": "Your three plus Fish, Sheep, Cat, Turtle: very different silhouettes.",
+   "levels": [
+    {
+     "title": "Homo Sapiens",
+     "rows": [
+      "..XXX..",
+      "..X.X..",
+      "..XXX..",
+      "...X...",
+      "..XXX..",
+      "...X...",
+      "..X.X.."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Hen",
+     "rows": [
+      ".......",
+      "....XX.",
+      ".X..X.X",
+      ".XXXXX.",
+      ".X...X.",
+      "..XXX..",
+      "...X..."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Seagul",
+     "rows": [
+      ".......",
+      ".......",
+      ".XX.XX.",
+      "X..X..X",
+      ".......",
+      ".......",
+      "......."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Fish",
+     "rows": [
+      ".......",
+      ".XXX..X",
+      "X...XXX",
+      "X.X..X.",
+      "X...XXX",
+      ".XXX..X",
+      "......."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Sheep",
+     "rows": [
+      ".......",
+      ".XXXX..",
+      "X....XX",
+      "X....XX",
+      ".XXXX..",
+      ".X..X..",
+      ".X..X.."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Cat",
+     "rows": [
+      "X.....X",
+      "XX...XX",
+      "X.....X",
+      "X.X.X.X",
+      "X..X..X",
+      ".X...X.",
+      "..XXX.."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Turtle",
+     "rows": [
+      "...X...",
+      "X.XXX.X",
+      ".X...X.",
+      ".X.X.X.",
+      ".X...X.",
+      "X.XXX.X",
+      "...X..."
+     ],
+     "by": "euler"
+    }
+   ]
+  },
+  {
+   "name": "Ocean",
+   "accepted": true,
+   "verdict": "Seven strong, distinct icons with one mood: anchor, whale, crab, star, jelly, light, shell.",
+   "levels": [
+    {
+     "title": "Anchor",
+     "rows": [
+      "...X...",
+      "..X.X..",
+      "...X...",
+      ".XXXXX.",
+      "...X...",
+      "X..X..X",
+      ".XXXXX."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Whale",
+     "rows": [
+      "..X.X..",
+      "...X...",
+      ".XXXX.X",
+      "X....XX",
+      "X.X..X.",
+      ".XXXX..",
+      "......."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Crab",
+     "rows": [
+      "XX...XX",
+      ".X...X.",
+      "..XXX..",
+      "XX...XX",
+      "..XXX..",
+      ".X...X.",
+      "......."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Starfish",
+     "rows": [
+      "...X...",
+      "...X...",
+      "XXXXXXX",
+      ".XXXXX.",
+      "..XXX..",
+      ".XX.XX.",
+      ".X...X."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Jellyfish",
+     "rows": [
+      "..XXX..",
+      ".X...X.",
+      "X.....X",
+      "XXXXXXX",
+      ".X.X.X.",
+      "X.X.X..",
+      ".X.X.X."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Lighthouse",
+     "rows": [
+      "X..X..X",
+      "..XXX..",
+      "..X.X..",
+      "..XXX..",
+      "..X.X..",
+      ".X...X.",
+      "XXXXXXX"
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Shell",
+     "rows": [
+      ".......",
+      ".XXXXX.",
+      "X.X.X.X",
+      "X.X.X.X",
+      ".XX.XX.",
+      "..XXX..",
+      "...X..."
+     ],
+     "by": "euler"
+    }
+   ]
+  },
+  {
+   "name": "Weather",
+   "accepted": true,
+   "verdict": "Lightning, snowflake, rainbow, tornado read instantly; evocative and varied.",
+   "levels": [
+    {
+     "title": "Cloud",
+     "rows": [
+      ".......",
+      "..XX...",
+      ".X..XX.",
+      "X.....X",
+      "X.....X",
+      ".XXXXX.",
+      "......."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Rain",
+     "rows": [
+      "..XX...",
+      ".X..XX.",
+      "X.....X",
+      ".XXXXX.",
+      ".......",
+      ".X...X.",
+      "...X..."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Lightning",
+     "rows": [
+      "....XX.",
+      "...XX..",
+      "..XX...",
+      ".XXXXX.",
+      "...XX..",
+      "..XX...",
+      ".XX...."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Snowflake",
+     "rows": [
+      "X..X..X",
+      ".X.X.X.",
+      "..X.X..",
+      "XX.X.XX",
+      "..X.X..",
+      ".X.X.X.",
+      "X..X..X"
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Umbrella",
+     "rows": [
+      "..XXX..",
+      ".X...X.",
+      "XXXXXXX",
+      "...X...",
+      "...X...",
+      ".X.X...",
+      "..X...."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Rainbow",
+     "rows": [
+      ".......",
+      "..XXX..",
+      ".X...X.",
+      "X.XXX.X",
+      "X.X.X.X",
+      "X.X.X.X",
+      "......."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Tornado",
+     "rows": [
+      "XXXXXXX",
+      ".XXXXX.",
+      "..XXXX.",
+      "..XXX..",
+      "...XX..",
+      "...X...",
+      "....X.."
+     ],
+     "by": "euler"
+    }
+   ]
+  },
+  {
+   "name": "Food",
+   "accepted": false,
+   "verdict": "Your Egg/Sausage idea: Fried Egg and Mug work, but Sausage needs its title and it overlaps Fruits.",
+   "levels": [
+    {
+     "title": "Fried Egg",
+     "rows": [
+      "..XX...",
+      ".X..XX.",
+      "X.....X",
+      "X.XX..X",
+      "X.XX.X.",
+      ".X...X.",
+      "..XXX.."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Sausage",
+     "rows": [
+      "X......",
+      ".XX....",
+      ".XXX...",
+      "..XXX..",
+      "...XXX.",
+      "....XX.",
+      "......X"
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Ice Cream",
+     "rows": [
+      "..XXX..",
+      ".XXXXX.",
+      ".XXXXX.",
+      ".XXXXX.",
+      "..X.X..",
+      "..X.X..",
+      "...X..."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Pizza",
+     "rows": [
+      "XXXXXXX",
+      ".XX..X.",
+      ".X..XX.",
+      "..X.X..",
+      "..XX...",
+      "...X...",
+      "......."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Lollipop",
+     "rows": [
+      ".XXXX..",
+      "X....X.",
+      "X.XX.X.",
+      "X.X..X.",
+      ".XXXX..",
+      "...X...",
+      "...X..."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Cupcake",
+     "rows": [
+      "...X...",
+      "..XXX..",
+      ".XXXXX.",
+      "XXXXXXX",
+      "X.X.X.X",
+      ".X.X.X.",
+      ".XXXXX."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Mug",
+     "rows": [
+      ".......",
+      "XXXXX..",
+      "X...XXX",
+      "X...X.X",
+      "X...XXX",
+      "X...X..",
+      "XXXXX.."
+     ],
+     "by": "euler"
+    }
+   ]
+  },
+  {
+   "name": "Currencies",
+   "accepted": false,
+   "verdict": "$, ¥, £ read fine, but it is lettering, not pictures; Euro and Coin are cramped. Least imaginative.",
+   "levels": [
+    {
+     "title": "Dollar",
+     "rows": [
+      "...X...",
+      ".XXXXX.",
+      "X..X...",
+      ".XXXXX.",
+      "...X..X",
+      ".XXXXX.",
+      "...X..."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Euro",
+     "rows": [
+      "..XXXX.",
+      ".X.....",
+      "XXXXX..",
+      ".X.....",
+      "XXXXX..",
+      ".X.....",
+      "..XXXX."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Pound",
+     "rows": [
+      "..XXX..",
+      ".X...X.",
+      ".X.....",
+      "XXXX...",
+      ".X.....",
+      ".X.....",
+      "XXXXXXX"
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Yen",
+     "rows": [
+      "X.....X",
+      ".X...X.",
+      "..X.X..",
+      ".XXXXX.",
+      "...X...",
+      ".XXXXX.",
+      "...X..."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Cent",
+     "rows": [
+      "...X...",
+      "..XXXX.",
+      ".X.X...",
+      ".X.X...",
+      ".X.X...",
+      "..XXXX.",
+      "...X..."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Coin",
+     "rows": [
+      ".XXXXX.",
+      "X.....X",
+      "X..X..X",
+      "X.XX..X",
+      "X..X..X",
+      "X.....X",
+      ".XXXXX."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Banknote",
+     "rows": [
+      ".......",
+      "XXXXXXX",
+      "X.....X",
+      "X.XXX.X",
+      "X.....X",
+      "XXXXXXX",
+      "......."
+     ],
+     "by": "euler"
+    }
+   ]
+  },
+  {
+   "name": "Garden",
+   "accepted": false,
+   "verdict": "Decent (Mushroom, Cactus, Fir Tree), but competes with Fruits and Weather for the same feel.",
+   "levels": [
+    {
+     "title": "Fir Tree",
+     "rows": [
+      "...X...",
+      "..X.X..",
+      ".X...X.",
+      "..X.X..",
+      ".X...X.",
+      "XXXXXXX",
+      "...X..."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Flower",
+     "rows": [
+      "..X.X..",
+      ".X.X.X.",
+      "..X.X..",
+      "...X...",
+      "XX.X...",
+      ".XXX...",
+      "...X..."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Tulip",
+     "rows": [
+      ".X.X.X.",
+      ".XXXXX.",
+      ".XXXXX.",
+      "..XXX..",
+      "...X...",
+      ".X.X.X.",
+      "..XXX.."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Mushroom",
+     "rows": [
+      "..XXX..",
+      ".X...X.",
+      "X.....X",
+      "XXXXXXX",
+      "..X.X..",
+      "..X.X..",
+      "..XXX.."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Cactus",
+     "rows": [
+      "...X...",
+      "...X..X",
+      "X..X..X",
+      "X..XXXX",
+      "XXXX...",
+      "...X...",
+      "...X..."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Leaf",
+     "rows": [
+      "...XXXX",
+      "..X..XX",
+      ".X..X.X",
+      ".X.X..X",
+      ".XX..X.",
+      ".XXXX..",
+      "X......"
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Sprout",
+     "rows": [
+      ".......",
+      "XX...XX",
+      ".XX.XX.",
+      "...X...",
+      "...X...",
+      ".XXXXX.",
+      "..XXX.."
+     ],
+     "by": "euler"
+    }
+   ]
+  },
+  {
+   "name": "Tools",
+   "accepted": false,
+   "verdict": "Clear but dull; Wrench and Key are thin lines that read weakly.",
+   "levels": [
+    {
+     "title": "Hammer",
+     "rows": [
+      "XXXXX..",
+      "XXXXX..",
+      "..X....",
+      "..X....",
+      "..X....",
+      "..X....",
+      "..X...."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Wrench",
+     "rows": [
+      "X.X....",
+      "XXX....",
+      "...X...",
+      "....X..",
+      ".....X.",
+      "....X.X",
+      ".....X."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Screwdriver",
+     "rows": [
+      "...X...",
+      "...X...",
+      "...X...",
+      "..XXX..",
+      "..XXX..",
+      "..XXX..",
+      "..XXX.."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Key",
+     "rows": [
+      ".......",
+      ".......",
+      "XXX....",
+      "X.XXXXX",
+      "XXX.X.X",
+      ".......",
+      "......."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Scissors",
+     "rows": [
+      "X.....X",
+      ".X...X.",
+      "..X.X..",
+      "...X...",
+      "..X.X..",
+      "XX...XX",
+      "XX...XX"
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Shovel",
+     "rows": [
+      "..XXX..",
+      "...X...",
+      "...X...",
+      "...X...",
+      ".XXXXX.",
+      ".X...X.",
+      "..XXX.."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Axe",
+     "rows": [
+      "..X.X..",
+      "..XXXX.",
+      "..XXXX.",
+      "..X.X..",
+      "..X....",
+      "..X....",
+      "..X...."
+     ],
+     "by": "euler"
+    }
+   ]
+  },
+  {
+   "name": "Music",
+   "accepted": false,
+   "verdict": "Note and Two Notes too alike; Trumpet and Guitar weak at 7x7.",
+   "levels": [
+    {
+     "title": "Note",
+     "rows": [
+      "...XX..",
+      "...X.X.",
+      "...X...",
+      "...X...",
+      ".XXX...",
+      "XXXX...",
+      ".XX...."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Two Notes",
+     "rows": [
+      ".XXXXX.",
+      ".X...X.",
+      ".X...X.",
+      ".X...X.",
+      "XX..XX.",
+      "XX..XX.",
+      "......."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Bell",
+     "rows": [
+      "...X...",
+      "..XXX..",
+      ".X...X.",
+      ".X...X.",
+      "X.....X",
+      "XXXXXXX",
+      "...X..."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Drum",
+     "rows": [
+      "X.....X",
+      ".X...X.",
+      "XXXXXXX",
+      "X.....X",
+      "X.....X",
+      "X.....X",
+      "XXXXXXX"
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Guitar",
+     "rows": [
+      "...X...",
+      "...X...",
+      "..X.X..",
+      "..X.X..",
+      ".X.X.X.",
+      ".X...X.",
+      "..XXX.."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Trumpet",
+     "rows": [
+      ".......",
+      ".......",
+      "..X.X..",
+      "..X.X.X",
+      "XXXXXXX",
+      "......X",
+      "......."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Headphones",
+     "rows": [
+      "..XXX..",
+      ".X...X.",
+      "X.....X",
+      "X.....X",
+      "XX...XX",
+      "XX...XX",
+      "......."
+     ],
+     "by": "euler"
+    }
+   ]
+  },
+  {
+   "name": "Old proposals dropped",
+   "accepted": false,
+   "verdict": "Dragon (unreadable), House (too like your Hut), Traffic Light (needs colour), Bench (reads as a table).",
+   "levels": [
+    {
+     "title": "Dragon",
+     "rows": [
+      "X..X..X",
+      "XX.X.XX",
+      ".XXXXX.",
+      "..XXX..",
+      "...X...",
+      "..X.X..",
+      ".X...X."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "House",
+     "rows": [
+      "...X.X.",
+      "..X.XX.",
+      ".X...X.",
+      "XXXXXXX",
+      "X.X.X.X",
+      "X.....X",
+      "XXX.XXX"
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Traffic Light",
+     "rows": [
+      ".XXXXX.",
+      ".X.X.X.",
+      ".X...X.",
+      ".X.X.X.",
+      ".X...X.",
+      ".X.X.X.",
+      ".XXXXX."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Bench",
+     "rows": [
+      ".......",
+      ".......",
+      "XXXXXXX",
+      ".......",
+      "XXXXXXX",
+      ".X...X.",
+      ".X...X."
+     ],
+     "by": "euler"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,677 @@
+{
+ "version": 2,
+ "tabs": [
+  {
+   "name": "Medieval",
+   "levels": [
+    {
+     "title": "Shield",
+     "rows": [
+      ".XXXXX.",
+      "X.....X",
+      "X.....X",
+      "X.....X",
+      ".X...X.",
+      "..X.X..",
+      "...X..."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Dagger",
+     "rows": [
+      "...X...",
+      "..X.X..",
+      "..X.X..",
+      "..X.X..",
+      ".XX.XX.",
+      "...X...",
+      "...X..."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Arrow",
+     "rows": [
+      "....XXX",
+      ".....XX",
+      "....X.X",
+      "...X...",
+      "XXX....",
+      "..X....",
+      "..X...."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Sword",
+     "rows": [
+      ".....XX",
+      "....X.X",
+      "...X.X.",
+      "X.X.X..",
+      ".X.X...",
+      ".XX....",
+      "X..X..."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Castle",
+     "rows": [
+      "X.X.X.X",
+      "XXXXXXX",
+      "X.....X",
+      "X..X..X",
+      "X.X.X.X",
+      "X.X.X.X",
+      "XXX.XXX"
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Crown",
+     "rows": [
+      "X..X..X",
+      "X..X..X",
+      "XX.X.XX",
+      "X.X.X.X",
+      "X.....X",
+      "XXXXXXX",
+      "......."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Ship",
+     "rows": [
+      "...X...",
+      "...XX..",
+      "...XXX.",
+      "...X...",
+      "XXXXXXX",
+      ".X...X.",
+      "..XXX.."
+     ],
+     "by": "euler"
+    }
+   ]
+  },
+  {
+   "name": "Fruits",
+   "levels": [
+    {
+     "title": "Cherry",
+     "rows": [
+      ".......",
+      "...X...",
+      "..X.X..",
+      ".X...X.",
+      "XXX.XXX",
+      "X.X.X.X",
+      "XXX.XXX"
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Banana",
+     "rows": [
+      ".X.....",
+      ".X.....",
+      "X.X....",
+      "X.X....",
+      "X..XXX.",
+      ".X....X",
+      "..XXXX."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Apple",
+     "rows": [
+      "...X...",
+      ".XXXXX.",
+      "X..X..X",
+      "X.....X",
+      "X.....X",
+      ".X...X.",
+      "..XXX.."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Pear",
+     "rows": [
+      "...X...",
+      "..XXX..",
+      "..X.X..",
+      ".X...X.",
+      "X.....X",
+      ".X...X.",
+      "..XXX.."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Grapes",
+     "rows": [
+      "...XX..",
+      "...X...",
+      "X.X.X.X",
+      ".X.X.X.",
+      "..X.X..",
+      "...X...",
+      "......."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Strawberry",
+     "rows": [
+      ".X.X.X.",
+      "..XXX..",
+      "X.....X",
+      "X.X.X.X",
+      ".X...X.",
+      "..X.X..",
+      "...X..."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Watermelon",
+     "rows": [
+      ".......",
+      ".......",
+      "XXXXXXX",
+      "X.X.X.X",
+      ".X...X.",
+      "..XXX..",
+      "......."
+     ],
+     "by": "euler"
+    }
+   ]
+  },
+  {
+   "name": "Cosmos",
+   "levels": [
+    {
+     "title": "Big Bang",
+     "rows": [
+      ".......",
+      ".......",
+      ".......",
+      "...X...",
+      ".......",
+      ".......",
+      "......."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Milky Way",
+     "rows": [
+      "....X..",
+      ".XX..X.",
+      "X..X.X.",
+      "..XXX..",
+      ".X.X..X",
+      ".X..XX.",
+      "..X...."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Sun",
+     "rows": [
+      ".......",
+      ".X.X.X.",
+      "..XXX..",
+      ".XX.XX.",
+      "..XXX..",
+      ".X.X.X.",
+      "......."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Earth",
+     "rows": [
+      ".......",
+      "..XXX..",
+      ".X...X.",
+      ".X...X.",
+      ".X...X.",
+      "..XXX..",
+      "......."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Saturn",
+     "rows": [
+      ".......",
+      "..XXX..",
+      ".X...X.",
+      "XXXXXXX",
+      ".X...X.",
+      "..XXX..",
+      "......."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Jupiter",
+     "rows": [
+      "..XXX..",
+      ".X...X.",
+      "X.....X",
+      "X.....X",
+      "X.....X",
+      ".X...X.",
+      "..XXX.."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Black Hole",
+     "rows": [
+      ".......",
+      "..XXX..",
+      ".XXXXX.",
+      ".XXXXX.",
+      ".XXXXX.",
+      "..XXX..",
+      "......."
+     ],
+     "by": "grigory"
+    }
+   ]
+  },
+  {
+   "name": "Town",
+   "levels": [
+    {
+     "title": "Hut",
+     "rows": [
+      "...X...",
+      "..X.X..",
+      ".X...X.",
+      "XXXXXXX",
+      ".X...X.",
+      ".X...X.",
+      ".XXXXX."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Church",
+     "rows": [
+      "...X...",
+      "..XXX..",
+      "...X...",
+      "..XXX..",
+      ".X...X.",
+      ".X.X.X.",
+      ".XXXXX."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Bridge",
+     "rows": [
+      ".......",
+      ".......",
+      "XXXXXXX",
+      "XX...XX",
+      "X.....X",
+      "X.....X",
+      "......."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Car",
+     "rows": [
+      ".......",
+      "..XXX..",
+      ".X...X.",
+      "XXXXXXX",
+      "X.....X",
+      "XXXXXXX",
+      ".X...X."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Street Lamp",
+     "rows": [
+      "..XXX..",
+      ".XXXXX.",
+      "...X...",
+      "...X...",
+      "...X...",
+      "...X...",
+      "..XXX.."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Skyscraper",
+     "rows": [
+      "...X...",
+      ".XXXXX.",
+      ".X.X.X.",
+      ".XXXXX.",
+      ".X.X.X.",
+      ".XXXXX.",
+      ".X.X.X."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Fountain",
+     "rows": [
+      ".X.X.X.",
+      "X..X..X",
+      "...X...",
+      ".XXXXX.",
+      "X.....X",
+      "X.....X",
+      ".XXXXX."
+     ],
+     "by": "euler"
+    }
+   ]
+  },
+  {
+   "name": "Animals",
+   "levels": [
+    {
+     "title": "Homo Sapiens",
+     "rows": [
+      "..XXX..",
+      "..X.X..",
+      "..XXX..",
+      "...X...",
+      "..XXX..",
+      "...X...",
+      "..X.X.."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Hen",
+     "rows": [
+      ".......",
+      "....XX.",
+      ".X..X.X",
+      ".XXXXX.",
+      ".X...X.",
+      "..XXX..",
+      "...X..."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Seagul",
+     "rows": [
+      ".......",
+      ".......",
+      ".XX.XX.",
+      "X..X..X",
+      ".......",
+      ".......",
+      "......."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Fish",
+     "rows": [
+      ".......",
+      ".XXX..X",
+      "X...XXX",
+      "X.X..X.",
+      "X...XXX",
+      ".XXX..X",
+      "......."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Sheep",
+     "rows": [
+      ".......",
+      ".XXXX..",
+      "X....XX",
+      "X....XX",
+      ".XXXX..",
+      ".X..X..",
+      ".X..X.."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Cat",
+     "rows": [
+      "X.....X",
+      "XX...XX",
+      "X.....X",
+      "X.X.X.X",
+      "X..X..X",
+      ".X...X.",
+      "..XXX.."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Turtle",
+     "rows": [
+      "...X...",
+      "X.XXX.X",
+      ".X...X.",
+      ".X.X.X.",
+      ".X...X.",
+      "X.XXX.X",
+      "...X..."
+     ],
+     "by": "euler"
+    }
+   ]
+  },
+  {
+   "name": "Ocean",
+   "levels": [
+    {
+     "title": "Anchor",
+     "rows": [
+      "...X...",
+      "..X.X..",
+      "...X...",
+      ".XXXXX.",
+      "...X...",
+      "X..X..X",
+      ".XXXXX."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Whale",
+     "rows": [
+      "..X.X..",
+      "...X...",
+      ".XXXX.X",
+      "X....XX",
+      "X.X..X.",
+      ".XXXX..",
+      "......."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Crab",
+     "rows": [
+      "XX...XX",
+      ".X...X.",
+      "..XXX..",
+      "XX...XX",
+      "..XXX..",
+      ".X...X.",
+      "......."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Starfish",
+     "rows": [
+      "...X...",
+      "...X...",
+      "XXXXXXX",
+      ".XXXXX.",
+      "..XXX..",
+      ".XX.XX.",
+      ".X...X."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Jellyfish",
+     "rows": [
+      "..XXX..",
+      ".X...X.",
+      "X.....X",
+      "XXXXXXX",
+      ".X.X.X.",
+      "X.X.X..",
+      ".X.X.X."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Lighthouse",
+     "rows": [
+      "X..X..X",
+      "..XXX..",
+      "..X.X..",
+      "..XXX..",
+      "..X.X..",
+      ".X...X.",
+      "XXXXXXX"
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Shell",
+     "rows": [
+      ".......",
+      ".XXXXX.",
+      "X.X.X.X",
+      "X.X.X.X",
+      ".XX.XX.",
+      "..XXX..",
+      "...X..."
+     ],
+     "by": "euler"
+    }
+   ]
+  },
+  {
+   "name": "Weather",
+   "levels": [
+    {
+     "title": "Cloud",
+     "rows": [
+      ".......",
+      "..XX...",
+      ".X..XX.",
+      "X.....X",
+      "X.....X",
+      ".XXXXX.",
+      "......."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Rain",
+     "rows": [
+      "..XX...",
+      ".X..XX.",
+      "X.....X",
+      ".XXXXX.",
+      ".......",
+      ".X...X.",
+      "...X..."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Lightning",
+     "rows": [
+      "....XX.",
+      "...XX..",
+      "..XX...",
+      ".XXXXX.",
+      "...XX..",
+      "..XX...",
+      ".XX...."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Snowflake",
+     "rows": [
+      "X..X..X",
+      ".X.X.X.",
+      "..X.X..",
+      "XX.X.XX",
+      "..X.X..",
+      ".X.X.X.",
+      "X..X..X"
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Umbrella",
+     "rows": [
+      "..XXX..",
+      ".X...X.",
+      "XXXXXXX",
+      "...X...",
+      "...X...",
+      ".X.X...",
+      "..X...."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Rainbow",
+     "rows": [
+      ".......",
+      "..XXX..",
+      ".X...X.",
+      "X.XXX.X",
+      "X.X.X.X",
+      "X.X.X.X",
+      "......."
+     ],
+     "by": "euler"
+    },
+    {
+     "title": "Tornado",
+     "rows": [
+      "XXXXXXX",
+      ".XXXXX.",
+      "..XXXX.",
+      "..XXX..",
+      "...XX..",
+      "...X...",
+      "....X.."
+     ],
+     "by": "euler"
+    }
+   ]
+  }
+ ]
+}
