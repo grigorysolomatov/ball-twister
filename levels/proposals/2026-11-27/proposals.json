@@ -1,0 +1,1017 @@
+{
+ "version": 2,
+ "tabs": [
+  {
+   "name": "Medieval",
+   "levels": [
+    {
+     "title": "Shield",
+     "rows": [
+      ".XXXXX.",
+      "X.....X",
+      "X.....X",
+      "X.....X",
+      ".X...X.",
+      "..X.X..",
+      "...X..."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Dagger",
+     "rows": [
+      "...X...",
+      "..X.X..",
+      "..X.X..",
+      "..X.X..",
+      ".XX.XX.",
+      "...X...",
+      "...X..."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Arrow",
+     "rows": [
+      "....XXX",
+      ".....XX",
+      "....X.X",
+      "...X...",
+      "XXX....",
+      "..X....",
+      "..X...."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Sword",
+     "rows": [
+      ".....XX",
+      "....X.X",
+      "...X.X.",
+      "X.X.X..",
+      ".X.X...",
+      ".XX....",
+      "X..X..."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Castle",
+     "rows": [
+      "X.X.X.X",
+      "XXXXXXX",
+      "X.....X",
+      "X..X..X",
+      "X.X.X.X",
+      "X.X.X.X",
+      "XXX.XXX"
+     ],
+     "by": "euler",
+     "why": "battlements on top, walls, arched gate gap at the bottom"
+    },
+    {
+     "title": "Ship",
+     "rows": [
+      "...X...",
+      "...XX..",
+      "...XXX.",
+      "...X...",
+      "XXXXXXX",
+      ".X...X.",
+      "..XXX.."
+     ],
+     "by": "euler",
+     "why": "triangle sail on a mast over a round hull"
+    },
+    {
+     "title": "Dragon",
+     "rows": [
+      "X..X..X",
+      "XX.X.XX",
+      ".XXXXX.",
+      "..XXX..",
+      "...X...",
+      "..X.X..",
+      ".X...X."
+     ],
+     "by": "euler",
+     "why": "head with spread bat-wings and legs; may read as bat"
+    }
+   ]
+  },
+  {
+   "name": "Fruits",
+   "levels": [
+    {
+     "title": "Cherry",
+     "rows": [
+      ".......",
+      "...X...",
+      "..X.X..",
+      ".X...X.",
+      "XXX.XXX",
+      "X.X.X.X",
+      "XXX.XXX"
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Banana",
+     "rows": [
+      ".X.....",
+      ".X.....",
+      "X.X....",
+      "X.X....",
+      "X..XXX.",
+      ".X....X",
+      "..XXXX."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Apple",
+     "rows": [
+      "...X...",
+      ".XXXXX.",
+      "X..X..X",
+      "X.....X",
+      "X.....X",
+      ".X...X.",
+      "..XXX.."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Pear",
+     "rows": [
+      "...X...",
+      "..XXX..",
+      "..X.X..",
+      ".X...X.",
+      "X.....X",
+      ".X...X.",
+      "..XXX.."
+     ],
+     "by": "euler",
+     "why": "narrow top widening to a round bottom, stem"
+    },
+    {
+     "title": "Grapes",
+     "rows": [
+      "...XX..",
+      "...X...",
+      "X.X.X.X",
+      ".X.X.X.",
+      "..X.X..",
+      "...X...",
+      "......."
+     ],
+     "by": "euler",
+     "why": "each ball is a grape: triangle bunch under a stem"
+    },
+    {
+     "title": "Strawberry",
+     "rows": [
+      ".X.X.X.",
+      "..XXX..",
+      "X.....X",
+      "X.X.X.X",
+      ".X...X.",
+      "..X.X..",
+      "...X..."
+     ],
+     "by": "euler",
+     "why": "leaf crown, seeds inside a tapering body"
+    },
+    {
+     "title": "Watermelon",
+     "rows": [
+      ".......",
+      ".......",
+      "XXXXXXX",
+      "X.X.X.X",
+      ".X...X.",
+      "..XXX..",
+      "......."
+     ],
+     "by": "euler",
+     "why": "half-disc slice with two seeds"
+    }
+   ]
+  },
+  {
+   "name": "Cosmos",
+   "levels": [
+    {
+     "title": "Big Bang",
+     "rows": [
+      ".......",
+      ".......",
+      ".......",
+      "...X...",
+      ".......",
+      ".......",
+      "......."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Milky Way",
+     "rows": [
+      "....X..",
+      ".XX..X.",
+      "X..X.X.",
+      "..XXX..",
+      ".X.X..X",
+      ".X..XX.",
+      "..X...."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Sun",
+     "rows": [
+      ".......",
+      ".X.X.X.",
+      "..XXX..",
+      ".XX.XX.",
+      "..XXX..",
+      ".X.X.X.",
+      "......."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Earth",
+     "rows": [
+      ".......",
+      "..XXX..",
+      ".X...X.",
+      ".X...X.",
+      ".X...X.",
+      "..XXX..",
+      "......."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Saturn",
+     "rows": [
+      ".......",
+      "..XXX..",
+      ".X...X.",
+      "XXXXXXX",
+      ".X...X.",
+      "..XXX..",
+      "......."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Jupiter",
+     "rows": [
+      "..XXX..",
+      ".X...X.",
+      "X.....X",
+      "X.....X",
+      "X.....X",
+      ".X...X.",
+      "..XXX.."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Black Hole",
+     "rows": [
+      ".......",
+      "..XXX..",
+      ".XXXXX.",
+      ".XXXXX.",
+      ".XXXXX.",
+      "..XXX..",
+      "......."
+     ],
+     "by": "grigory"
+    }
+   ]
+  },
+  {
+   "name": "Town",
+   "levels": [
+    {
+     "title": "Hut",
+     "rows": [
+      "...X...",
+      "..X.X..",
+      ".X...X.",
+      "XXXXXXX",
+      ".X...X.",
+      ".X...X.",
+      ".XXXXX."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "House",
+     "rows": [
+      "...X.X.",
+      "..X.XX.",
+      ".X...X.",
+      "XXXXXXX",
+      "X.X.X.X",
+      "X.....X",
+      "XXX.XXX"
+     ],
+     "by": "euler",
+     "why": "roof with chimney, two windows, door gap"
+    },
+    {
+     "title": "Church",
+     "rows": [
+      "...X...",
+      "..XXX..",
+      "...X...",
+      "..XXX..",
+      ".X...X.",
+      ".X.X.X.",
+      ".XXXXX."
+     ],
+     "by": "euler",
+     "why": "cross on a steeple above a doorway"
+    },
+    {
+     "title": "Bridge",
+     "rows": [
+      ".......",
+      ".......",
+      "XXXXXXX",
+      "XX...XX",
+      "X.....X",
+      "X.....X",
+      "......."
+     ],
+     "by": "euler",
+     "why": "road deck over a stone arch"
+    },
+    {
+     "title": "Traffic Light",
+     "rows": [
+      ".XXXXX.",
+      ".X.X.X.",
+      ".X...X.",
+      ".X.X.X.",
+      ".X...X.",
+      ".X.X.X.",
+      ".XXXXX."
+     ],
+     "by": "euler",
+     "why": "box with three lights stacked"
+    },
+    {
+     "title": "Car",
+     "rows": [
+      ".......",
+      "..XXX..",
+      ".X...X.",
+      "XXXXXXX",
+      "X.....X",
+      "XXXXXXX",
+      ".X...X."
+     ],
+     "by": "euler",
+     "why": "cabin on a body with two wheels"
+    },
+    {
+     "title": "Bench",
+     "rows": [
+      ".......",
+      ".......",
+      "XXXXXXX",
+      ".......",
+      "XXXXXXX",
+      ".X...X.",
+      ".X...X."
+     ],
+     "by": "euler",
+     "why": "seat, backrest, two legs; could read as table"
+    }
+   ]
+  },
+  {
+   "name": "Animals",
+   "levels": [
+    {
+     "title": "Homo Sapiens",
+     "rows": [
+      "..XXX..",
+      "..X.X..",
+      "..XXX..",
+      "...X...",
+      "..XXX..",
+      "...X...",
+      "..X.X.."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Hen",
+     "rows": [
+      ".......",
+      "....XX.",
+      ".X..X.X",
+      ".XXXXX.",
+      ".X...X.",
+      "..XXX..",
+      "...X..."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Seagul",
+     "rows": [
+      ".......",
+      ".......",
+      ".XX.XX.",
+      "X..X..X",
+      ".......",
+      ".......",
+      "......."
+     ],
+     "by": "grigory"
+    },
+    {
+     "title": "Fish",
+     "rows": [
+      ".......",
+      ".XXX..X",
+      "X...XXX",
+      "X.X..X.",
+      "X...XXX",
+      ".XXX..X",
+      "......."
+     ],
+     "by": "euler",
+     "why": "oval body, eye, forked tail"
+    },
+    {
+     "title": "Sheep",
+     "rows": [
+      ".......",
+      ".XXXX..",
+      "X....XX",
+      "X....XX",
+      ".XXXX..",
+      ".X..X..",
+      ".X..X.."
+     ],
+     "by": "euler",
+     "why": "round woolly body, dark head, four legs; could be a pig"
+    },
+    {
+     "title": "Cat",
+     "rows": [
+      "X.....X",
+      "XX...XX",
+      "X.....X",
+      "X.X.X.X",
+      "X..X..X",
+      ".X...X.",
+      "..XXX.."
+     ],
+     "by": "euler",
+     "why": "pointed ears, two eyes, nose, round chin"
+    },
+    {
+     "title": "Turtle",
+     "rows": [
+      "...X...",
+      "X.XXX.X",
+      ".X...X.",
+      ".X.X.X.",
+      ".X...X.",
+      "X.XXX.X",
+      "...X..."
+     ],
+     "by": "euler",
+     "why": "top view: head, four legs, shell, tail"
+    }
+   ]
+  },
+  {
+   "name": "Weather",
+   "levels": [
+    {
+     "title": "Cloud",
+     "rows": [
+      ".......",
+      "..XX...",
+      ".X..XX.",
+      "X.....X",
+      "X.....X",
+      ".XXXXX.",
+      "......."
+     ],
+     "by": "euler",
+     "why": "bumpy top, flat bottom"
+    },
+    {
+     "title": "Rain",
+     "rows": [
+      "..XX...",
+      ".X..XX.",
+      "X.....X",
+      ".XXXXX.",
+      ".......",
+      ".X...X.",
+      "...X..."
+     ],
+     "by": "euler",
+     "why": "small cloud with falling drops"
+    },
+    {
+     "title": "Lightning",
+     "rows": [
+      "....XX.",
+      "...XX..",
+      "..XX...",
+      ".XXXXX.",
+      "...XX..",
+      "..XX...",
+      ".XX...."
+     ],
+     "by": "euler",
+     "why": "zigzag bolt"
+    },
+    {
+     "title": "Snowflake",
+     "rows": [
+      "X..X..X",
+      ".X.X.X.",
+      "..X.X..",
+      "XX.X.XX",
+      "..X.X..",
+      ".X.X.X.",
+      "X..X..X"
+     ],
+     "by": "euler",
+     "why": "six arms with side branches"
+    },
+    {
+     "title": "Umbrella",
+     "rows": [
+      "..XXX..",
+      ".X...X.",
+      "XXXXXXX",
+      "...X...",
+      "...X...",
+      ".X.X...",
+      "..X...."
+     ],
+     "by": "euler",
+     "why": "canopy and J handle"
+    },
+    {
+     "title": "Rainbow",
+     "rows": [
+      ".......",
+      "..XXX..",
+      ".X...X.",
+      "X.XXX.X",
+      "X.X.X.X",
+      "X.X.X.X",
+      "......."
+     ],
+     "by": "euler",
+     "why": "two nested arches"
+    },
+    {
+     "title": "Tornado",
+     "rows": [
+      "XXXXXXX",
+      ".XXXXX.",
+      "..XXXX.",
+      "..XXX..",
+      "...XX..",
+      "...X...",
+      "....X.."
+     ],
+     "by": "euler",
+     "why": "funnel narrowing and bending down"
+    }
+   ]
+  },
+  {
+   "name": "Ocean",
+   "levels": [
+    {
+     "title": "Anchor",
+     "rows": [
+      "...X...",
+      "..X.X..",
+      "...X...",
+      ".XXXXX.",
+      "...X...",
+      "X..X..X",
+      ".XXXXX."
+     ],
+     "by": "euler",
+     "why": "ring, crossbar, shaft, curved flukes"
+    },
+    {
+     "title": "Whale",
+     "rows": [
+      "..X.X..",
+      "...X...",
+      ".XXXX.X",
+      "X....XX",
+      "X.X..X.",
+      ".XXXX..",
+      "......."
+     ],
+     "by": "euler",
+     "why": "spout, body with eye, raised tail"
+    },
+    {
+     "title": "Crab",
+     "rows": [
+      "XX...XX",
+      ".X...X.",
+      "..XXX..",
+      "XX...XX",
+      "..XXX..",
+      ".X...X.",
+      "......."
+     ],
+     "by": "euler",
+     "why": "claws up, round body, legs"
+    },
+    {
+     "title": "Starfish",
+     "rows": [
+      "...X...",
+      "...X...",
+      "XXXXXXX",
+      ".XXXXX.",
+      "..XXX..",
+      ".XX.XX.",
+      ".X...X."
+     ],
+     "by": "euler",
+     "why": "five-pointed star"
+    },
+    {
+     "title": "Jellyfish",
+     "rows": [
+      "..XXX..",
+      ".X...X.",
+      "X.....X",
+      "XXXXXXX",
+      ".X.X.X.",
+      "X.X.X..",
+      ".X.X.X."
+     ],
+     "by": "euler",
+     "why": "dome with wavy tentacles"
+    },
+    {
+     "title": "Lighthouse",
+     "rows": [
+      "X..X..X",
+      "..XXX..",
+      "..X.X..",
+      "..XXX..",
+      "..X.X..",
+      ".X...X.",
+      "XXXXXXX"
+     ],
+     "by": "euler",
+     "why": "light rays, lamp room, tower on a base"
+    },
+    {
+     "title": "Shell",
+     "rows": [
+      ".......",
+      ".XXXXX.",
+      "X.X.X.X",
+      "X.X.X.X",
+      ".XX.XX.",
+      "..XXX..",
+      "...X..."
+     ],
+     "by": "euler",
+     "why": "scallop fan with ribs"
+    }
+   ]
+  },
+  {
+   "name": "Tools",
+   "levels": [
+    {
+     "title": "Hammer",
+     "rows": [
+      "XXXXX..",
+      "XXXXX..",
+      "..X....",
+      "..X....",
+      "..X....",
+      "..X....",
+      "..X...."
+     ],
+     "by": "euler",
+     "why": "solid head on a handle"
+    },
+    {
+     "title": "Wrench",
+     "rows": [
+      "X.X....",
+      "XXX....",
+      "...X...",
+      "....X..",
+      ".....X.",
+      "....X.X",
+      ".....X."
+     ],
+     "by": "euler",
+     "why": "open jaw, diagonal handle, ring end"
+    },
+    {
+     "title": "Screwdriver",
+     "rows": [
+      "...X...",
+      "...X...",
+      "...X...",
+      "..XXX..",
+      "..XXX..",
+      "..XXX..",
+      "..XXX.."
+     ],
+     "by": "euler",
+     "why": "thin shaft over a thick grip"
+    },
+    {
+     "title": "Key",
+     "rows": [
+      ".......",
+      ".......",
+      "XXX....",
+      "X.XXXXX",
+      "XXX.X.X",
+      ".......",
+      "......."
+     ],
+     "by": "euler",
+     "why": "ring bow, shaft, teeth"
+    },
+    {
+     "title": "Scissors",
+     "rows": [
+      "X.....X",
+      ".X...X.",
+      "..X.X..",
+      "...X...",
+      "..X.X..",
+      "XX...XX",
+      "XX...XX"
+     ],
+     "by": "euler",
+     "why": "crossed blades, two finger loops"
+    },
+    {
+     "title": "Shovel",
+     "rows": [
+      "..XXX..",
+      "...X...",
+      "...X...",
+      "...X...",
+      ".XXXXX.",
+      ".X...X.",
+      "..XXX.."
+     ],
+     "by": "euler",
+     "why": "T handle, shaft, blade"
+    },
+    {
+     "title": "Axe",
+     "rows": [
+      "..X.X..",
+      "..XXXX.",
+      "..XXXX.",
+      "..X.X..",
+      "..X....",
+      "..X....",
+      "..X...."
+     ],
+     "by": "euler",
+     "why": "blade on one side of the handle"
+    }
+   ]
+  },
+  {
+   "name": "Music",
+   "levels": [
+    {
+     "title": "Note",
+     "rows": [
+      "...XX..",
+      "...X.X.",
+      "...X...",
+      "...X...",
+      ".XXX...",
+      "XXXX...",
+      ".XX...."
+     ],
+     "by": "euler",
+     "why": "eighth note: head, stem, flag"
+    },
+    {
+     "title": "Two Notes",
+     "rows": [
+      ".XXXXX.",
+      ".X...X.",
+      ".X...X.",
+      ".X...X.",
+      "XX..XX.",
+      "XX..XX.",
+      "......."
+     ],
+     "by": "euler",
+     "why": "two heads joined by a beam"
+    },
+    {
+     "title": "Bell",
+     "rows": [
+      "...X...",
+      "..XXX..",
+      ".X...X.",
+      ".X...X.",
+      "X.....X",
+      "XXXXXXX",
+      "...X..."
+     ],
+     "by": "euler",
+     "why": "handle, flared bell, clapper"
+    },
+    {
+     "title": "Drum",
+     "rows": [
+      "X.....X",
+      ".X...X.",
+      "XXXXXXX",
+      "X.....X",
+      "X.....X",
+      "X.....X",
+      "XXXXXXX"
+     ],
+     "by": "euler",
+     "why": "crossed sticks over a drum"
+    },
+    {
+     "title": "Guitar",
+     "rows": [
+      "...X...",
+      "...X...",
+      "..X.X..",
+      "..X.X..",
+      ".X.X.X.",
+      ".X...X.",
+      "..XXX.."
+     ],
+     "by": "euler",
+     "why": "neck into a body with sound hole"
+    },
+    {
+     "title": "Trumpet",
+     "rows": [
+      ".......",
+      ".......",
+      "..X.X..",
+      "..X.X.X",
+      "XXXXXXX",
+      "......X",
+      "......."
+     ],
+     "by": "euler",
+     "why": "valves, tube, bell end"
+    },
+    {
+     "title": "Headphones",
+     "rows": [
+      "..XXX..",
+      ".X...X.",
+      "X.....X",
+      "X.....X",
+      "XX...XX",
+      "XX...XX",
+      "......."
+     ],
+     "by": "euler",
+     "why": "headband with two ear cups"
+    }
+   ]
+  },
+  {
+   "name": "Garden",
+   "levels": [
+    {
+     "title": "Fir Tree",
+     "rows": [
+      "...X...",
+      "..X.X..",
+      ".X...X.",
+      "..X.X..",
+      ".X...X.",
+      "XXXXXXX",
+      "...X..."
+     ],
+     "by": "euler",
+     "why": "layered triangle on a trunk"
+    },
+    {
+     "title": "Flower",
+     "rows": [
+      "..X.X..",
+      ".X.X.X.",
+      "..X.X..",
+      "...X...",
+      "XX.X...",
+      ".XXX...",
+      "...X..."
+     ],
+     "by": "euler",
+     "why": "petal ring, stem, leaf"
+    },
+    {
+     "title": "Tulip",
+     "rows": [
+      ".X.X.X.",
+      ".XXXXX.",
+      ".XXXXX.",
+      "..XXX..",
+      "...X...",
+      ".X.X.X.",
+      "..XXX.."
+     ],
+     "by": "euler",
+     "why": "three-point cup on a stem with leaves"
+    },
+    {
+     "title": "Mushroom",
+     "rows": [
+      "..XXX..",
+      ".X...X.",
+      "X.....X",
+      "XXXXXXX",
+      "..X.X..",
+      "..X.X..",
+      "..XXX.."
+     ],
+     "by": "euler",
+     "why": "dome cap on a stalk"
+    },
+    {
+     "title": "Cactus",
+     "rows": [
+      "...X...",
+      "...X..X",
+      "X..X..X",
+      "X..XXXX",
+      "XXXX...",
+      "...X...",
+      "...X..."
+     ],
+     "by": "euler",
+     "why": "trunk with two raised arms"
+    },
+    {
+     "title": "Leaf",
+     "rows": [
+      "...XXXX",
+      "..X..XX",
+      ".X..X.X",
+      ".X.X..X",
+      ".XX..X.",
+      ".XXXX..",
+      "X......"
+     ],
+     "by": "euler",
+     "why": "pointed leaf with vein and stalk"
+    },
+    {
+     "title": "Sprout",
+     "rows": [
+      ".......",
+      "XX...XX",
+      ".XX.XX.",
+      "...X...",
+      "...X...",
+      ".XXXXX.",
+      "..XXX.."
+     ],
+     "by": "euler",
+     "why": "two leaves on a stem in a pot"
+    }
+   ]
+  }
+ ]
+}
